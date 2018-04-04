@@ -170,7 +170,7 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre) {
 
 function mostrar1(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
      //mostrar2();
-    var compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
+        var compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
 	var style='';
 	if (tiempos.enEdificio<6*60*60*1000)
 		style='color:red;'
@@ -231,11 +231,80 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	if (l===null){
 		$('head').append('<link type="text/css" href="'+server+'Horario.css" rel="Stylesheet" id="linkestilo">');
 	}
-    if (d===null){
+    	if (d===null){
 		var response;
 		$.ajax({ type: "GET", url: server+"Horario.html", async: false, success : function(text) {response= text; }});
 		$(elemento).append(response);
 	}
+	
+        var compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
+	var style='';
+	if (tiempos.enEdificio<6*60*60*1000)
+		style='color:red;'
+	$('.enedificio').text(formatearHora(tiempos.enEdificio));
+	$('.fuera').text(formatearHora(tiempos.fuera));
+	var mensaje = 'En edificio <span class="enEdifi" style="'+style+'">' +  '</span> -- Fuera: '  ;
+	boleta = 0;
+        if (tiempos.falta !== 0) {
+		salida = moment().add(tiempos.falta, "ms");
+		salida2 = horaIngreso.add(Horario.Ths,"ms");
+		
+		if ((salida > salida2 || compensa<0) && (tiempos.enEdificio>6*60*60*1000)) {	
+            boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
+			if (salida > salida2)
+					salida = salida2;
+			mensaje += '-- Salida: ' + salida.format("HH:mm:ss")+ '  <a href="#" title="Boleta de salida" style="color: #fafafa"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="boleta" style="color:red">'+formatearHora(boleta)+'</span></a>';
+			$('.salida').text(salida.format("HH:mm:ss"));
+			$('.boleta').text(formatearHora(boleta));
+		}
+		else{        
+			if (salida > salida2)
+				salida = salida2;
+			mensaje += '-- Salida: ' + salida.format("HH:mm:ss");
+			$('.salida').text(salida.format("HH:mm:ss"));
+		}
+		
+	        if(salida<moment())
+			if ($("main div.container").find('div.chau').length === 0){
+				$("main div.container").prepend( '<div class="chau col s12" style="background-color:orange;"><h3 style="background-color:orange;"><center>¡¡Chauuu!! Te podes ir <i class="fa fa-hand-stop-o" aria-hidden="true"></i></center></h1></div>');
+				parpadear();
+			}
+        	if (!window.actualizarPermanencia)
+            		window.actualizarPermanencia = setInterval(function(){ calcular(Horario,TLibre);}, 1000);
+    		}else{
+			var d=horaIngreso.clone();
+			salida = horaIngreso.add(tiempos.total.asMilliseconds(),"ms");
+			salida2 = d.add(Horario.Ths,"ms");
+			if ((salida > salida2 || compensa<0) && tiempos.enEdificio>6*60*60*1000){			
+				boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
+				mensaje += '-- Salida: ' + salida.format("HH:mm:ss");
+				$('.salida').text(salida.format("HH:mm:ss"));
+				if (boleta>0){
+					mensaje += '  <a href="#" title="Boleta de salida" style="color: #fafafa"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="boleta" style="color:red">'+formatearHora(boleta)+'</span></a>';
+					$('.boleta').text(formatearHora(boleta));
+				}
+			}else{
+				mensaje += '-- Salida: ' + salida.format("HH:mm:ss");
+			        $('.salida').text(salida.format("HH:mm:ss"));
+			}
+		}
+		if ($(elemento).find('table tfoot').length > 0) {
+        		$(elemento).find('table tfoot h3 span.enEdifi').html(formatearHora(tiempos.enEdificio));
+			$(elemento).find('table tfoot h3 span.enEdifi').attr('style',style);
+			$(elemento).find('table tfoot h3 span.comp').html(formatearHora(compensa));
+			$('.enedificio').text(formatearHora(tiempos.enEdificio));
+			$('.compensacion').text(formatearHora(compensa));
+			if ($(elemento).find('table tfoot h3 a span.boleta').length > 0)
+			{
+				$(elemento).find('table tfoot h3 a span.boleta').html(formatearHora(boleta));
+				$('.boleta').text(formatearHora(boleta));
+				if(boleta===0)
+					$(elemento).find('table tfoot h3 a').remove();
+			}
+    		} else {
+       	 		$(elemento).find('table').append('<tfoot><tr><th colspan="3"><h3><i class="fa fa-info-circle" data-toggle="tooltip" title="' + infoComputada + '" aria-hidden="true"></i>' + mensaje + '-- <i class="fa fa-plus-circle" data-toggle="tooltip" title="Compensación" ></i><span class="comp">'+ formatearHora(compensa)+'</span> </h3></th></tr></tfoot>');
+			$('.compensacion').text(formatearHora(compensa));
+    		}
 }
 function mostrar4(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
 	var d = document.getElementById(("resumen"));
