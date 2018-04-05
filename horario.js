@@ -177,63 +177,6 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre) {
     return {"enEdificio": diff, "fuera": total - diff, "falta": falta, "total": total};
 }
 
-function mostrar1(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
-     //mostrar2();
-        var compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
-	var style='';
-	if (tiempos.enEdificio<6*60*60*1000)
-		style='color:red;'
-	var mensaje = 'En edificio <span class="enEdifi" style="'+style+'">' + formatearHora(tiempos.enEdificio) + '</span> -- Fuera: ' + formatearHora(tiempos.fuera) ;
-	boleta = 0;
-    if (tiempos.falta !== 0) {
-		salida = moment().add(tiempos.falta, "ms");
-		salida2 = horaIngreso.add(Horario.Ths,"ms");
-		
-		if ((salida > salida2 || compensa<0) && (tiempos.enEdificio>6*60*60*1000)) {	
-            boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
-			if (salida > salida2)
-					salida = salida2;
-			mensaje += '-- Salida: ' + salida.format("HH:mm:ss")+ '  <a href="#" title="Boleta de salida" style="color: #fafafa"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="boleta" style="color:red">'+formatearHora(boleta)+'</span></a>';
-		}
-		else{        
-			if (salida > salida2)
-				salida = salida2;
-			mensaje += '-- Salida: ' + salida.format("HH:mm:ss");
-		}
-		
-	    if(salida<moment())
-			if ($("main div.container").find('div.chau').length === 0){
-				$("main div.container").prepend( '<div class="chau col s12" style="background-color:orange;"><h3 style="background-color:orange;"><center>¡¡Chauuu!! Te podes ir <i class="fa fa-hand-stop-o" aria-hidden="true"></i></center></h1></div>');
-				parpadear();
-			}
-        if (!window.actualizarPermanencia)
-            window.actualizarPermanencia = setInterval(function(){ calcular(Horario,TLibre);}, 1000);
-    }else{
-		var d=horaIngreso.clone();
-		salida = horaIngreso.add(tiempos.total.asMilliseconds(),"ms");
-		salida2 = d.add(Horario.Ths,"ms");
-		if ((salida > salida2 || compensa<0) && tiempos.enEdificio>6*60*60*1000){			
-			boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
-			mensaje += '-- Salida: ' + salida.format("HH:mm:ss");
-			if (boleta>0)
-				mensaje += '  <a href="#" title="Boleta de salida" style="color: #fafafa"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="boleta" style="color:red">'+formatearHora(boleta)+'</span></a>';
-		}else
-		mensaje += '-- Salida: ' + salida.format("HH:mm:ss");
-	}
-	if ($(elemento).find('table tfoot').length > 0) {
-        $(elemento).find('table tfoot h3 span.enEdifi').html(formatearHora(tiempos.enEdificio));
-		$(elemento).find('table tfoot h3 span.enEdifi').attr('style',style);
-		$(elemento).find('table tfoot h3 span.comp').html(formatearHora(compensa));
-		if ($(elemento).find('table tfoot h3 a span.boleta').length > 0)
-		{
-			$(elemento).find('table tfoot h3 a span.boleta').html(formatearHora(boleta));
-			if(boleta===0)
-				$(elemento).find('table tfoot h3 a').remove();
-		}
-    } else {
-        $(elemento).find('table').append('<tfoot><tr><th colspan="3"><h3><i class="fa fa-info-circle" data-toggle="tooltip" title="' + infoComputada + '" aria-hidden="true"></i>' + mensaje + '-- <i class="fa fa-plus-circle" data-toggle="tooltip" title="Compensación" ></i><span class="comp">'+ formatearHora(compensa)+'</span> </h3></th></tr></tfoot>');
-    }
-}
 function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
 	//var d = document.getElementById("resumen");
 	var d =$(elemento).find('.resumen');
@@ -288,42 +231,16 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	}
 	$(d).find('.fuera').text(formatearHora(tiempos.fuera));
 	$(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
-	$(d).find('.compensacion').text(formatearHora(compensa));
+	if (compensa>0)
+		$(d).find('.compensacion').text(formatearHora(compensa));
+	esle
+	        $(d).find('.compensacion').text(formatearHora(0));
 	if (boleta>0)
 		$(d).find('.boleta').text(formatearHora(boleta));
 	else
 		$(d).find('.boleta').text(formatearHora(0));
 	$(d).find('.salida').text(salida.format("HH:mm:ss"));
 		
-}
-function mostrar4(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
-	var d = document.getElementById(("resumen"));
-	console.log(d);
-    if (d===null){
-		$('main').append('<div id="resumen" Style="position: absolute;z-index: 9;background-color: #000;border: 1px solid #d3d3d3;text-align: center;top:50%;left:50%;margin-left:-300px;width:600px;"><div id="resumenheader" Style="padding: 5px;cursor: move;z-index: 10;background-color: #8888;color: red;"></div><div class="row"></div></div>');
-		//dragElement(document.getElementById(("resumen")));
-		var EnEdificioContent=$('<div class="row"><div class="col s12" style="color:red">Instalando........<span>1</span></div></div>');
-		$('#resumen').append(EnEdificioContent);
-		var FueraContent=$('<div class="row"><div class="col s12" style="color:red">Escaneando 1 ........<span>1</span></div></div>');
-		$('#resumen').append(FueraContent);
-		var SalidaContent=$('<div class="row"><div class="col s12" style="color:red"><label>Salida</label><span>sss</span></div></div>');
-		$('#resumen').append(SalidaContent);
-	}
-}
-
-function mostrar3(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
-	var d = document.getElementById(("resumen"));
-	console.log(d);
-    if (d===null){
-		$('main').append('<div id="resumen" Style="position: absolute;z-index: 9;background-color: #f1f1f1;border: 1px solid #d3d3d3;text-align: center;top:50%;left:50%;margin-left:-100px;width:200px;"><div id="resumenheader" Style="padding: 10px;cursor: move;z-index: 10;background-color: #2196F3;color: #fff;">Resumen</div><div class="row"></div></div>');
-		dragElement(document.getElementById(("resumen")));
-		var EnEdificioContent=$('<div class="row"><div class="col s12"><label>En Edificio</label><span>sss</span></div></div>');
-		$('#resumen').append(EnEdificioContent);
-		var FueraContent=$('<div class="row"><div class="col s12"><label>Fuera</label><span>ss</span></div></div>');
-		$('#resumen').append(FueraContent);
-		var SalidaContent=$('<div class="row"><div class="col s12"><label>Salida</label><span>sss</span></div></div>');
-		$('#resumen').append(SalidaContent);
-	}
 }
 function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
 	var boleta=0;
@@ -337,6 +254,13 @@ function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
 			return boleta;
 		else
 			return 0;
+}
+
+function tieneComision(e){
+	var d =$(elemento).find('.resumen');
+	if ( !(d===null || d.length===0)){
+		$(d).find('.comision')
+	}	
 }
 
 function compensacion(tiempos,horaIngreso, Horario, TLibre){
@@ -484,67 +408,6 @@ function historicoSemana(dia,elemento){
    $(elemento).find('span.hist').html(msj);
    $(elemento).find('span.s-compensacion').html(formatearHora(compensa));
    $(elemento).find('span.s-enedificio').html(formatearHora(Edif));
-}
-function historicoSemana2(dia,elemento){
-    var d = moment(dia,'DD-MM-YYYY');
-    var hoy = moment(moment().format('DD-MM-YYYY'),'DD-MM-YYYY');
-    var k =null;
-    var compensa=0;
-    var comp = 0;
-    var Edif = 0;
-    var msj =' ';
-    var msj2 =' ';
-    var n=nombreUsuario();
-    for (var i = 1; i < 6; i += 1) {
-         if( d.day(i)<=hoy){
-            k=getCookie(n+d.day(i).format('DD-MM-YYYY'));
-            if (k!==''){
-                compensa+=(1*k);
-                if(d.day(i)<hoy)
-					comp+=(1*k);
-                msj+=d.day(i).format('dddd');
-                msj+=' '+formatearHora(1*k);
-                msj+='<a href="javascript:ProcesarDia(\''+d.day(i).format('DD-MM-YYYY')+'\')">';
-                msj+='<i class="fa fa-refresh"></i>';
-                msj+='</a>';
-                }else{
-                msj+='<a href="javascript:ProcesarDia(\''+d.day(i).format('DD-MM-YYYY')+'\')">'+d.day(i).format('dddd');
-                msj+=' '+formatearHora(0);
-                msj+='</a>';
-				}
-            msj+='; ';
-            //******
-            k2=getCookie(n+d.day(i).format('DD-MM-YYYY')+'enEdificio');
-            if (k2!==''){
-               Edif+=(1*k2);
-               msj2+=d.day(i).format('dddd');
-               msj2+=' '+formatearHora(1*k2);
-               msj2+='<a href="javascript:ProcesarDia(\''+d.day(i).format('DD-MM-YYYY')+'\')">';
-               msj2+='<i class="fa fa-refresh"></i>';
-               msj2+='</a>';
-               }else{
-               msj2+='<a href="javascript:ProcesarDia(\''+d.day(i).format('DD-MM-YYYY')+'\')">'+d.day(i).format('dddd');
-               msj2+=' '+formatearHora(0);
-               msj2+='</a>';
-               }
-            msj2+='; ';
-          }
-    }
-    if(diadelaSemana(moment(),d))
-		msj+=' <h3>Compensación semanal SubTotal: '+formatearHora(comp)+' Total: '+formatearHora(compensa)+'</h3>';
-        else              
-        msj+=' <h3>Compensación Total: '+formatearHora(compensa)+'</h3>';
-    msj+=msj2;
-    msj+='<h3>Semana - en edificio: '+formatearHoraH(Edif)+'</h3>'
-    if ($(elemento).find('table tfoot tr').length > 1)
-         $(elemento).find('table tfoot span.hist').html(msj);
-    else
-         $(elemento).find('table tfoot').append('<tr><th colspan="3"><span class="hist" >'+ msj+'</span></th></tr>');
-}
-
-function insertarCheck(){
-	var control='<label>ssss</label><input type="checkbox" id="cbox1" value="first_checkbox" class="input-field"/> ¿es controlable?';
-    $($("main div.container h3")[0]).append(control);
 }
 
 function EsControlable(){
