@@ -54,7 +54,7 @@ function calcular(Horario,TLibre) {
             case 4:
 		dia=obtenerDia(e);
 		console.log(dia);			
-		if (dia!==null){
+		if (dia!==null && dia!==''){
 			console.log('E2');			
 			console.log(e);
                 	horaIngreso = obtenerHoraIngreso(e);
