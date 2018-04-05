@@ -254,10 +254,8 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	var style='';
 	if (tiempos.enEdificio<6*60*60*1000)
 		style='color:red;'
-	$(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
 	$(d).find('.enedificio').attr('style',style);
-	$(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
-	$(d).find('.fuera').text(formatearHora(tiempos.fuera));
+	//$(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
 	
 	var boleta = 0;
         if (tiempos.falta !== 0) {
@@ -268,15 +266,9 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
                         boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
 			if (salida > salida2)
 					salida = salida2;
-			
-			$(d).find('.salida').text(salida.format("HH:mm:ss"));
-			$(d).find('.boleta').text(formatearHora(boleta));
-		}
-		else{        
+		}else{        
 			if (salida > salida2)
 				salida = salida2;
-			
-			$(d).find('.salida').text(salida.format("HH:mm:ss"));
 		}
 		
 	        if(salida<moment())
@@ -286,24 +278,22 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 			}
         	if (!window.actualizarPermanencia)
             		window.actualizarPermanencia = setInterval(function(){ calcular(Horario,TLibre);}, 1000);
-    		}else{
-			var d=horaIngreso.clone();
-			salida = horaIngreso.add(tiempos.total.asMilliseconds(),"ms");
-			salida2 = d.add(Horario.Ths,"ms");
-			if ((salida > salida2 || compensa<0) && tiempos.enEdificio>6*60*60*1000){			
-				boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
-				$(d).find('.salida').text(salida.format("HH:mm:ss"));
-				if (boleta>0){
-				    $(d).find('.boleta').text(formatearHora(boleta));
-				}
-			}else{
-				
-			        $(d).find('.salida').text(salida.format("HH:mm:ss"));
-			}
+    	}else{
+		var d=horaIngreso.clone();
+		salida = horaIngreso.add(tiempos.total.asMilliseconds(),"ms");
+		salida2 = d.add(Horario.Ths,"ms");
+		if ((salida > salida2 || compensa<0) && tiempos.enEdificio>6*60*60*1000){			
+			boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
 		}
-	        $(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
-	        $(d).find('.compensacion').text(formatearHora(compensa));
+	}
+	$(d).find('.fuera').text(formatearHora(tiempos.fuera));
+	$(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
+	$(d).find('.compensacion').text(formatearHora(compensa));
+	if (boleta>0)
 		$(d).find('.boleta').text(formatearHora(boleta));
+	else
+		$(d).find('.boleta').text(formatearHora(0));
+	$(d).find('.salida').text(salida.format("HH:mm:ss"));
 		
 }
 function mostrar4(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
@@ -441,6 +431,61 @@ function diadelaSemana(semana,dia){
 }
 
 function historicoSemana(dia,elemento){
+    var d = moment(dia,'DD-MM-YYYY');
+    var hoy = moment(moment().format('DD-MM-YYYY'),'DD-MM-YYYY');
+    var k =null;
+    var compensa=0;
+    var comp = 0;
+    var Edif = 0;
+    var msj ='Compensación: ';
+    var msj2 ='En Edificio: ';
+    var n=nombreUsuario();
+    for (var i = 1; i < 6; i += 1) {
+         if( d.day(i)<=hoy){
+            k=getCookie(n+d.day(i).format('DD-MM-YYYY'));
+            if (k!==''){
+                compensa+=(1*k);
+                if(d.day(i)<hoy)
+			comp+=(1*k);
+                msj+=d.day(i).format('dddd');
+                msj+=' '+formatearHora(1*k);
+                msj+='<a href="javascript:ProcesarDia(\''+d.day(i).format('DD-MM-YYYY')+'\')">';
+                msj+='<i class="fa fa-refresh"></i>';
+                msj+='</a>';
+                }else{
+                msj+='<a href="javascript:ProcesarDia(\''+d.day(i).format('DD-MM-YYYY')+'\')">'+d.day(i).format('dddd');
+                msj+=' '+formatearHora(0);
+                msj+='</a>';
+				}
+            msj+='; ';
+            //******
+            k2=getCookie(n+d.day(i).format('DD-MM-YYYY')+'enEdificio');
+            if (k2!==''){
+               Edif+=(1*k2);
+               msj2+=d.day(i).format('dddd');
+               msj2+=' '+formatearHora(1*k2);
+               msj2+='<a href="javascript:ProcesarDia(\''+d.day(i).format('DD-MM-YYYY')+'\')">';
+               msj2+='<i class="fa fa-refresh"></i>';
+               msj2+='</a>';
+               }else{
+               msj2+='<a href="javascript:ProcesarDia(\''+d.day(i).format('DD-MM-YYYY')+'\')">'+d.day(i).format('dddd');
+               msj2+=' '+formatearHora(0);
+               msj2+='</a>';
+               }
+            msj2+='; ';
+          }
+    }
+    /*if(diadelaSemana(moment(),d))
+		msj+=' <h3>Compensación semanal SubTotal: '+formatearHora(comp)+' Total: '+formatearHora(compensa)+'</h3>';
+        else              
+            msj+=' <h3>Compensación Total: '+formatearHora(compensa)+'</h3>';*/
+    msj+='<br/>'+msj2;
+   // msj+='<h3>Semana - en edificio: '+formatearHoraH(Edif)+'</h3>'
+   $(elemento).find('span.hist').html(msj);
+   $(elemento).find('span.s-compensacion').html(formatearHora(compensa));
+   $(elemento).find('span.s-enedificio').html(formatearHora(Edif));
+}
+function historicoSemana2(dia,elemento){
     var d = moment(dia,'DD-MM-YYYY');
     var hoy = moment(moment().format('DD-MM-YYYY'),'DD-MM-YYYY');
     var k =null;
