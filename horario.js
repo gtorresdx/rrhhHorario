@@ -255,13 +255,14 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	if (tiempos.enEdificio<6*60*60*1000)
 		style='color:red;'
 	$(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
+	$(d).find('.enedificio').attr('style',style);
 	$(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
 	$(d).find('.fuera').text(formatearHora(tiempos.fuera));
 	
-	boleta = 0;
+	var boleta = 0;
         if (tiempos.falta !== 0) {
-		salida = moment().add(tiempos.falta, "ms");
-		salida2 = horaIngreso.add(Horario.Ths,"ms");
+		var salida = moment().add(tiempos.falta, "ms");
+		var salida2 = horaIngreso.add(Horario.Ths,"ms");
 		
 		if ((salida > salida2 || compensa<0) && (tiempos.enEdificio>6*60*60*1000)) {	
                         boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
