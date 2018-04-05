@@ -52,11 +52,14 @@ function calcular(Horario,TLibre) {
 		}
                 break;
             case 4:
-		console.log('E2');			
-		console.log(e);
-                horaIngreso = obtenerHoraIngreso(e);
 		dia=obtenerDia(e);
-                break;
+		onsole.log(dia);			
+		if (dia!==null){
+			console.log('E2');			
+			console.log(e);
+                	horaIngreso = obtenerHoraIngreso(e);
+		}
+		break;
             case 5:
                 fichadas = obtenerFichadas(e);
 		if (fichadas.length>0){	
