@@ -15,7 +15,7 @@ function _Horario(){
         var Ths=(9*60*60*1000)+(40*60*1000);
         var Horario= obtenerHorario(Ths);
         var TLibre=30*60*1000;
-		calcular(Horario,TLibre);
+	calcular(Horario,TLibre);
     });
 }
 
@@ -34,35 +34,37 @@ function calcular(Horario,TLibre) {
         switch (i) {
             case 1:
                 horaIngreso = obtenerHoraIngreso(e);
-				console.log('E1');
-                dia=obtenerDia(e);
+		dia=obtenerDia(e);
                 break;
             case 2:
                 fichadas = obtenerFichadas(e);
-                tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
-                infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
-                mostrar(tiempos, e, infoComputada,horaIngreso, Horario,TLibre);
-                compensa = compensacion(tiempos,horaIngreso, Horario, TLibre)
-				enEdificio=tiempos.enEdificio;
-                setCookie(n+dia, compensa, 30)
-				setCookie(n+dia+'enEdificio', enEdificio, 30)
-                historicoSemana(dia,e);
+		if (fichadas.length>0){
+			tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
+			infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
+			mostrar(tiempos, e, infoComputada,horaIngreso, Horario,TLibre);
+			compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
+			enEdificio=tiempos.enEdificio;
+			setCookie(n+dia, compensa, 30);
+			setCookie(n+dia+'enEdificio', enEdificio, 30);
+			historicoSemana(dia,e);
+		}
                 break;
             case 4:
                 horaIngreso = obtenerHoraIngreso(e);
-				console.log('E1');
-                dia=obtenerDia(e);
+		dia=obtenerDia(e);
                 break;
             case 5:
                 fichadas = obtenerFichadas(e);
-                tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
-                infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
-                mostrar(tiempos, e, infoComputada,horaIngreso,Horario,TLibre);
-                compensa = compensacion(tiempos,horaIngreso, Horario, TLibre)
-				enEdificio=tiempos.enEdificio;
-                setCookie(n+dia, compensa, 30)
-                setCookie(n+dia+'enEdificio', enEdificio, 30)
-                historicoSemana(dia,e);
+		if (fichadas.length>0){	
+			tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
+			infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
+			mostrar(tiempos, e, infoComputada,horaIngreso,Horario,TLibre);
+			compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
+			enEdificio=tiempos.enEdificio;
+			setCookie(n+dia, compensa, 30);
+			setCookie(n+dia+'enEdificio', enEdificio, 30)
+			historicoSemana(dia,e);
+		}
                 break;
         }
     });
@@ -74,7 +76,7 @@ function obtenerHoraIngreso(elemento) {
 	catch(err)
 	{
 		//var primerFichada = horarioAdm;
-		console.log('Error en obtenerHoraIngreso');
+		console.log('Error en obtenerHoraIngreso (horario Administrativo)');
 		console.log(err);
 	}
 	
@@ -85,7 +87,7 @@ function obtenerHoraIngreso(elemento) {
 	catch(err)
 	{
 		var primerFichada = horarioAdm;
-		console.log('Error en obtenerHoraIngreso');
+		console.log('Error en obtenerHoraIngreso (Primera Fichada)');
 		console.log(err);
 	}
         
