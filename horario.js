@@ -244,7 +244,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$('head').append('<link type="text/css" href="'+server+'Horario.css?"+ticks rel="Stylesheet" id="linkestilo">');
 	}
 	console.log(d);
-    	if (d===null){
+    	if (d===null || d.length===0){
 		var response;
 		$.ajax({ type: "GET", url: server+"Horario.html?"+ticks, async: false, success : function(text) {response= text; }});
 		$(elemento).append(response);
