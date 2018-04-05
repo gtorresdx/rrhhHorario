@@ -53,7 +53,7 @@ function calcular(Horario,TLibre) {
                 break;
             case 4:
 		dia=obtenerDia(e);
-		onsole.log(dia);			
+		console.log(dia);			
 		if (dia!==null){
 			console.log('E2');			
 			console.log(e);
