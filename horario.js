@@ -254,8 +254,8 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	var style='';
 	if (tiempos.enEdificio<6*60*60*1000)
 		style='color:red;'
-	$('resumen .enedificio').text(formatearHora(tiempos.enEdificio));
-	$('resumen .fuera').text(formatearHora(tiempos.fuera));
+	$('#resumen .enedificio').text(formatearHora(tiempos.enEdificio));
+	$('#resumen .fuera').text(formatearHora(tiempos.fuera));
 	
 	boleta = 0;
         if (tiempos.falta !== 0) {
@@ -263,18 +263,18 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		salida2 = horaIngreso.add(Horario.Ths,"ms");
 		
 		if ((salida > salida2 || compensa<0) && (tiempos.enEdificio>6*60*60*1000)) {	
-            boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
+                        boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
 			if (salida > salida2)
 					salida = salida2;
 			
-			$('resumen.salida').text(salida.format("HH:mm:ss"));
-			$('resumen.boleta').text(formatearHora(boleta));
+			$('#resumen .salida').text(salida.format("HH:mm:ss"));
+			$('#resumen .boleta').text(formatearHora(boleta));
 		}
 		else{        
 			if (salida > salida2)
 				salida = salida2;
 			
-			$('resumen.salida').text(salida.format("HH:mm:ss"));
+			$('#resumen .salida').text(salida.format("HH:mm:ss"));
 		}
 		
 	        if(salida<moment())
@@ -290,19 +290,18 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 			salida2 = d.add(Horario.Ths,"ms");
 			if ((salida > salida2 || compensa<0) && tiempos.enEdificio>6*60*60*1000){			
 				boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
-				
-				$('resumen.salida').text(salida.format("HH:mm:ss"));
+				$('#resumen .salida').text(salida.format("HH:mm:ss"));
 				if (boleta>0){
-				    $('resumen.boleta').text(formatearHora(boleta));
+				    $('#resumen .boleta').text(formatearHora(boleta));
 				}
 			}else{
 				
-			        $('resumen.salida').text(salida.format("HH:mm:ss"));
+			        $('#resumen .salida').text(salida.format("HH:mm:ss"));
 			}
 		}
-	        $('resumen.enedificio').text(formatearHora(tiempos.enEdificio));
-	        $('resumen.compensacion').text(formatearHora(compensa));
-		$('resumen.boleta').text(formatearHora(boleta));
+	        $('#resumen .enedificio').text(formatearHora(tiempos.enEdificio));
+	        $('#resumen .compensacion').text(formatearHora(compensa));
+		$('#resumen .boleta').text(formatearHora(boleta));
 		
 }
 function mostrar4(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
