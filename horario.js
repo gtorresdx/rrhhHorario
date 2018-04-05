@@ -33,6 +33,8 @@ function calcular(Horario,TLibre) {
         enEdificio=0;
         switch (i) {
             case 1:
+		console.log('E1');			
+		console.log(e);
                 horaIngreso = obtenerHoraIngreso(e);
 		dia=obtenerDia(e);
                 break;
@@ -50,6 +52,8 @@ function calcular(Horario,TLibre) {
 		}
                 break;
             case 4:
+		console.log('E2');			
+		console.log(e);
                 horaIngreso = obtenerHoraIngreso(e);
 		dia=obtenerDia(e);
                 break;
