@@ -241,12 +241,12 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	var Dia = new Date();
 	var ticks = Dia.getTime();
 	if (l===null){
-		$('head').append('<link type="text/css" href="'+server+'Horario.css?"+ticks rel="Stylesheet" id="linkestilo">');
+		$('head').append('<link type="text/css" href="'+server+'Horario.css?t='+ticks" rel="Stylesheet" id="linkestilo">');
 	}
 	console.log(d);
     	if (d===null || d.length===0){
 		var response;
-		$.ajax({ type: "GET", url: server+"Horario.html?"+ticks, async: false, success : function(text) {response= text; }});
+		$.ajax({ type: "GET", url: server+"Horario.html?t='+ticks", async: false, success : function(text) {response= text; }});
 		$(elemento).append(response);
 	}
 	
@@ -254,8 +254,9 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	var style='';
 	if (tiempos.enEdificio<6*60*60*1000)
 		style='color:red;'
-	$('#resumen .enedificio').text(formatearHora(tiempos.enEdificio));
-	$('#resumen .fuera').text(formatearHora(tiempos.fuera));
+	$(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
+	$(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
+	$(d).find('.fuera').text(formatearHora(tiempos.fuera));
 	
 	boleta = 0;
         if (tiempos.falta !== 0) {
@@ -267,14 +268,14 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 			if (salida > salida2)
 					salida = salida2;
 			
-			$('#resumen .salida').text(salida.format("HH:mm:ss"));
-			$('#resumen .boleta').text(formatearHora(boleta));
+			$(d).find('.salida').text(salida.format("HH:mm:ss"));
+			$(d).find('.boleta').text(formatearHora(boleta));
 		}
 		else{        
 			if (salida > salida2)
 				salida = salida2;
 			
-			$('#resumen .salida').text(salida.format("HH:mm:ss"));
+			$(d).find('.salida').text(salida.format("HH:mm:ss"));
 		}
 		
 	        if(salida<moment())
@@ -290,18 +291,18 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 			salida2 = d.add(Horario.Ths,"ms");
 			if ((salida > salida2 || compensa<0) && tiempos.enEdificio>6*60*60*1000){			
 				boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
-				$('#resumen .salida').text(salida.format("HH:mm:ss"));
+				$(d).find('.salida').text(salida.format("HH:mm:ss"));
 				if (boleta>0){
-				    $('#resumen .boleta').text(formatearHora(boleta));
+				    $(d).find('.boleta').text(formatearHora(boleta));
 				}
 			}else{
 				
-			        $('#resumen .salida').text(salida.format("HH:mm:ss"));
+			        $(d).find('.salida').text(salida.format("HH:mm:ss"));
 			}
 		}
-	        $('#resumen .enedificio').text(formatearHora(tiempos.enEdificio));
-	        $('#resumen .compensacion').text(formatearHora(compensa));
-		$('#resumen .boleta').text(formatearHora(boleta));
+	        $(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
+	        $(d).find('.compensacion').text(formatearHora(compensa));
+		$(d).find('.boleta').text(formatearHora(boleta));
 		
 }
 function mostrar4(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
