@@ -233,7 +233,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	$(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
 	if (compensa>0)
 		$(d).find('.compensacion').text(formatearHora(compensa));
-	esle
+	else
 	        $(d).find('.compensacion').text(formatearHora(0));
 	if (boleta>0)
 		$(d).find('.boleta').text(formatearHora(boleta));
