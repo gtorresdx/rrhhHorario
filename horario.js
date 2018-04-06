@@ -199,7 +199,6 @@ function Cargarformulario(elemento,dia){
 		var n=nombreUsuario();
 		var val=getCookie(n+dia+'comision');
     	SetearComision(elemento,val,dia,n);
-		
 	}
 }
 
@@ -286,8 +285,8 @@ function SetearComision(e,val,dia,n){
 		console.log(ob)
 		var ob=$(el).find('.comision');
 		r=ob.val(val);
+		console(n+dia+'comision');
 		ob.attr("dataDate",n+dia+'comision');
-		
 	}
 }	
 
