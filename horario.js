@@ -230,10 +230,13 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(e).find('.compensacion').html(formatearHora(compensa));
 	else
 	        $(e).find('.compensacion').html(formatearHora(0));
-	if (boleta>0)
+	if (boleta>0){
 		$(e).find('.boleta').html(formatearHora(boleta));
-	else
+	        $(e).find('.boleta').removeClass().addClass('label label-danger boleta');
+	}else{
 		$(e).find('.boleta').html(formatearHora(0));
+		$(e).find('.boleta').removeClass().addClass('boleta');
+	}
 	$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
 		
 }
@@ -250,9 +253,11 @@ function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
 }
 
 function tieneComision(e){
-	var d =$(elemento).find('.resumen');
+	var d =$(e).find('.resumen');
+	var el =$(d).find('table tbody tr');
 	if ( !(d===null || d.length===0)){
-		$(d).find('.comision')
+		var ob=$(el).find('.comision');
+		console.log(ob);
 	}	
 }
 
@@ -408,16 +413,16 @@ function EsControlable(){
 	$("main div.container img").each(function(i, e) {
 	       if($(e).attr('data-tooltip')==='Controlable'){
 			   ok=true;
-		   }
+	       }
 	   });
     return ok;
 }
 
 function nombreUsuario(){
 	var N='';
-    N=$("#header-nombre-usuario").text().trim();
-    return N;
-	}
+   	 N=$("#header-nombre-usuario").text().trim();
+    	return N;
+}
 
 function asistencia(){
     n=nombreUsuario();
