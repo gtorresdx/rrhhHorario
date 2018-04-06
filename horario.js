@@ -298,6 +298,7 @@ function pad(num, size) {
 }
 
 function obtenerDia(elemento){
+    console.log(elemento);
     var dia='';
 	try
 	{
