@@ -28,9 +28,12 @@ function _Asistencia(){
 function calcular(Horario,TLibre) {
     var datos = $("main div.container div.row > div.col")[0];
     var n=nombreUsuario();
+    var horaIngreso=null; 
+    var fichadas=null;	
     $(datos).children().each(function(i, e) {
-		compensa=0;
-        enEdificio=0;
+	var compensa=0;
+        var enEdificio=0;
+	var dia=null;
         switch (i) {
             case 1:
 		//console.log('E1');			
@@ -41,8 +44,12 @@ function calcular(Horario,TLibre) {
             case 2:
                 fichadas = obtenerFichadas(e);
 		if (fichadas.length>0){
-			tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
-			infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
+			console.log(horaIngreso);
+			console.log(fichadas);
+			console.log(Horario);
+			console.log(TLibre);
+			var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
+			var infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
 			mostrar(tiempos, e, infoComputada,horaIngreso, Horario,TLibre);
 			compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
 			enEdificio=tiempos.enEdificio;
@@ -62,10 +69,9 @@ function calcular(Horario,TLibre) {
 		break;
             case 5:
                 fichadas = obtenerFichadas(e);
-		console.log(fichadas);
 		if (fichadas.length>0){	
-			tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
-			infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
+			var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
+			var  infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
 			mostrar(tiempos, e, infoComputada,horaIngreso,Horario,TLibre);
 			compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
 			enEdificio=tiempos.enEdificio;
@@ -180,7 +186,7 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre) {
 
 function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
 	//var d = document.getElementById("resumen");
-	console.log('tiempos');
+	/*console.log('tiempos');
 	console.log(tiempos);
 	console.log('infoComputada');
 	console.log(infoComputada);
@@ -189,7 +195,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	console.log('Horario');
 	console.log(Horario);
 	console.log('TLibre');
-	console.log(TLibre);
+	console.log(TLibre);*/
 	var d =$(elemento).find('.resumen');
 	var l = document.getElementById("linkestilo");
 	var Dia = new Date();
