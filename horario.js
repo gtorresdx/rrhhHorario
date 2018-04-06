@@ -67,6 +67,7 @@ function calcular(Horario,TLibre) {
 			enEdificio=tiempos.enEdificio;
 			setCookie(n+dia, compensa, 30);
 			setCookie(n+dia+'enEdificio', enEdificio, 30)
+			historicoSemana(dia,e);
 		}
                 break;
         }
