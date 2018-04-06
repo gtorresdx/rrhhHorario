@@ -12,10 +12,11 @@ function _Horario(){
         var Ths=(9*60*60*1000)+(40*60*1000);
         var Horario= obtenerHorario(Ths);
         var TLibre=30*60*1000;
-		$('.comision').on("change",function(){
+		$('select').on("change",function(){
 			setCookie(this.attr("dataDate"), this.val, 60);
-			console.log(this.val) 
-			_Horario();
+			console.log('sss');
+			console.log(this.val()) 
+			calcular(Horario,TLibre);
 		});	
 	    calcular(Horario,TLibre);
     });
