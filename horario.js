@@ -14,9 +14,8 @@ function _Horario(){
         var TLibre=30*60*1000;
 	    calcular(Horario,TLibre);
 		$('select').on("change click",function(){
-			alert('');
-			setCookie(this.attr("dataDate"), $(this).val, 60);
-			console.log('sss');
+			
+			setCookie($(this).attr("dataDate"), $(this).val, 60);
 			console.log($(this).val()) 
 			calcular(Horario,TLibre);
 		});	
