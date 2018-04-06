@@ -179,11 +179,15 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre) {
 
 function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
 	//var d = document.getElementById("resumen");
+	console.log('tiempos');
 	console.log(tiempos);
-	console.log(elemento);
+	console.log('infoComputada');
 	console.log(infoComputada);
+	onsole.log('horaIngreso');
 	console.log(horaIngreso);
+	onsole.log('Horario');
 	console.log(Horario);
+	onsole.log('TLibre');
 	console.log(TLibre);
 	var d =$(elemento).find('.resumen');
 	var l = document.getElementById("linkestilo");
