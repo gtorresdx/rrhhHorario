@@ -12,7 +12,12 @@ function _Horario(){
         var Ths=(9*60*60*1000)+(40*60*1000);
         var Horario= obtenerHorario(Ths);
         var TLibre=30*60*1000;
-	calcular(Horario,TLibre);
+		$('.comision').on("change",function(){
+			setCookie(this.attr("dataDate"), this.val, 60);
+			console.log(this.val) 
+			_Horario();
+		});	
+	    calcular(Horario,TLibre);
     });
 }
 
@@ -282,11 +287,7 @@ function SetearComision(e,val,dia,n){
 		
 	}
 }	
-$('.comision').on("change",function(){
-			setCookie(this.attr("dataDate"), this.val, 60);
-			console.log(this.val) 
-			_Horario();
-		});	
+
 
 function compensacion(tiempos,horaIngreso, Horario, TLibre){
 	var compensa=0;
