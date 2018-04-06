@@ -199,6 +199,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	if (tiempos.enEdificio<6*60*60*1000)
 		style='color:red;'
 	$(d).find('div.box-body table tbody span.enedificio').attr('style',style);
+	console.log($(d).find('div.box-body table tbody span.enedificio'));
 	//$(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
 	
 	var boleta = 0;
