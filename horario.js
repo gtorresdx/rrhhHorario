@@ -34,41 +34,42 @@ function calcular(Horario,TLibre) {
 	
         switch (i) {
             case 1:
-		horaIngreso = obtenerHoraIngreso(e);
-		dia=obtenerDia(e);
+				horaIngreso = obtenerHoraIngreso(e);
+				dia=obtenerDia(e);
                 break;
             case 2:
                 fichadas = obtenerFichadas(e);
-		if (fichadas.length>0){
-			tieneComision(e);
-			var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
-			var infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
-			mostrar(tiempos, e, infoComputada,horaIngreso, Horario,TLibre);
-			compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
-			enEdificio=tiempos.enEdificio;
-			setCookie(n+dia, compensa, 30);
-			setCookie(n+dia+'enEdificio', enEdificio, 30);
-			historicoSemana(dia,e);
-		}
+				if (fichadas.length>0){
+					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
+					var infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
+					Cargarformulario(e,dia,n);
+					mostrar(tiempos, e, infoComputada,horaIngreso, Horario,TLibre);
+					compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
+					enEdificio=tiempos.enEdificio;
+					setCookie(n+dia, compensa, 60);
+					setCookie(n+dia+'enEdificio', enEdificio, 60);
+					historicoSemana(dia,e);
+				}
                 break;
             case 4:
-		dia=obtenerDia(e);
-		if (dia!==null && dia!==''){
-			horaIngreso = obtenerHoraIngreso(e);
-		}
-		break;
+				dia=obtenerDia(e);
+				if (dia!==null && dia!==''){
+					horaIngreso = obtenerHoraIngreso(e);
+				}
+				break;
             case 5:
                 fichadas = obtenerFichadas(e);
-		if (fichadas.length>0){	
-			var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
-			var  infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
-			mostrar(tiempos, e, infoComputada,horaIngreso,Horario,TLibre);
-			compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
-			enEdificio=tiempos.enEdificio;
-			setCookie(n+dia, compensa, 30);
-			setCookie(n+dia+'enEdificio', enEdificio, 30)
-			historicoSemana(dia,e);
-		}
+				if (fichadas.length>0){	
+					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
+					var  infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
+					Cargarformulario(e,dia,n);
+					mostrar(tiempos, e, infoComputada,horaIngreso,Horario,TLibre);
+					compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
+					enEdificio=tiempos.enEdificio;
+					setCookie(n+dia, compensa, 60);
+					setCookie(n+dia+'enEdificio', enEdificio, 60)
+					historicoSemana(dia,e);
+				}
                 break;
         }
     });
@@ -175,8 +176,7 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre) {
     return {"enEdificio": diff, "fuera": total - diff, "falta": falta, "total": total};
 }
 
-function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
-	
+function Cargarformulario(elemento,dia,n){
 	var d =$(elemento).find('.resumen');
 	var l = document.getElementById("linkestilo");
 	var Dia = new Date();
@@ -185,13 +185,22 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$('head').append('<link type="text/css" href="'+server+'Horario.css?t='+ticks+'" rel="Stylesheet" id="linkestilo">');
 		$('head').append('<link type="text/css" href="'+server+'bootstrap.css?t='+ticks+'" rel="Stylesheet" id="linkestilo">');
 	}
-    	if (d===null || d.length===0){
+    if (d===null || d.length===0){
 		var response;
 		$.ajax({ type: "GET", url: server+"Horario.html?t="+ticks, async: false, success : function(text) {response= text; }});
 		$(elemento).append(response);
+		
+		var val=getCookie(n+dia.format('DD-MM-YYYY')+'comision');
+        if (val!=='')
+				SetearComision(elemento,val,dia);
+		
 	}
-	
-        var compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
+}
+
+
+function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
+		
+    var compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
 	var e =$(d).find('table tbody tr');
 	var boleta = 0;
         if (tiempos.falta !== 0) {
@@ -254,14 +263,29 @@ function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
 			return 0;
 }
 
-function tieneComision(e){
+function obtenerComision(e){
+	var r='';
 	var d =$(e).find('.resumen');
 	var el =$(d).find('table tbody tr');
 	if ( !(d===null || d.length===0)){
 		var ob=$(el).find('.comision');
-		console.log(ob);
+		r=ob.val();
 	}	
+	return r;
 }
+function SetearComision(e,val,dia,n){
+	var d =$(e).find('.resumen');
+	var el =$(d).find('table tbody tr');
+	if ( !(d===null || d.length===0)){
+		var ob=$(el).find('.comision');
+		r=ob.val(val);
+		ob.attr("dataDate",n+dia+'comision');
+		ob.on("change",function(){
+			setCookie(this.attr("dataDate"), this.val, 60);
+		});
+	}
+}	
+	
 
 function compensacion(tiempos,horaIngreso, Horario, TLibre){
 	var compensa=0;
