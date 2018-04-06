@@ -185,7 +185,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	console.log(infoComputada);
 	onsole.log('horaIngreso');
 	console.log(horaIngreso);
-	onsole.log('Horario');
+	console.log('Horario');
 	console.log(Horario);
 	onsole.log('TLibre');
 	console.log(TLibre);
