@@ -210,8 +210,8 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		style='color:red;';
 	var e =$(d).find('div.box-body #tdia tbody');
 	$(e).find('.enedificio').attr('style',style);
-	//console.log($(e).find('.enedificio'));
-	//$(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
+	console.log($(e).find('.enedificio'));
+	$(e).find('.enedificio').html(formatearHora(tiempos.enEdificio));
 	
 	var boleta = 0;
         if (tiempos.falta !== 0) {
