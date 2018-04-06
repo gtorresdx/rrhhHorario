@@ -240,7 +240,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
 	var boleta=0;
 	if (salida > salida2) 		
-				boleta = tiempos.fuera-TLibre;
+				boleta = fuera-TLibre;
 			else
 				boleta = -1*compensa;
 	if (boleta>0)
