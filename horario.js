@@ -15,9 +15,9 @@ function _Horario(){
 	    calcular(Horario,TLibre);
 		$('select').on("change click",function(){
 			alert('');
-			setCookie(this.attr("dataDate"), this.val, 60);
+			setCookie(this.attr("dataDate"), $(this).val, 60);
 			console.log('sss');
-			console.log(this.val()) 
+			console.log($(this).val()) 
 			calcular(Horario,TLibre);
 		});	
     });
