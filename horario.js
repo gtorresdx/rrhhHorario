@@ -9,9 +9,6 @@ var server='https://gtorresdx.github.io/rrhhHorario/';
 function _Horario(){
     $.getScript("http://momentjs.com/downloads/moment-with-locales.min.js", function() {
         moment.locale("es");
-        //8:00 hs
-        //var Ths=8*60*60*1000;
-        //9:40 hs
         var Ths=(9*60*60*1000)+(40*60*1000);
         var Horario= obtenerHorario(Ths);
         var TLibre=30*60*1000;
@@ -36,18 +33,12 @@ function calcular(Horario,TLibre) {
 	var dia=null;
         switch (i) {
             case 1:
-		//console.log('E1');			
-		//console.log(e);
-                horaIngreso = obtenerHoraIngreso(e);
+		horaIngreso = obtenerHoraIngreso(e);
 		dia=obtenerDia(e);
                 break;
             case 2:
                 fichadas = obtenerFichadas(e);
 		if (fichadas.length>0){
-			console.log(horaIngreso);
-			console.log(fichadas);
-			console.log(Horario);
-			console.log(TLibre);
 			var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
 			var infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
 			mostrar(tiempos, e, infoComputada,horaIngreso, Horario,TLibre);
@@ -60,11 +51,8 @@ function calcular(Horario,TLibre) {
                 break;
             case 4:
 		dia=obtenerDia(e);
-		//console.log(dia);			
 		if (dia!==null && dia!==''){
-			//console.log('E2');			
-			//console.log(e);
-                	horaIngreso = obtenerHoraIngreso(e);
+			horaIngreso = obtenerHoraIngreso(e);
 		}
 		break;
             case 5:
@@ -77,7 +65,6 @@ function calcular(Horario,TLibre) {
 			enEdificio=tiempos.enEdificio;
 			setCookie(n+dia, compensa, 30);
 			setCookie(n+dia+'enEdificio', enEdificio, 30)
-			//historicoSemana(dia,e);
 		}
                 break;
         }
@@ -185,17 +172,7 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre) {
 }
 
 function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
-	//var d = document.getElementById("resumen");
-	/*console.log('tiempos');
-	console.log(tiempos);
-	console.log('infoComputada');
-	console.log(infoComputada);
-	console.log('horaIngreso');
-	console.log(horaIngreso);
-	console.log('Horario');
-	console.log(Horario);
-	console.log('TLibre');
-	console.log(TLibre);*/
+	
 	var d =$(elemento).find('.resumen');
 	var l = document.getElementById("linkestilo");
 	var Dia = new Date();
@@ -216,11 +193,8 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	if (tiempos.enEdificio<6*60*60*1000)
 		style='color:red;';
 	var e =$(d).find('table tbody tr');
-	$(e).find('.enedificio').attr('style',style);
-	console.log($(e).find('.enedificio'));
-	console.log(formatearHora(tiempos.enEdificio));
-	$(e).find('.enedificio').html(formatearHora(tiempos.enEdificio));
-	
+	$(e).find('.edificio').attr('style',style);
+		
 	var boleta = 0;
         if (tiempos.falta !== 0) {
 		var salida = moment().add(tiempos.falta, "ms");
@@ -251,7 +225,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		}
 	}
 	$(e).find('.fuera').html(formatearHora(tiempos.fuera));
-	$(e).find('.enedificio').html(formatearHora(tiempos.enEdificio));
+	$(e).find('.edificio').html(formatearHora(tiempos.enEdificio));
 	if (compensa>0)
 		$(e).find('.compensacion').html(formatearHora(compensa));
 	else
