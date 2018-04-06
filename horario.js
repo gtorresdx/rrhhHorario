@@ -183,11 +183,11 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	console.log(tiempos);
 	console.log('infoComputada');
 	console.log(infoComputada);
-	onsole.log('horaIngreso');
+	console.log('horaIngreso');
 	console.log(horaIngreso);
 	console.log('Horario');
 	console.log(Horario);
-	onsole.log('TLibre');
+	console.log('TLibre');
 	console.log(TLibre);
 	var d =$(elemento).find('.resumen');
 	var l = document.getElementById("linkestilo");
