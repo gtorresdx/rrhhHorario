@@ -14,7 +14,6 @@ function _Horario(){
         var TLibre=30*60*1000;
 	    calcular(Horario,TLibre);
 		$('select').on("change",function(){
-			
 			setCookie($(this).attr("dataDate"), $(this).val, 60);
 			console.log($(this).attr("dataDate"));
 			console.log($(this).val());
@@ -199,10 +198,9 @@ function Cargarformulario(elemento,dia,n){
 		$.ajax({ type: "GET", url: server+"Horario.html?t="+ticks, async: false, success : function(text) {response= text; }});
 		$(elemento).append(response);
 		var val=getCookie(n+dia+'comision');
-        if (val!==''){
-			     console.log(val);
-				SetearComision(elemento,val,dia);
-		}
+        console.log(val);
+		SetearComision(elemento,val,dia);
+		
 	}
 }
 
