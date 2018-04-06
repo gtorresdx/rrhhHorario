@@ -59,8 +59,8 @@ function calcular(Horario,TLibre) {
                 fichadas = obtenerFichadas(e);
 		if (fichadas.length>0){	
 			console.log('E2');
-			console.log(fichadas)
 			var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
+			console.log(tiempos);
 			var  infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
 			mostrar(tiempos, e, infoComputada,horaIngreso,Horario,TLibre);
 			compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
