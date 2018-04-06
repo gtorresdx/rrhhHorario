@@ -39,11 +39,11 @@
 								<td style="text-align:center;">
 									<span class="compensacion"> 12:00</span>
 								</td>
-								<td style="text-align:center;">
-									<span class="edificio"> 12:00</span>
+								<td style="text-align:center;">									
+									<span style="padding:5px;font-size:14px;" class="label label-info edificio"><i class="fa fa-home"></i> 12:00</span>									
 								</td>
 								<td style="text-align:center;">
-									<span class="salida"> 12:00</span>
+									<span style="padding:5px;font-size:14px;" class="label label-success salida"><i class="fa fa-sign-out"></i> 12:00</span>
 								</td>
 							</tr>                                
 						</tbody>                
@@ -60,40 +60,39 @@
 					<h3 class="box-title" style="background-color:transparent;color:#444;font-variant:normal;">Resumen de la Semana</h3>
 				</div>            
 				<div class="box-body">
-					<p>
-						Compensación
-						<span class="s-compensacion"> 12:00</span>
-					</p>
-					<p>
-						En Edificio
-						<span class="s-edificio"> 12:00</span>
-					</p>
-					<p>
-						Historial
+					<!--información-->
+					<div class="row">
+						<!--compensacion-->
+				    		<div class="col-md-6 col-sm-6 col-xs-12">
+				      			<div class="info-box">
+								<span class="info-box-icon bg-yellow"><i class="fa fa-bell"></i></span>
+								<div class="info-box-content">
+						  			<span class="info-box-text">Compensación</span>
+						  			<span class="info-box-number s-compensacion">
+										12:00
+									</span>
+								</div>
+							</div>
+					    	</div>
+						<!--en edificio-->
+					    	<div class="col-md-6 col-sm-6 col-xs-12">
+					      		<div class="info-box">
+								<span class="info-box-icon bg-aqua"><i class="fa fa-home"></i></span>
+								<div class="info-box-content">
+						  			<span class="info-box-text">En Edificio</span>
+						  			<span class="info-box-number s-enedificio">
+										12:00
+									</span>
+								</div>
+					      		</div>
+					    	</div>
+					    	<!-- fix for small devices only -->
+					    	<div class="clearfix visible-sm-block"></div>
+					</div>	
+					<fieldset>
+                				<legend><label style="background-color:transparent;color:#444;font-variant:normal;font-size:15px">Historial Compensación</label></legend>
 						<span class="hist"></span>
-					</p>
-					<table id="example2" class="table table-bordered table-hover">
-						<thead>
-							<tr>
-								<th style="text-align:center;">Fuera</th>
-								<th style="text-align:center;">Comisión</th>
-								<th style="text-align:center;">Boleta</th>
-								<th style="text-align:center;">Copensación</th>
-								<th style="text-align:center;">En Edificio</th>
-								<th style="text-align:center;">Salida</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td style="text-align:center;">Trident</td>
-								<td style="text-align:center;">Internet Explorer 4.0</td>
-								<td style="text-align:center;">Win 95+</td>
-								<td style="text-align:center;"> 4</td>
-								<td style="text-align:center;">X</td>
-								<td style="text-align:center;">X</td>
-							</tr>                                
-						</tbody>                
-					</table>
+					</fieldset>					
 				</div>            
 			</div>        
 		</div> 
