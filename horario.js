@@ -198,7 +198,7 @@ function Cargarformulario(elemento,dia,n){
 
 
 function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
-		
+	var d =$(elemento).find('.resumen');	
     var compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
 	var e =$(d).find('table tbody tr');
 	var boleta = 0;
