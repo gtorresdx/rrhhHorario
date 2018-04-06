@@ -35,7 +35,6 @@ function calcular(Horario,TLibre) {
     horaIngreso=null; 
 	n=nombreUsuario();
     $(datos).children().each(function(i, e) {
-		
 		var fichadas=null;	
 		dia=null;
 		var compensa=0;
