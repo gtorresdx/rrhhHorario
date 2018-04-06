@@ -59,9 +59,7 @@ function calcular(Horario,TLibre) {
             case 5:
                 fichadas = obtenerFichadas(e);
 		if (fichadas.length>0){	
-			console.log('E2');
 			var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
-			console.log(tiempos);
 			var  infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
 			mostrar(tiempos, e, infoComputada,horaIngreso,Horario,TLibre);
 			compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
@@ -351,15 +349,14 @@ function diadelaSemana(semana,dia){
 }
 
 function historicoSemana(dia,elemento){
-    console.log(dia);
     var d = moment(dia,'DD-MM-YYYY');
     var hoy = moment(moment().format('DD-MM-YYYY'),'DD-MM-YYYY');
     var k =null;
     var compensa=0;
     var comp = 0;
     var Edif = 0;
-    var msj ='Compensación: sss';
-    var msj2 ='En Edificio: sssa';
+    var msj ='Compensación: ';
+    var msj2 ='En Edificio: ';
     var n=nombreUsuario();
     for (var i = 1; i < 6; i += 1) {
          if( d.day(i)<=hoy){
