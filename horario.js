@@ -198,7 +198,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	var style='';
 	if (tiempos.enEdificio<6*60*60*1000)
 		style='color:red;'
-	$(d).find('div.box-body .enedificio').attr('style',style);
+	$(d).find('div.box-body table tbody span.enedificio').attr('style',style);
 	//$(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
 	
 	var boleta = 0;
@@ -230,17 +230,17 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 			boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
 		}
 	}
-	$(d).find('div.box-body .fuera').text(formatearHora(tiempos.fuera));
-	$(d).find('div.box-body .enedificio').text(formatearHora(tiempos.enEdificio));
+	$(d).find('div.box-body table tbody span.fuera').text(formatearHora(tiempos.fuera));
+	$(d).find('div.box-body table tbody span.enedificio').text(formatearHora(tiempos.enEdificio));
 	if (compensa>0)
-		$(d).find('div.box-body .compensacion').text(formatearHora(compensa));
+		$(d).find('div.box-body table tbody span.compensacion').text(formatearHora(compensa));
 	else
-	        $(d).find('div.box-body .compensacion').text(formatearHora(0));
+	        $(d).find('div.box-body table tbody span.compensacion').text(formatearHora(0));
 	if (boleta>0)
-		$(d).find('div.box-body .boleta').text(formatearHora(boleta));
+		$(d).find('div.box-body table tbody span.boleta').text(formatearHora(boleta));
 	else
-		$(d).find('div.box-body .boleta').text(formatearHora(0));
-	$(d).find('div.box-body .salida').text(salida.format("HH:mm:ss"));
+		$(d).find('div.box-body table tbody span.boleta').text(formatearHora(0));
+	$(d).find('div.box-body table tbody span.salida').text(salida.format("HH:mm:ss"));
 		
 }
 function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
