@@ -189,8 +189,7 @@ function Cargarformulario(elemento,dia,n){
 		var response;
 		$.ajax({ type: "GET", url: server+"Horario.html?t="+ticks, async: false, success : function(text) {response= text; }});
 		$(elemento).append(response);
-		
-		var val=getCookie(n+dia.format('DD-MM-YYYY')+'comision');
+		var val=getCookie(n+dia+'comision');
         if (val!=='')
 				SetearComision(elemento,val,dia);
 		
