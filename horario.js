@@ -30,7 +30,7 @@ function calcular(Horario,TLibre) {
     $(datos).children().each(function(i, e) {
 	var compensa=0;
         var enEdificio=0;
-	var dia=null;
+	
         switch (i) {
             case 1:
 		horaIngreso = obtenerHoraIngreso(e);
@@ -181,7 +181,6 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$('head').append('<link type="text/css" href="'+server+'Horario.css?t='+ticks+'" rel="Stylesheet" id="linkestilo">');
 		$('head').append('<link type="text/css" href="'+server+'bootstrap.css?t='+ticks+'" rel="Stylesheet" id="linkestilo">');
 	}
-	//console.log(d);
     	if (d===null || d.length===0){
 		var response;
 		$.ajax({ type: "GET", url: server+"Horario.html?t="+ticks, async: false, success : function(text) {response= text; }});
@@ -238,8 +237,6 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 }
 function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
 	var boleta=0;
-	console.log(salida.format("HH:mm:ss"))
-    console.log(salida2.format("HH:mm:ss"))
 	if (salida > salida2) 		
 				boleta = tiempos.fuera-TLibre;
 			else
