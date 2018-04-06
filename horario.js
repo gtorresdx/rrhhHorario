@@ -297,7 +297,6 @@ function pad(num, size) {
 }
 
 function obtenerDia(elemento){
-    console.log(elemento);
     var dia='';
 	try
 	{
@@ -401,7 +400,7 @@ function historicoSemana(dia,elemento){
    // msj+='<h3>Semana - en edificio: '+formatearHoraH(Edif)+'</h3>'
    $(elemento).find('span.hist').html(msj);
    $(elemento).find('span.s-compensacion').html(formatearHora(compensa));
-   $(elemento).find('span.s-enedificio').html(formatearHora(Edif));
+   $(elemento).find('span.s-enedificio').html(formatearHoraH(Edif));
 }
 
 function EsControlable(){
