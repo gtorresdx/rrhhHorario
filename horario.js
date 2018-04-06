@@ -62,6 +62,7 @@ function calcular(Horario,TLibre) {
 		break;
             case 5:
                 fichadas = obtenerFichadas(e);
+		console.log(fichadas);
 		if (fichadas.length>0){	
 			tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
 			infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
