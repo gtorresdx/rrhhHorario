@@ -211,6 +211,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	var e =$(d).find('table tbody tr');
 	$(e).find('.enedificio').attr('style',style);
 	console.log($(e).find('.enedificio'));
+	console.log(formatearHora(tiempos.enEdificio));
 	$(e).find('.enedificio').html(formatearHora(tiempos.enEdificio));
 	
 	var boleta = 0;
