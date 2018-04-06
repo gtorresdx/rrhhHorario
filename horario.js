@@ -18,7 +18,7 @@ function _Horario(){
 
 function _Asistencia(){
     $.getScript("http://momentjs.com/downloads/moment-with-locales.min.js", function() {
-        moment.locale("en");
+		moment.locale("en");
 	asistencia();
     });
 }
@@ -279,12 +279,14 @@ function SetearComision(e,val,dia,n){
 		var ob=$(el).find('.comision');
 		r=ob.val(val);
 		ob.attr("dataDate",n+dia+'comision');
-		ob.on("change",function(){
-			setCookie(this.attr("dataDate"), this.val, 60);
-		});
+		
 	}
 }	
-	
+$('.comision').on("change",function(){
+			setCookie(this.attr("dataDate"), this.val, 60);
+			console.log(this.val) 
+			_Horario();
+		});	
 
 function compensacion(tiempos,horaIngreso, Horario, TLibre){
 	var compensa=0;
