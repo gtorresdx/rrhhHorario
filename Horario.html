@@ -1,59 +1,101 @@
-
-<div id="resumen" class="col s12 resumen">
-  <div class="row">
-    <div class="col s12">
-      <h3>Resumen del día</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s2 txt-center">
-       <label>Fuera</label><br>
-       <span class="fuera"> 12:00</span>
-    </div>
-    <div class="col s2 txt-center" >
-       <label>comisión</label><br>
-       <select class="comision" style="display:block !important;font-size:11.25pt;" >
-	       <option>-----</option>
-  	       <option>Entrada</option>
-  	       <option>Salida</option>
-	       <option>Día</option>
-       </select>	
-    </div>
-    <div class="col s2 txt-center"> 
-       <label>Boleta</label><br>
-       <span class="boleta"> 12:00</span>
-    </div>
-    <div class="col s2 txt-center" >
-       <label>Copensación</label><br>
-       <span class="compensacion"> 12:00</span>
-    </div>
-	<div class="col s2 txt-center" >
-       <label>En Edificio</label><br>
-       <span class="enedificio"> 12:00</span>
-    </div>
-	<div class="col s2 txt-center" >
-       <label>Salida</label><br>
-       <span class="salida"> 12:00</span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s12">
-      <h3>Resumen de la semana</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s2 txt-center" >
-       <label>Copensación</label><br>
-       <span class="s-compensacion"> 12:00</span>
-    </div>
-    <div class="col s2 txt-center" >
-       <label>En Edificio</label><br>
-       <span class="s-enedificio"> 12:00</span>
-    </div>
-  </div>
-  <div class="row">
-  	<div class="col s12">	
-		<span class="hist"></span>
+<!-- Main content -->
+</br></br></br>
+<section id="resumen" class="content resumen" style="padding-top:20px;">
+	<!--resumen diario-->
+	<div class="row">		
+		<div class="col-xs-12">
+			<div class="box box-success">
+				<div class="box-header">
+					<h3 class="box-title" style="background-color:transparent;color:#444;font-variant:normal;">Resumen del día</h3>
+				</div>            
+				<div class="box-body">
+					<table id="example2" class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th style="text-align:center;">Fuera</th>
+								<th style="text-align:center;">Comisión</th>
+								<th style="text-align:center;">Boleta</th>
+								<th style="text-align:center;">Copensación</th>
+								<th style="text-align:center;">En Edificio</th>
+								<th style="text-align:center;">Salida</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="text-align:center;">
+									<span class="fuera"> 12:00</span>
+								</td>
+								<td style="text-align:center;">
+									<select class="form-control input-sm comision" >
+									       <option>-----</option>
+									       <option>Entrada</option>
+									       <option>Salida</option>
+									       <option>Día</option>
+								       </select>
+								</td>
+								<td style="text-align:center;">
+									<span class="boleta"> 12:00</span>
+								</td>
+								<td style="text-align:center;">
+									<span class="compensacion"> 12:00</span>
+								</td>
+								<td style="text-align:center;">
+									<span class="enedificio"> 12:00</span>
+								</td>
+								<td style="text-align:center;">
+									<span class="salida"> 12:00</span>
+								</td>
+							</tr>                                
+						</tbody>                
+					</table>
+				</div>            
+			</div>        
+		</div> 
 	</div>
-  </div>
-</div>
+	<!--resumen semanal-->
+	<div class="row">		
+		<div class="col-xs-12">
+			<div class="box box-success">
+				<div class="box-header">
+					<h3 class="box-title" style="background-color:transparent;color:#444;font-variant:normal;">Resumen de la Semana</h3>
+				</div>            
+				<div class="box-body">
+					<p>
+						Compensación
+						<span class="s-compensacion"> 12:00</span>
+					</p>
+					<p>
+						En Edificio
+						<span class="s-enedificio"> 12:00</span>
+					</p>
+					<p>
+						Historial
+						<span class="hist"></span>
+					</p>
+					<table id="example2" class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th style="text-align:center;">Fuera</th>
+								<th style="text-align:center;">Comisión</th>
+								<th style="text-align:center;">Boleta</th>
+								<th style="text-align:center;">Copensación</th>
+								<th style="text-align:center;">En Edificio</th>
+								<th style="text-align:center;">Salida</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="text-align:center;">Trident</td>
+								<td style="text-align:center;">Internet Explorer 4.0</td>
+								<td style="text-align:center;">Win 95+</td>
+								<td style="text-align:center;"> 4</td>
+								<td style="text-align:center;">X</td>
+								<td style="text-align:center;">X</td>
+							</tr>                                
+						</tbody>                
+					</table>
+				</div>            
+			</div>        
+		</div> 
+	</div> 
+</section>
