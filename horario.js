@@ -136,7 +136,7 @@ function obtenerFichadas(elemento) {
     var fichadas = [];
     var tipo='';
     var tipoOld='';
-    $(elemento).find("tbody tr").each(function() {
+    $(elemento).find("#tabla3 tbody tr").each(function() {
         var format = "HH:mm:ss";
         hora = $(this).find("td:nth(0)").html();
         if (hora.indexOf(" ") > 0) {
