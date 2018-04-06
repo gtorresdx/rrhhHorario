@@ -220,7 +220,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		}
 	}
 	$(e).find('.fuera').html(formatearHora(tiempos.fuera));
-	$(e).find('.edificio').html(formatearHora(tiempos.enEdificio));
+	$(e).find('.edificio').html('<i class="fa fa-home"></i> '+formatearHora(tiempos.enEdificio));
 	$(e).find('.edificio').removeClass().addClass('label label-info edificio');
 	if (tiempos.enEdificio<6*60*60*1000)
 		$(e).find('.edificio').removeClass().addClass('label label-danger edificio');
@@ -233,7 +233,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(e).find('.boleta').html(formatearHora(boleta));
 	else
 		$(e).find('.boleta').html(formatearHora(0));
-	$(e).find('.salida').html(salida.format("HH:mm:ss"));
+	$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
 		
 }
 function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
