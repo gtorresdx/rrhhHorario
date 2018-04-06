@@ -33,8 +33,8 @@ function calcular(Horario,TLibre) {
         enEdificio=0;
         switch (i) {
             case 1:
-		console.log('E1');			
-		console.log(e);
+		//console.log('E1');			
+		//console.log(e);
                 horaIngreso = obtenerHoraIngreso(e);
 		dia=obtenerDia(e);
                 break;
@@ -53,10 +53,10 @@ function calcular(Horario,TLibre) {
                 break;
             case 4:
 		dia=obtenerDia(e);
-		console.log(dia);			
+		//console.log(dia);			
 		if (dia!==null && dia!==''){
-			console.log('E2');			
-			console.log(e);
+			//console.log('E2');			
+			//console.log(e);
                 	horaIngreso = obtenerHoraIngreso(e);
 		}
 		break;
@@ -193,7 +193,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$('head').append('<link type="text/css" href="'+server+'Horario.css?t='+ticks+'" rel="Stylesheet" id="linkestilo">');
 		$('head').append('<link type="text/css" href="'+server+'bootstrap.css?t='+ticks+'" rel="Stylesheet" id="linkestilo">');
 	}
-	console.log(d);
+	//console.log(d);
     	if (d===null || d.length===0){
 		var response;
 		$.ajax({ type: "GET", url: server+"Horario.html?t="+ticks, async: false, success : function(text) {response= text; }});
@@ -206,7 +206,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		style='color:red;';
 	var e =$(d).find('div.box-body #tdia tbody');
 	$(e).find('.enedificio').attr('style',style);
-	console.log($(e).find('.enedificio'));
+	//console.log($(e).find('.enedificio'));
 	//$(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
 	
 	var boleta = 0;
