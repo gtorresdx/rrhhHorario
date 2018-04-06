@@ -189,12 +189,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	}
 	
         var compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
-	var style='';
-	if (tiempos.enEdificio<6*60*60*1000)
-		style='color:red;';
 	var e =$(d).find('table tbody tr');
-	$(e).find('.edificio').attr('style',style);
-		
 	var boleta = 0;
         if (tiempos.falta !== 0) {
 		var salida = moment().add(tiempos.falta, "ms");
@@ -226,6 +221,10 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	}
 	$(e).find('.fuera').html(formatearHora(tiempos.fuera));
 	$(e).find('.edificio').html(formatearHora(tiempos.enEdificio));
+	$(e).find('.edificio').removeClass().addClass('label label-info edificio');
+	if (tiempos.enEdificio<6*60*60*1000)
+		$(e).find('.edificio').removeClass().addClass('label label-danger edificio');
+	
 	if (compensa>0)
 		$(e).find('.compensacion').html(formatearHora(compensa));
 	else
