@@ -198,9 +198,9 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	var style='';
 	if (tiempos.enEdificio<6*60*60*1000)
 		style='color:red;';
-	var element =$(d).find('div.box-body table tbody');
-	$(element).find('.enedificio').attr('style',style);
-	console.log($(element).find('.enedificio'));
+	var e =$(d).find('div.box-body #tdia tbody');
+	$(e).find('.enedificio').attr('style',style);
+	console.log($(e).find('.enedificio'));
 	//$(d).find('.enedificio').text(formatearHora(tiempos.enEdificio));
 	
 	var boleta = 0;
@@ -232,17 +232,17 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 			boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
 		}
 	}
-	$(element).find('.fuera').text(formatearHora(tiempos.fuera));
-	$(element).find('.enedificio').text(formatearHora(tiempos.enEdificio));
+	$(e).find('.fuera').html(formatearHora(tiempos.fuera));
+	$(e).find('.enedificio').html(formatearHora(tiempos.enEdificio));
 	if (compensa>0)
-		$(element).find('.compensacion').text(formatearHora(compensa));
+		$(e).find('.compensacion').html(formatearHora(compensa));
 	else
-	        $(element).find('.compensacion').text(formatearHora(0));
+	        $(e).find('.compensacion').html(formatearHora(0));
 	if (boleta>0)
-		$(element).find('.boleta').text(formatearHora(boleta));
+		$(e).find('.boleta').html(formatearHora(boleta));
 	else
-		$(element).find('.boleta').text(formatearHora(0));
-	$(element).find('.salida').text(salida.format("HH:mm:ss"));
+		$(e).find('.boleta').html(formatearHora(0));
+	$(e).find('.salida').html(salida.format("HH:mm:ss"));
 		
 }
 function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
