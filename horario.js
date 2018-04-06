@@ -40,7 +40,6 @@ function calcular(Horario,TLibre) {
 		var dia=null;
 		var compensa=0;
 		var enEdificio=0;
-		console.log(n);
 		switch (i) {
             case 1:
 				horaIngreso = obtenerHoraIngreso(e);
@@ -200,6 +199,7 @@ function Cargarformulario(elemento,dia,n){
 		$(elemento).append(response);
 		var val=getCookie(n+dia+'comision');
         console.log(n);
+		console.log(dia);
 		SetearComision(elemento,val,dia);
 		
 	}
