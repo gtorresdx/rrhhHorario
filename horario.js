@@ -349,6 +349,7 @@ function diadelaSemana(semana,dia){
 }
 
 function historicoSemana(dia,elemento){
+    console.log(dia);
     var d = moment(dia,'DD-MM-YYYY');
     var hoy = moment(moment().format('DD-MM-YYYY'),'DD-MM-YYYY');
     var k =null;
