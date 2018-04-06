@@ -32,15 +32,16 @@ function _Asistencia(){
 }
 function calcular(Horario,TLibre) {
     var datos = $("main div.container div.row > div.col")[0];
-    var n=nombreUsuario();
-    horaIngreso=null; 
-    var fichadas=null;	
-    var dia=null;
+    
     $(datos).children().each(function(i, e) {
-	var compensa=0;
-        var enEdificio=0;
-	
-        switch (i) {
+		var n=nombreUsuario();
+		horaIngreso=null; 
+		var fichadas=null;	
+		var dia=null;
+		var compensa=0;
+		var enEdificio=0;
+		console.log(n);
+		switch (i) {
             case 1:
 				horaIngreso = obtenerHoraIngreso(e);
 				dia=obtenerDia(e);
@@ -198,7 +199,7 @@ function Cargarformulario(elemento,dia,n){
 		$.ajax({ type: "GET", url: server+"Horario.html?t="+ticks, async: false, success : function(text) {response= text; }});
 		$(elemento).append(response);
 		var val=getCookie(n+dia+'comision');
-        console.log(val);
+        console.log(n);
 		SetearComision(elemento,val,dia);
 		
 	}
@@ -284,6 +285,7 @@ function SetearComision(e,val,dia,n){
 	var d =$(e).find('.resumen');
 	var el =$(d).find('table tbody tr');
 	if ( !(d===null || d.length===0)){
+		console.log(ob)
 		var ob=$(el).find('.comision');
 		r=ob.val(val);
 		ob.attr("dataDate",n+dia+'comision');
