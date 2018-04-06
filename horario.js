@@ -40,7 +40,7 @@ function calcular(Horario,TLibre) {
             case 2:
                 fichadas = obtenerFichadas(e);
 		if (fichadas.length>0){
-			tieneComision(elemento);
+			tieneComision(e);
 			var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
 			var infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
 			mostrar(tiempos, e, infoComputada,horaIngreso, Horario,TLibre);
