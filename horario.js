@@ -27,6 +27,7 @@ function calcular(Horario,TLibre) {
     var n=nombreUsuario();
     horaIngreso=null; 
     var fichadas=null;	
+    var dia=null;
     $(datos).children().each(function(i, e) {
 	var compensa=0;
         var enEdificio=0;
