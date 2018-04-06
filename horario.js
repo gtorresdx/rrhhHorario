@@ -33,11 +33,11 @@ function _Asistencia(){
 function calcular(Horario,TLibre) {
     var datos = $("main div.container div.row > div.col")[0];
     horaIngreso=null; 
-	
+	n=nombreUsuario();
     $(datos).children().each(function(i, e) {
-		var n=nombreUsuario();
+		
 		var fichadas=null;	
-		var dia=null;
+		dia=null;
 		var compensa=0;
 		var enEdificio=0;
 		switch (i) {
