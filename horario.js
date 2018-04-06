@@ -12,13 +12,14 @@ function _Horario(){
         var Ths=(9*60*60*1000)+(40*60*1000);
         var Horario= obtenerHorario(Ths);
         var TLibre=30*60*1000;
-		$('select').on("change",function(){
+	    calcular(Horario,TLibre);
+		$('select').on("change click",function(){
+			alert('');
 			setCookie(this.attr("dataDate"), this.val, 60);
 			console.log('sss');
 			console.log(this.val()) 
 			calcular(Horario,TLibre);
 		});	
-	    calcular(Horario,TLibre);
     });
 }
 
@@ -196,9 +197,10 @@ function Cargarformulario(elemento,dia,n){
 		$.ajax({ type: "GET", url: server+"Horario.html?t="+ticks, async: false, success : function(text) {response= text; }});
 		$(elemento).append(response);
 		var val=getCookie(n+dia+'comision');
-        if (val!=='')
+        if (val!==''){
+			     console.log(val);
 				SetearComision(elemento,val,dia);
-		
+		}
 	}
 }
 
