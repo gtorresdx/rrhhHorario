@@ -25,7 +25,7 @@ function _Asistencia(){
 function calcular(Horario,TLibre) {
     var datos = $("main div.container div.row > div.col")[0];
     var n=nombreUsuario();
-    var horaIngreso=null; 
+    horaIngreso=null; 
     var fichadas=null;	
     $(datos).children().each(function(i, e) {
 	var compensa=0;
@@ -58,6 +58,8 @@ function calcular(Horario,TLibre) {
             case 5:
                 fichadas = obtenerFichadas(e);
 		if (fichadas.length>0){	
+			console.log('E2');
+			console.log(fichadas)
 			var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
 			var  infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
 			mostrar(tiempos, e, infoComputada,horaIngreso,Horario,TLibre);
