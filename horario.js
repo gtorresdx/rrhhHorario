@@ -13,10 +13,13 @@ function _Horario(){
         var Horario= obtenerHorario(Ths);
         var TLibre=30*60*1000;
 	    calcular(Horario,TLibre);
-		$('select').on("change click",function(){
+		$('select').on("change",function(){
 			
 			setCookie($(this).attr("dataDate"), $(this).val, 60);
-			console.log($(this).val()) 
+			console.log($(this).attr("dataDate"));
+			console.log($(this).val());
+			console.log(Horario);	
+			console.log(TLibre);	
 			calcular(Horario,TLibre);
 		});	
     });
