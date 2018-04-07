@@ -134,7 +134,7 @@ function obtenerHorario(ThsDefault) {
 					ok=true ;
 				}
                 break;
-			case 1:
+			case 4:
 			    if(ok){ 
 					try
 					{
