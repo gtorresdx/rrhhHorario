@@ -11,6 +11,7 @@ function _Horario(){
         moment.locale("es");
         var Ths=(9*60*60*1000)+(40*60*1000);
         var Horario= obtenerHorario(Ths);
+		console.log(Horario);
         var TLibre=30*60*1000;
 	    calcular(Horario,TLibre);
 		$('select').on("change",function(){
