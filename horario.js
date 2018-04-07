@@ -59,6 +59,7 @@ function calcular(Horario,TLibre) {
 				}
                 break;
             case 4:
+			    console.log(e);
 				dia=obtenerDia(e);
 				if (dia!==null && dia!==''){
 					horaIngreso = obtenerHoraIngreso(e);
@@ -69,7 +70,7 @@ function calcular(Horario,TLibre) {
 				if (fichadas.length>0){	
 					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
 					var  infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
-					Cargarformulario(e,dia,n);
+					Cargarformulario(e,dia);
 					mostrar(tiempos, e, infoComputada,horaIngreso,Horario,TLibre);
 					compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
 					enEdificio=tiempos.enEdificio;
