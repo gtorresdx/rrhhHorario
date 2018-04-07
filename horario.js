@@ -206,6 +206,7 @@ function Cargarformulario(elemento,dia){
 		$(elemento).append(response);
 		var n=nombreUsuario();
 		var val=getCookie(n+dia+'comision');
+		console.log(dia);
     	SetearComision(elemento,val,dia);
 	}
 }
