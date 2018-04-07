@@ -14,11 +14,9 @@ function _Horario(){
         var TLibre=30*60*1000;
 	    calcular(Horario,TLibre);
 		$('select').on("change",function(){
-			setCookie($(this).attr("dataDate"), $(this).val, 60);
-			console.log($(this).attr("dataDate"));
-			console.log($(this).val());
-			console.log(Horario);	
-			console.log(TLibre);	
+			console.log('dataDate->'+$(this).attr("dataDate"));
+			console.log('val->'+$(this).val());
+			setCookie($(this).attr("dataDate"), $(this).val(), 60);
 			calcular(Horario,TLibre);
 		});	
     });
@@ -207,8 +205,8 @@ function Cargarformulario(elemento,f){
 		var n=nombreUsuario();
 		console.log('dia->'+f);
 		console.log('nombre->'+n);
-		var val=getCookie(n+f+'comision');
-		SetearComision(elemento,val,f);
+		var v=getCookie(n+f+'comision');
+		SetearComision(elemento,v,f);
 	}
 }
 
@@ -288,14 +286,14 @@ function obtenerComision(e){
 	}	
 	return r;
 }
-function SetearComision(e,val,dia){
+function SetearComision(e,v,dia){
 	var d =$(e).find('.resumen');
 	var el =$(d).find('table tbody tr');
 	console.log(el);
 	if (el.length!==0){
 		var ob=$(el).find('.comision');
-		console.log(val);
-		ob.val(val);
+		console.log(v);
+		ob.val(v);
 		n=nombreUsuario();
 		console.log(n+dia+'comision');
 		ob.attr("dataDate",n+dia+'comision');
