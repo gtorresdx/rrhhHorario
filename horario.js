@@ -184,24 +184,24 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,e) {
     var total =0;
     var falta = 0;
 	var comision=obtenerComision(e);
-
+	console.log(comision);
     if(fichadas.length>0){
 		switch (comision) {
             case 'Entrada':
-			console.log(comision);
 			fichadas[0] = {
-            "fichada": Horario.horarioIngreso,
-            "tipo": "Entrada"
+				"fichada": Horario.horarioIngreso,
+				"tipo": "Entrada"
 			};
 			break;
 			default:
+			// Substituyo la primer fichada por la hora de ingreso computable
 			fichadas[0] = {
-            "fichada": horaIngreso,
-            "tipo": "Entrada"
+				"fichada": horaIngreso,
+				"tipo": "Entrada"
 			};
 			
 		}
-        // Substituyo la primer fichada por la hora de ingreso computable
+        
         
     
         for (var i = 1; i < fichadas.length; i += 2) {
