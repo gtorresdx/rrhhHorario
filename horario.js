@@ -188,6 +188,7 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,e) {
     if(fichadas.length>0){
 		switch (comision) {
             case 'Entrada':
+			console.log(comision);
 			fichadas[0] = {
             "fichada": Horario.horarioIngreso,
             "tipo": "Entrada"
