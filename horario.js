@@ -281,7 +281,7 @@ function obtenerComision(e){
 	var r='';
 	var d =$(e).find('.resumen');
 	var el =$(d).find('table tbody tr');
-	if ( !(d===null || d.length===0)){
+	if ( !el.length===0){
 		var ob=$(el).find('.comision');
 		r=ob.val();
 	}	
@@ -290,9 +290,10 @@ function obtenerComision(e){
 function SetearComision(e,val,dia){
 	var d =$(e).find('.resumen');
 	var el =$(d).find('table tbody tr');
-	if ( !(d===null || d.length===0)){
-		console.log(ob)
+	if ( !el.length===0){
+		
 		var ob=$(el).find('.comision');
+		console.log(ob);
 		r=ob.val(val);
 		n=nombreUsuario();
 		console.log(n+dia+'comision');
