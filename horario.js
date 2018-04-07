@@ -295,7 +295,7 @@ function SetearComision(e,val,dia){
 	if (el.length!==0){
 		var ob=$(el).find('.comision');
 		console.log(ob);
-		r=ob.val(val);
+		ob.val(val);
 		n=nombreUsuario();
 		console.log(n+dia+'comision');
 		ob.attr("dataDate",n+dia+'comision');
