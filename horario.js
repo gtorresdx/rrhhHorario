@@ -121,10 +121,18 @@ function obtenerHorario(ThsDefault) {
     $(datos).children().each(function(i, e) {
 		switch (i) {
             case 1:
+			    try
+				{
                 horarioIngreso = moment($(e).find(" > div:last-child center").html().trim(), "HH:mm");
                 var O = $(e).find(" > div:last-child center");
-                horarioEgreso = moment($(O[1]).html().trim(), "HH:mm");
+				horarioEgreso = moment($(O[1]).html().trim(), "HH:mm");
                 Ths = horarioEgreso.diff(horarioIngreso);
+				}
+				catch(err)
+				{
+					console.log('Error en obtener horarios');
+					console.log(err);
+				}
                 break;
 		}
     });
