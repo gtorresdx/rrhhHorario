@@ -194,7 +194,7 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre) {
     return {"enEdificio": diff, "fuera": total - diff, "falta": falta, "total": total};
 }
 
-function Cargarformulario(elemento,dia){
+function Cargarformulario(elemento,f){
 	var d =$(elemento).find('.resumen');
 	var l = document.getElementById("linkestilo");
 	var Dia = new Date();
@@ -208,9 +208,9 @@ function Cargarformulario(elemento,dia){
 		$.ajax({ type: "GET", url: server+"Horario.html?t="+ticks, async: false, success : function(text) {response= text; }});
 		$(elemento).append(response);
 		var n=nombreUsuario();
-		var val=getCookie(n+dia+'comision');
-		console.log(dia);
-    	SetearComision(elemento,val,dia);
+		var val=getCookie(n+f+'comision');
+		console.log(f);
+    	SetearComision(elemento,val,f);
 	}
 }
 
