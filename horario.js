@@ -59,9 +59,7 @@ function calcular(Horario,TLibre) {
 				}
                 break;
             case 4:
-			    console.log(e);
-				dia=obtenerDia(e);
-				console.log('dia-> '+dia);
+			    dia=obtenerDia(e);
 				if (dia!==null && dia!==''){
 					horaIngreso = obtenerHoraIngreso(e);
 				}
@@ -71,7 +69,6 @@ function calcular(Horario,TLibre) {
 				if (fichadas.length>0){	
 					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
 					var  infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
-					console.log('dia-> '+dia);
 					Cargarformulario(e,dia);
 					mostrar(tiempos, e, infoComputada,horaIngreso,Horario,TLibre);
 					compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
@@ -208,9 +205,11 @@ function Cargarformulario(elemento,f){
 		$.ajax({ type: "GET", url: server+"Horario.html?t="+ticks, async: false, success : function(text) {response= text; }});
 		$(elemento).append(response);
 		var n=nombreUsuario();
+		console.log('dia->'+f);
+		console.log('nombre->'+n);
 		var val=getCookie(n+f+'comision');
-		console.log(f);
-    	SetearComision(elemento,val,f);
+		
+		SetearComision(elemento,val,f);
 	}
 }
 
