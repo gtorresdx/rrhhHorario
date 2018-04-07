@@ -198,7 +198,7 @@ function Cargarformulario(elemento,dia){
 		$(elemento).append(response);
 		var n=nombreUsuario();
 		var val=getCookie(n+dia+'comision');
-    	SetearComision(elemento,val,dia,n);
+    	SetearComision(elemento,val,dia);
 	}
 }
 
@@ -278,13 +278,14 @@ function obtenerComision(e){
 	}	
 	return r;
 }
-function SetearComision(e,val,dia,n){
+function SetearComision(e,val,dia){
 	var d =$(e).find('.resumen');
 	var el =$(d).find('table tbody tr');
 	if ( !(d===null || d.length===0)){
 		console.log(ob)
 		var ob=$(el).find('.comision');
 		r=ob.val(val);
+		n=nombreUsuario();
 		console.log(n+dia+'comision');
 		ob.attr("dataDate",n+dia+'comision');
 	}
