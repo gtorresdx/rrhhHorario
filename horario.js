@@ -46,7 +46,7 @@ function calcular(Horario,TLibre) {
             case 2:
                 fichadas = obtenerFichadas(e);
 				if (fichadas.length>0){
-					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
+					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,e);
 					var infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
 					Cargarformulario(e,dia);
 					mostrar(tiempos, e, infoComputada,horaIngreso, Horario,TLibre);
@@ -66,7 +66,7 @@ function calcular(Horario,TLibre) {
             case 5:
                 fichadas = obtenerFichadas(e);
 				if (fichadas.length>0){	
-					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
+					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,e);
 					var  infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
 					Cargarformulario(e,dia);
 					mostrar(tiempos, e, infoComputada,horaIngreso,Horario,TLibre);
@@ -179,10 +179,18 @@ function obtenerFichadas(elemento) {
     return fichadas;
 }
 
-function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre) {
+function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,e) {
     var diff = 0;
     var total =0;
     var falta = 0;
+	switch (obtenerComision(e)) {
+            case 'Entrada':
+			fichadas[0] = {
+            "fichada": Horario.horarioIngreso,
+            "tipo": "Entrada"
+			};
+			break;
+	}
     if(fichadas.length>0){
         // Substituyo la primer fichada por la hora de ingreso computable
         fichadas[0] = {
