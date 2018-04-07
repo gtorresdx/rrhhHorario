@@ -347,7 +347,7 @@ function obtenerDia(elemento){
     var dia='';
 	try
 	{
-		dia = $($(elemento).find("h5 center")[0]).html().trim();
+		dia = $(elemento).find("h5 center").html().trim();
 	}
 	catch(err)
 	{
