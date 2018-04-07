@@ -117,6 +117,7 @@ function obtenerHorario(ThsDefault) {
     var horarioEgreso =moment();
     var Ths = ThsDefault;
     $(datos).children().each(function(i, e) {
+		var ok=false;
 		switch (i) {
             case 1:
 			    try
@@ -130,7 +131,24 @@ function obtenerHorario(ThsDefault) {
 				{
 					console.log('Error en obtener horarios');
 					console.log(err);
+					ok=true ;
 				}
+                break;
+			case 1:
+			    if(ok){ 
+					try
+					{
+						horarioIngreso = moment($(e).find(" > div:last-child center").html().trim(), "HH:mm");
+						var O = $(e).find(" > div:last-child center");
+						horarioEgreso = moment($(O[1]).html().trim(), "HH:mm");
+						Ths = horarioEgreso.diff(horarioIngreso);
+					}
+					catch(err)
+					{
+						console.log('Error en obtener horarios');
+						console.log(err);
+					}
+				]
                 break;
 		}
     });
@@ -289,7 +307,6 @@ function obtenerComision(e){
 function SetearComision(e,v,dia){
 	var d =$(e).find('.resumen');
 	var el =$(d).find('table tbody tr');
-	console.log(el);
 	if (el.length!==0){
 		var ob=$(el).find('.comision');
 		console.log(v);
