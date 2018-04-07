@@ -183,20 +183,25 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,e) {
     var diff = 0;
     var total =0;
     var falta = 0;
-	switch (obtenerComision(e)) {
+	var comision=obtenerComision(e);
+
+    if(fichadas.length>0){
+		switch (comision) {
             case 'Entrada':
 			fichadas[0] = {
             "fichada": Horario.horarioIngreso,
             "tipo": "Entrada"
 			};
 			break;
-	}
-    if(fichadas.length>0){
-        // Substituyo la primer fichada por la hora de ingreso computable
-        fichadas[0] = {
+			default:
+			fichadas[0] = {
             "fichada": horaIngreso,
             "tipo": "Entrada"
-        };
+			};
+			
+		}
+        // Substituyo la primer fichada por la hora de ingreso computable
+        
     
         for (var i = 1; i < fichadas.length; i += 2) {
             diff += moment.duration(fichadas[i].fichada.diff(fichadas[i-1].fichada));
@@ -230,8 +235,8 @@ function Cargarformulario(elemento,f){
 		$.ajax({ type: "GET", url: server+"Horario.html?t="+ticks, async: false, success : function(text) {response= text; }});
 		$(elemento).append(response);
 		var n=nombreUsuario();
-		console.log('dia->'+f);
-		console.log('nombre->'+n);
+		//console.log('dia->'+f);
+		//console.log('nombre->'+n);
 		var v=getCookie(n+f+'comision');
 		SetearComision(elemento,v,f);
 	}
