@@ -117,8 +117,9 @@ function obtenerHorario(ThsDefault) {
     var horarioIngreso =moment();
     var horarioEgreso =moment();
     var Ths = ThsDefault;
+	var ok=false;
     $(datos).children().each(function(i, e) {
-		var ok=false;
+		
 		console.log(i);
 		console.log(e);
 		switch (i) {
@@ -141,7 +142,6 @@ function obtenerHorario(ThsDefault) {
 			    if(ok){ 
 					try
 					{
-						console.log(h2);
 						console.log($(e).find(" > div:last-child center").html().trim());
 						horarioIngreso = moment($(e).find(" > div:last-child center").html().trim(), "HH:mm");
 						var O = $(e).find(" > div:last-child center");
