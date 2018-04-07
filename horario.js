@@ -61,6 +61,7 @@ function calcular(Horario,TLibre) {
             case 4:
 			    console.log(e);
 				dia=obtenerDia(e);
+				console.log('dia-> '+dia);
 				if (dia!==null && dia!==''){
 					horaIngreso = obtenerHoraIngreso(e);
 				}
@@ -70,6 +71,7 @@ function calcular(Horario,TLibre) {
 				if (fichadas.length>0){	
 					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre);
 					var  infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
+					console.log('dia-> '+dia);
 					Cargarformulario(e,dia);
 					mostrar(tiempos, e, infoComputada,horaIngreso,Horario,TLibre);
 					compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
@@ -410,7 +412,7 @@ function historicoSemana(dia,elemento){
             if (k!==''){
                 compensa+=(1*k);
                 if(d.day(i)<hoy)
-			comp+=(1*k);
+				comp+=(1*k);
                 msj+=d.day(i).format('dddd');
                 msj+=' '+formatearHora(1*k);
                 msj+='<a href="javascript:ProcesarDia(\''+d.day(i).format('DD-MM-YYYY')+'\')">';
