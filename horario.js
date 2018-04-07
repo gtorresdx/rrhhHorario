@@ -148,7 +148,7 @@ function obtenerHorario(ThsDefault) {
 						console.log('Error en obtener horarios');
 						console.log(err);
 					}
-				]
+				}
                 break;
 		}
     });
