@@ -34,9 +34,9 @@ function calcular(Horario,TLibre) {
     var datos = $("main div.container div.row > div.col")[0];
     horaIngreso=null; 
 	n=nombreUsuario();
+	dia=null;
     $(datos).children().each(function(i, e) {
 		var fichadas=null;	
-		dia=null;
 		var compensa=0;
 		var enEdificio=0;
 		switch (i) {
