@@ -15,8 +15,8 @@ function _Horario(){
         var TLibre=30*60*1000;
 	    calcular(Horario,TLibre);
 		$('select').on("change",function(){
-			console.log('dataDate->'+$(this).attr("dataDate"));
-			console.log('val->'+$(this).val());
+			//console.log('dataDate->'+$(this).attr("dataDate"));
+			//console.log('val->'+$(this).val());
 			setCookie($(this).attr("dataDate"), $(this).val(), 60);
 			calcular(Horario,TLibre);
 		});	
@@ -324,7 +324,7 @@ function SetearComision(e,v,dia){
 	var el =$(d).find('table tbody tr');
 	if (el.length!==0){
 		var ob=$(el).find('.comision');
-		console.log(v);
+		//console.log(v);
 		ob.val(v);
 		n=nombreUsuario();
 		console.log(n+dia+'comision');
