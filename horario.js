@@ -139,8 +139,11 @@ function obtenerHorario(ThsDefault) {
 			    if(ok){ 
 					try
 					{
+						console.log(h2);
+						console.log($(e).find(" > div:last-child center").html().trim());
 						horarioIngreso = moment($(e).find(" > div:last-child center").html().trim(), "HH:mm");
 						var O = $(e).find(" > div:last-child center");
+						console.log($(O[1]).html().trim());
 						horarioEgreso = moment($(O[1]).html().trim(), "HH:mm");
 						Ths = horarioEgreso.diff(horarioIngreso);
 					}
