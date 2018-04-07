@@ -327,7 +327,7 @@ function SetearComision(e,v,dia){
 		//console.log(v);
 		ob.val(v);
 		n=nombreUsuario();
-		console.log(n+dia+'comision');
+		//console.log(n+dia+'comision');
 		ob.attr("dataDate",n+dia+'comision');
 	}
 }	
