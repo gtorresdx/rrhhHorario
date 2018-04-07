@@ -119,6 +119,7 @@ function obtenerHorario(ThsDefault) {
     var Ths = ThsDefault;
     $(datos).children().each(function(i, e) {
 		var ok=false;
+		console.log(i);
 		console.log(e);
 		switch (i) {
             case 1:
