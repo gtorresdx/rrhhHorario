@@ -252,6 +252,15 @@ function Cargarformulario(elemento,f){
 	}
 }
 
+function BotonSonidoView()
+{
+	$('.salida').click( function(){
+		($("#chat-message-audio")[0]).attr('src',server+'sonido.mps');
+		$("#chat-message-audio")[0].load();
+		$("#chat-message-audio")[0].play();
+	});
+}
+
 
 function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
 	var d =$(elemento).find('.resumen');	
