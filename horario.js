@@ -3,7 +3,7 @@ if (window.location.pathname === "/portal/mis_fichadas") {
 	_Horario();
 }	
 if (window.location.pathname === "/portal/novedades_asistencia") {
-       _Asistencia();
+    _Asistencia();
 }	
 var server='https://gtorresdx.github.io/rrhhHorario/';
 function _Horario(){
@@ -82,7 +82,6 @@ function calcular(Horario,TLibre) {
 }
 
 function obtenerHoraIngreso(elemento) {
-	
 	try
 	{var horarioAdm = moment($(elemento).find(" > div:last-child center").html().trim(), "HH:mm");}
 	catch(err)
@@ -255,43 +254,42 @@ function Cargarformulario(elemento,f){
 
 function BotonSonidoView()
 {	
-	
-	$("#chat-message-audio")[0].load();
 	$('.salida').click( function(){
 		console.log('click');
-		$($("#chat-message-audio")[0]).attr('src',server+'sonido.mp3');
-		$("#chat-message-audio")[0].load();
-		$("#chat-message-audio")[0].play();
+		SonidoView();
 	});
 }
-
 
 function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
 	var d =$(elemento).find('.resumen');	
     var compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
 	var e =$(d).find('table tbody tr');
 	var boleta = 0;
-        if (tiempos.falta !== 0) {
+	if (tiempos.falta !== 0) {
 		var salida = moment().add(tiempos.falta, "ms");
 		var salida2 = horaIngreso.add(Horario.Ths,"ms");
-		
+	
 		if ((salida > salida2 || compensa<0) && (tiempos.enEdificio>6*60*60*1000)) {	
-                        boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
+			boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
 			if (salida > salida2)
-					salida = salida2;
+				salida = salida2;
 		}else{        
 			if (salida > salida2)
 				salida = salida2;
 		}
-		
-	        if(salida<moment())
+	
+		if(salida<moment())
 			if ($("main div.container").find('div.chau').length === 0){
 				$("main div.container").prepend( '<div class="chau col s12" style="background-color:orange;"><h3 style="background-color:orange;"><center>¡¡Chauuu!! Te podes ir <i class="fa fa-hand-stop-o" aria-hidden="true"></i></center></h1></div>');
 				parpadear();
+				if (!window.actualizarSonido){
+					SonidoView();
+					window.actualizarSonido = setInterval(SonidoView, 10500);	
+				}
 			}
-        	if (!window.actualizarPermanencia)
-            		window.actualizarPermanencia = setInterval(function(){ calcular(Horario,TLibre);}, 1000);
-    	}else{
+		if (!window.actualizarPermanencia)
+				window.actualizarPermanencia = setInterval(function(){ calcular(Horario,TLibre);}, 1000);
+	}else{
 		var d=horaIngreso.clone();
 		salida = horaIngreso.add(tiempos.total.asMilliseconds(),"ms");
 		salida2 = d.add(Horario.Ths,"ms");
@@ -304,24 +302,23 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	$(e).find('.edificio').removeClass().addClass('label label-info edificio');
 	if (tiempos.enEdificio<6*60*60*1000)
 		$(e).find('.edificio').removeClass().addClass('label label-danger edificio');
-	
 	if (compensa>0)
 		$(e).find('.compensacion').html(formatearHora(compensa));
 	else
-	        $(e).find('.compensacion').html(formatearHora(0));
+		$(e).find('.compensacion').html(formatearHora(0));
 	if (boleta>0){
 		$(e).find('.boleta').html(formatearHora(boleta));
-	        $(e).find('.boleta').removeClass().addClass('label label-danger boleta');
+		$(e).find('.boleta').removeClass().addClass('label label-danger boleta');
 	}else{
 		$(e).find('.boleta').html(formatearHora(0));
 		$(e).find('.boleta').removeClass().addClass('boleta');
 	}
 	$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
-	
 	var j =$(elemento).find('.resumen div.box-header .box-title')[0];
 	//console.log(j);
 	$(j).html('Resumen del día( '+infoComputada+')');
 }
+
 function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
 	var boleta=0;
 	if (salida > salida2) 		
@@ -344,6 +341,7 @@ function obtenerComision(e){
 	}	
 	return r;
 }
+
 function SetearComision(e,v,dia){
 	var d =$(e).find('.resumen');
 	var el =$(d).find('table tbody tr');
@@ -356,7 +354,6 @@ function SetearComision(e,v,dia){
 		ob.attr("dataDate",n+dia+'comision');
 	}
 }	
-
 
 function compensacion(tiempos,horaIngreso, Horario, TLibre){
 	var compensa=0;
@@ -573,32 +570,37 @@ function asistencia(){
 }
 
 function mostraDatosComp(n,d,cell,i){
-	  k=getCookie(n+d.day(i).format('DD-MM-YYYY'));
-	  compensa=0;
-	  if (k!==''){
-			compensa=(1*k);
-	  }
-	 s=cell.html();
-	 cell.html(s+'<br/>Comp: '+formatearHora(compensa));
-	 return compensa;
+	k=getCookie(n+d.day(i).format('DD-MM-YYYY'));
+	compensa=0;
+	if (k!==''){
+		compensa=(1*k);
+	}
+	s=cell.html();
+	cell.html(s+'<br/>Comp: '+formatearHora(compensa));
+	return compensa;
 }
 
 function mostraDatosEnEdif(n,d,cell,i){
-	  Edif=0;
-	  k2=getCookie(n+d.day(i).format('DD-MM-YYYY')+'enEdificio');
-	  if (k2!==''){
-			Edif=(1*k2);
-	  }
-	  s=cell.html();
-	  cell.html(s+'<br/>en Edif: '+formatearHora(Edif));
-	  return Edif;
+	Edif=0;
+	k2=getCookie(n+d.day(i).format('DD-MM-YYYY')+'enEdificio');
+	if (k2!==''){
+		Edif=(1*k2);
+	}
+	s=cell.html();
+	cell.html(s+'<br/>en Edif: '+formatearHora(Edif));
+	return Edif;
 }
 
 function parpadear(){ 
-    $("#chat-message-audio")[0].play();
-    $(".chau").fadeIn(350).delay(150).fadeOut(350, parpadear);
+    //$("#chat-message-audio")[0].play();
+	$(".chau").fadeIn(350).delay(150).fadeOut(350, parpadear);
 }
-
+function SonidoView()
+{	
+	$($("#chat-message-audio")[0]).attr('src',server+'sonido.mp3');
+	$("#chat-message-audio")[0].load();
+	$("#chat-message-audio")[0].play();
+}
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
