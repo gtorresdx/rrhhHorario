@@ -304,7 +304,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(e).find('.boleta').removeClass().addClass('boleta');
 	}
 	$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
-	console.log($(d).find('h3.box-title')[0]);
+	console.log($(d).find('box-title'));
 	$($(d).find('h3.box-title')[0]).html('Resumen del día( '+infoComputada+')');
 }
 function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
