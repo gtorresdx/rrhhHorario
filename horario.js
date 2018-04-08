@@ -347,16 +347,26 @@ function SetearComision(e,v,dia){
 
 function compensacion(tiempos,horaIngreso, Horario, TLibre){
 	var compensa=0;
-	if(tiempos.total>0){
-    	if (tiempos.falta <= 0 && tiempos.fuera <= TLibre && tiempos.enEdificio >(Horario.Ths-TLibre)  ){
-    		compensa = tiempos.total-Horario.Ths;
-    		if (compensa< 0 )
-    			compensa = 0;
-    	}else
-    	    { 
-    		compensa = tiempos.total-Horario.Ths - (tiempos.fuera- TLibre);
-    	    }
+	var comision=getCookie(n+dia+'comision');
+	switch (comision) {
+            case 'Salida':
+			//si la comisión es de entrada tomo el horario administrativo.
+			var compensa=0;
+			break;
+			default:
+			if(tiempos.total>0){
+				if (tiempos.falta <= 0 && tiempos.fuera <= TLibre && tiempos.enEdificio >(Horario.Ths-TLibre)  ){
+					compensa = tiempos.total-Horario.Ths;
+					if (compensa< 0 )
+						compensa = 0;
+				}else
+					{ 
+					compensa = tiempos.total-Horario.Ths - (tiempos.fuera- TLibre);
+					}
+			}
+			
 	}
+	
 	//*** 
 	var Tope=2*60*60*1000;// 2hs
 	if(Horario.Ths>=8*60*60*1000)
