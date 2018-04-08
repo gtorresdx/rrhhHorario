@@ -350,8 +350,10 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre){
 	var comision=getCookie(n+dia+'comision');
 	switch (comision) {
             case 'Salida':
-			//si la comisión es de entrada tomo el horario administrativo.
-			var compensa=0;
+				compensa=0;
+			break;
+			case 'Día':
+				compensa=0;
 			break;
 			default:
 			if(tiempos.total>0){
