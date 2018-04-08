@@ -23,6 +23,12 @@ function _Horario(){
 		});	
 		$.getScript(server+ "jquery-clock-timepicker.min.js",function(){
 			$('.boletaInst').clockTimePicker();
+			$('.boletaInst').on("change",function(){
+				//console.log('dataDate->'+$(this).attr("dataDate"));
+				//console.log('val->'+$(this).val());
+				setCookie($(this).attr("dataDate"), $(this).val(), 60);
+				calcular(Horario,TLibre);
+			});	
 		});
     });
 }
@@ -252,6 +258,9 @@ function Cargarformulario(elemento,f){
 		//console.log('nombre->'+n);
 		var v=getCookie(n+f+'comision');
 		SetearComision(elemento,v,f);
+		
+		var v1=getCookie(n+f+'boleta');
+		SetearComision(elemento,v1,f);
 		BotonSonidoView();
 	}
 }
@@ -356,6 +365,29 @@ function SetearComision(e,v,dia){
 		n=nombreUsuario();
 		//console.log(n+dia+'comision');
 		ob.attr("dataDate",n+dia+'comision');
+	}
+}	
+function obtenerBoleta(e){
+	var r='';
+	var d =$(e).find('.resumen');
+	var el =$(d).find('table tbody tr');
+	if ( !el.length===0){
+		var ob=$(el).find('.boletaInst');
+		r=ob.val();
+	}	
+	return r;
+}
+
+function SetearBoleta(e,v,dia){
+	var d =$(e).find('.resumen');
+	var el =$(d).find('table tbody tr');
+	if (el.length!==0){
+		var ob=$(el).find('.boletaInst');
+		//console.log(v);
+		ob.val(v);
+		n=nombreUsuario();
+		//console.log(n+dia+'comision');
+		ob.attr("dataDate",n+dia+'boleta');
 	}
 }	
 
