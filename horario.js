@@ -197,12 +197,12 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia) {
 	console.log(comision);
     if(fichadas.length>0){
 		switch (comision) {
-            case 'Entrada':
+            //case 'Entrada':
 			// fichadas[0] = {
 				// "fichada": Horario.horarioIngreso,
 				// "tipo": "Entrada"
 			// };
-			break;
+			//break;
 			default:
 			// Substituyo la primer fichada por la hora de ingreso computable
 			fichadas[0] = {
@@ -306,7 +306,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
 	
 	var j =$(elemento).find('.resumen div.box-header .box-title')[0];
-	console.log(j);
+	//console.log(j);
 	$(j).html('Resumen del día( '+infoComputada+')');
 }
 function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
