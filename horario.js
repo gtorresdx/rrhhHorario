@@ -46,7 +46,7 @@ function calcular(Horario,TLibre) {
             case 2:
                 fichadas = obtenerFichadas(e);
 				if (fichadas.length>0){
-					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,e);
+					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia);
 					var infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
 					Cargarformulario(e,dia);
 					mostrar(tiempos, e, infoComputada,horaIngreso, Horario,TLibre);
@@ -66,7 +66,7 @@ function calcular(Horario,TLibre) {
             case 5:
                 fichadas = obtenerFichadas(e);
 				if (fichadas.length>0){	
-					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,e);
+					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia);
 					var  infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
 					Cargarformulario(e,dia);
 					mostrar(tiempos, e, infoComputada,horaIngreso,Horario,TLibre);
@@ -179,11 +179,11 @@ function obtenerFichadas(elemento) {
     return fichadas;
 }
 
-function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,e) {
+function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia) {
     var diff = 0;
     var total =0;
     var falta = 0;
-	var comision=obtenerComision(e);
+	var comision=getCookie(n+dia+'comision');
 	console.log(comision);
     if(fichadas.length>0){
 		switch (comision) {
@@ -201,8 +201,7 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,e) {
 			};
 			
 		}
-        
-        
+               
     
         for (var i = 1; i < fichadas.length; i += 2) {
             diff += moment.duration(fichadas[i].fichada.diff(fichadas[i-1].fichada));
