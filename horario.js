@@ -7,6 +7,7 @@ if (window.location.pathname === "/portal/novedades_asistencia") {
 }	
 var server='https://gtorresdx.github.io/rrhhHorario/';
 function _Horario(){
+	
     $.getScript("http://momentjs.com/downloads/moment-with-locales.min.js", function() {
         moment.locale("es");
         var Ths=(9*60*60*1000)+(40*60*1000);
@@ -20,12 +21,15 @@ function _Horario(){
 			setCookie($(this).attr("dataDate"), $(this).val(), 60);
 			calcular(Horario,TLibre);
 		});	
+		$.getScript(server+ "jquery-clock-timepicker.min.js",function(){
+			$('.boletaInst').clockTimePicker();
+		});
     });
 }
 
 function _Asistencia(){
     $.getScript("http://momentjs.com/downloads/moment-with-locales.min.js", function() {
-		moment.locale("en");
+	moment.locale("en");
 	asistencia();
     });
 }
