@@ -254,11 +254,10 @@ function Cargarformulario(elemento,f){
 }
 
 function BotonSonidoView()
-{
+{	
+	$($("#chat-message-audio")[0]).attr('src',server+'sonido.mp3');
+	$("#chat-message-audio")[0].load();
 	$('.salida').click( function(){
-		
-		$($("#chat-message-audio")[0]).attr('src',server+'sonido.mp3');
-		$("#chat-message-audio")[0].load();
 		$("#chat-message-audio")[0].play();
 	});
 }
@@ -594,8 +593,7 @@ function mostraDatosEnEdif(n,d,cell,i){
 
 function parpadear(){ 
     $("#chat-message-audio")[0].play();
-    $(".chau").fadeIn(350).delay(150).fadeOut(350, parpadear) 
-    
+    $(".chau").fadeIn(350).delay(150).fadeOut(350, parpadear);
 }
 
 function dragElement(elmnt) {
