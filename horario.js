@@ -255,9 +255,12 @@ function Cargarformulario(elemento,f){
 
 function BotonSonidoView()
 {	
-	$($("#chat-message-audio")[0]).attr('src',server+'sonido.mp3');
+	
 	$("#chat-message-audio")[0].load();
 	$('.salida').click( function(){
+		console.log('click');
+		$($("#chat-message-audio")[0]).attr('src',server+'sonido.mp3');
+		$("#chat-message-audio")[0].load();
 		$("#chat-message-audio")[0].play();
 	});
 }
