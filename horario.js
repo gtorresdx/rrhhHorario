@@ -304,8 +304,8 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(e).find('.boleta').removeClass().addClass('boleta');
 	}
 	$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
-	console.log($(d).find('.box-header .box-title'));
-	$($(d).find('.box-header .box-title')[0]).html('Resumen del día( '+infoComputada+')');
+	console.log($(elemento).find('.resumen div.box-header .box-title'));
+	$($(elemento).find('.resumendiv.box-header .box-title')[0]).html('Resumen del día( '+infoComputada+')');
 }
 function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
 	var boleta=0;
