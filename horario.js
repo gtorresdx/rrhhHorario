@@ -102,14 +102,24 @@ function obtenerHoraIngreso(elemento) {
 		console.log('Error en obtenerHoraIngreso (Primera Fichada)');
 		console.log(err);
 	}
-        
-	if(EsControlable())
-		if (primerFichada > horarioAdm) {
-			return primerFichada;
-		} else {
+	var comision=getCookie(n+dia+'comision');
+    switch (comision) {
+            case 'Entrada':
+			//si la comisión es de entrada tomo el horario administrativo.
 			return horarioAdm;
-		}
-	else{ return primerFichada}
+			break;
+			default:
+			// Substituyo la primer fichada por la hora de ingreso computable
+			if(EsControlable())
+				if (primerFichada > horarioAdm) {
+					return primerFichada;
+				} else {
+					return horarioAdm;
+				}
+			else{ return primerFichada}
+			
+	}
+	
 }
 
 function obtenerHorario(ThsDefault) {
@@ -188,10 +198,10 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia) {
     if(fichadas.length>0){
 		switch (comision) {
             case 'Entrada':
-			fichadas[0] = {
-				"fichada": Horario.horarioIngreso,
-				"tipo": "Entrada"
-			};
+			// fichadas[0] = {
+				// "fichada": Horario.horarioIngreso,
+				// "tipo": "Entrada"
+			// };
 			break;
 			default:
 			// Substituyo la primer fichada por la hora de ingreso computable
