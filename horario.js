@@ -249,13 +249,14 @@ function Cargarformulario(elemento,f){
 		//console.log('nombre->'+n);
 		var v=getCookie(n+f+'comision');
 		SetearComision(elemento,v,f);
+		BotonSonidoView();
 	}
 }
 
 function BotonSonidoView()
 {
 	$('.salida').click( function(){
-		($("#chat-message-audio")[0]).attr('src',server+'sonido.mps');
+		($("#chat-message-audio")[0]).attr('src',server+'sonido.mp3');
 		$("#chat-message-audio")[0].load();
 		$("#chat-message-audio")[0].play();
 	});
