@@ -305,7 +305,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	}
 	$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
 	console.log($(elemento).find('.resumen div.box-header .box-title'));
-	$($(elemento).find('.resumendiv.box-header .box-title')[0]).html('Resumen del día( '+infoComputada+')');
+	$(elemento).find('.resumendiv.box-header .box-title')[0].html('Resumen del día( '+infoComputada+')');
 }
 function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
 	var boleta=0;
