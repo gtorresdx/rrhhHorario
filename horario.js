@@ -237,11 +237,11 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia) {
         }
         total = moment.duration(ultima.diff(fichadas[0].fichada));
     }
-	var boleta=getCookie(n+dia+'botela');
+	var boleta=getCookie(n+dia+'boleta');
 	var mboleta=moment(boleta,'HH:mm');
 	var zero = moment('00:00','HH:mm');
 	var duration = moment.duration(mboleta.diff(zero));
-	console.log(boleta)
+	console.log(boleta);
 	console.log(mboleta);
 	console.log(zero);
 	console.log(formatearHora(duration));
