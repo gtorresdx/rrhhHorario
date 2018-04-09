@@ -338,7 +338,7 @@ function CalcualarBoleta(salida,salida2,fuera,TLibre,tiempos,Horario){
 	if (salida > salida2) 		
 				boleta = fuera-TLibre;
 			else
-				boleta =tiempos.total-Horario.Ths;
+				boleta =Horario.Ths-tiempos.enEdificio;
 	if (boleta>0)
 			return boleta;
 		else
