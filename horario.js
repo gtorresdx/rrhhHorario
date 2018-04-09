@@ -237,18 +237,7 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia) {
         }
         total = moment.duration(ultima.diff(fichadas[0].fichada));
     }
-	var boleta=getCookie(n+dia+'boleta');
-	if (boleta!==''){		
-		var mboleta=moment(boleta,'HH:mm');
-		var zero = moment('00:00','HH:mm');
-		var duration = moment.duration(mboleta.diff(zero));
-		console.log(boleta);
-		console.log(mboleta);
-		console.log(zero);
-		console.log(formatearHora(duration));
-		console.log(duration);
-		diff+=duration;
-	}
+	
     return {"enEdificio": diff, "fuera": total - diff, "falta": falta, "total": total};
 }
 
@@ -426,7 +415,18 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre){
 			}
 			
 	}
-	
+	var boleta=getCookie(n+dia+'boleta');
+	if (boleta!==''){		
+		var mboleta=moment(boleta,'HH:mm');
+		var zero = moment('00:00','HH:mm');
+		var duration = moment.duration(mboleta.diff(zero));
+		console.log(boleta);
+		console.log(mboleta);
+		console.log(zero);
+		console.log(formatearHora(duration));
+		console.log(duration);
+		compensa+=duration;
+	}
 	//*** 
 	var Tope=2*60*60*1000;// 2hs
 	if(Horario.Ths>=8*60*60*1000)
