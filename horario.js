@@ -381,16 +381,12 @@ function obtenerBoleta(e){
 function obtenerBoletaDuration(e){
 	var zero = moment('00:00','HH:mm');
 	var r=moment.duration(zero.diff(zero));;
-	var d =$(e).find('.resumen');
-	var el =$(d).find('table tbody tr');
-	if ( !el.length===0){
-		var ob=$(el).find('.boletaInst');
-		b=ob.val();
-		if (b!==''){		
-			var mboleta=moment(b,'HH:mm');
+	var boleta=getCookie(n+dia+'boleta');
+	if (boleta!==''){
+			var mboleta=moment(boleta,'HH:mm');
 			var duration = moment.duration(mboleta.diff(zero));
 			r=duration;
-		}
+		
 	}	
 	console.log(r);
 	return r;
