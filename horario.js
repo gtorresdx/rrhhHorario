@@ -338,7 +338,7 @@ function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
 	if (salida > salida2) 		
 				boleta = fuera-TLibre;
 			else
-				boleta = -1*compensa;
+				boleta = (-1*compensa)+obtenerBoletaDuration();
 	if (boleta>0)
 			return boleta;
 		else
@@ -386,9 +386,8 @@ function obtenerBoletaDuration(e){
 			var mboleta=moment(boleta,'HH:mm');
 			var duration = moment.duration(mboleta.diff(zero));
 			r=duration;
-		
 	}	
-	console.log(r);
+	//console.log(r);
 	return r;
 }
 
@@ -430,16 +429,7 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre){
 	}
 	var boleta=getCookie(n+dia+'boleta');
 	if (boleta!==''){		
-		// var mboleta=moment(boleta,'HH:mm');
-		// var zero = moment('00:00','HH:mm');
-		// var duration = moment.duration(mboleta.diff(zero));
-		// console.log(boleta);
-		// console.log(mboleta);
-		// console.log(zero);
-		// console.log(formatearHora(duration));
-		// console.log(duration);
 		var bole=obtenerBoletaDuration();
-		//console.log(bole);
 		compensa+=bole;
 	}
 	
