@@ -260,7 +260,7 @@ function Cargarformulario(elemento,f){
 		SetearComision(elemento,v,f);
 		
 		var v1=getCookie(n+f+'boleta');
-		SetearComision(elemento,v1,f);
+		SetearBoleta(elemento,v1,f);
 		BotonSonidoView();
 	}
 }
