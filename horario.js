@@ -338,7 +338,7 @@ function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
 	if (salida > salida2) 		
 				boleta = fuera-TLibre;
 			else
-				boleta = -1*compensa-obtenerBoletaDuration();
+				boleta = -1*compensa;
 	if (boleta>0)
 			return boleta;
 		else
@@ -439,7 +439,7 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre){
 		// console.log(formatearHora(duration));
 		// console.log(duration);
 		var bole=obtenerBoletaDuration();
-		console.log(bole);
+		//console.log(bole);
 		compensa+=bole;
 	}
 	
