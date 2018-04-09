@@ -242,7 +242,7 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia) {
 	var zero = moment('00:00','HH:mm');
 	var duration = moment.duration(mboleta.diff(zero));
 	console.log(formatearHora(duration));
-	console.log(duration.format('HH:mm'));
+	console.log(duration);
     return {"enEdificio": diff, "fuera": total - diff, "falta": falta, "total": total};
 }
 
