@@ -392,6 +392,7 @@ function obtenerBoletaDuration(e){
 			r=duration;
 		}
 	}	
+	console.log(r);
 	return r;
 }
 
@@ -441,7 +442,9 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre){
 		// console.log(zero);
 		// console.log(formatearHora(duration));
 		// console.log(duration);
-		compensa+=obtenerBoletaDuration();
+		var bole=obtenerBoletaDuration();
+		console.log(bole);
+		compensa+=bole;
 	}
 	
 	//*** 
@@ -451,6 +454,7 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre){
 	if (compensa > Tope)
 		compensa=Tope;
 	//***	
+	
 	return compensa;
 }
 
