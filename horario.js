@@ -608,9 +608,22 @@ function historicoSemana(dia,elemento){
                 msj2+='	</a>';
 		msj2+='</div>';    
                }else{
-               msj2+='<a href="javascript:ProcesarDia(\''+d.day(i).format('DD-MM-YYYY')+'\')">'+d.day(i).format('dddd');
-               msj2+=' '+formatearHora(0);
-               msj2+='</a>';	     
+               //msj2+='<a href="javascript:ProcesarDia(\''+d.day(i).format('DD-MM-YYYY')+'\')">'+d.day(i).format('dddd');
+               //msj2+=' '+formatearHora(0);
+               //msj2+='</a>';	     
+	        msj2+='<div class="box-header with-border">';
+	        msj2+='	<h3 style="text-align:center;background-color:transparent;color:#444;font-variant:normal;" class="box-title">';	        
+                msj2+=d.day(i).format('dddd');
+		msj2+='	</h3>';
+		msj2+='</div>';
+		msj2+='<div class="box-body" style="text-align:center;">';
+                msj2+=''+formatearHora(0);
+		msj2+='</div>';
+                msj2+='<div style="background:#f4f4f4;font-size:13px;" class="box-footer text-center">'
+		msj2+='	<a href="javascript:ProcesarDia(\''+d.day(i).format('DD-MM-YYYY')+'\')"> Actualizar';
+                msj2+='		<i class="fa fa-refresh"></i>';
+                msj2+='	</a>';	
+		msj2+='</div>';
                }
             //msj2+='; ';
 	    msj2+='</div>';
