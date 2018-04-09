@@ -284,7 +284,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		var salida2 = horaIngreso.add(Horario.Ths,"ms");
 	
 		if ((salida > salida2 || compensa<0) && (tiempos.enEdificio>6*60*60*1000)) {	
-			boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
+			boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,tiempos,Horario);
 			if (salida > salida2)
 				salida = salida2;
 		}else{        
@@ -308,7 +308,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		salida = horaIngreso.add(tiempos.total.asMilliseconds(),"ms");
 		salida2 = d.add(Horario.Ths,"ms");
 		if ((salida > salida2 || compensa<0) && tiempos.enEdificio>6*60*60*1000){			
-			boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,compensa);
+			boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,tiempos,Horario);
 		}
 	}
 	$(e).find('.fuera').html(formatearHora(tiempos.fuera));
@@ -333,12 +333,12 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	$(j).html('Resumen del día( '+infoComputada+')');
 }
 
-function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
+function CalcualarBoleta(salida,salida2,fuera,TLibre,tiempos,Horario){
 	var boleta=0;
 	if (salida > salida2) 		
 				boleta = fuera-TLibre;
 			else
-				boleta = (-1*compensa)+obtenerBoletaDuration();
+				boleta =tiempos.total-Horario.Ths;
 	if (boleta>0)
 			return boleta;
 		else
