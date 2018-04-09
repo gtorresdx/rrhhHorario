@@ -1,4 +1,4 @@
-//V 2.8 2018-03-27
+//V 3.0 2018-04-09
 if (window.location.pathname === "/portal/mis_fichadas") {
 	_Horario();
 }	
