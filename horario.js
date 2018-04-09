@@ -311,6 +311,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 			boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,tiempos,Horario);
 		}
 	}
+	boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,tiempos,Horario);
 	$(e).find('.fuera').html(formatearHora(tiempos.fuera));
 	$(e).find('.edificio').html('<i class="fa fa-home"></i> '+formatearHora(tiempos.enEdificio));
 	$(e).find('.edificio').removeClass().addClass('label label-info edificio');
@@ -549,7 +550,7 @@ function historicoSemana(dia,elemento){
             if (k!==''){                
 	        compensa+=(1*k);
                 if(d.day(i)<hoy)
-				comp+=(1*k);
+		comp+=(1*k);
 	        msj+='<div class="box-header with-border">';
 	        msj+='	<h3 style="text-align:center;background-color:transparent;color:#444;font-variant:normal;" class="box-title">';	        
                 msj+=d.day(i).format('dddd');
@@ -567,6 +568,11 @@ function historicoSemana(dia,elemento){
                 //msj+='<a href="javascript:ProcesarDia(\''+d.day(i).format('DD-MM-YYYY')+'\')">'+d.day(i).format('dddd');
                 //msj+=' '+formatearHora(0);
                 //msj+='</a>';
+		msj+='<div class="box-header with-border">';
+	        msj+='	<h3 style="text-align:center;background-color:transparent;color:#444;font-variant:normal;" class="box-title">';	        
+                msj+=d.day(i).format('dddd');
+		msj+='	</h3>';
+		msj+='</div>';
 		msj+='<div class="box-body" style="text-align:center;">';
                 msj+=''+formatearHora(0);
 		msj+='</div>';
