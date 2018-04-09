@@ -25,7 +25,7 @@ function _Horario(){
 			$('.boletaInst').clockTimePicker();
 			$('.boletaInst').on("change",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
-				//console.log('val->'+$(this).val());
+				console.log('fecha');
 				setCookie($(this).attr("dataDate"), $(this).val(), 60);
 				calcular(Horario,TLibre);
 			});	
