@@ -12,7 +12,7 @@ function _Horario(){
         moment.locale("es");
         var Ths=(9*60*60*1000)+(40*60*1000);
         var Horario= obtenerHorario(Ths);
-		console.log(Horario);
+		//console.log(Horario);
         var TLibre=30*60*1000;
 	    calcular(Horario,TLibre);
 		$('select').on("change",function(){
@@ -25,7 +25,7 @@ function _Horario(){
 			$('.boletaInst').clockTimePicker();
 			$('.boletaInst').on("change",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
-				console.log('fecha');
+				//console.log('fecha');
 				setCookie($(this).attr("dataDate"), $(this).val(), 60);
 				calcular(Horario,TLibre);
 			});	
@@ -203,7 +203,7 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia) {
     var total =0;
     var falta = 0;
 	var comision=getCookie(n+dia+'comision');
-	console.log(comision);
+	//console.log(comision);
     if(fichadas.length>0){
 		switch (comision) {
             //case 'Entrada':
@@ -239,11 +239,10 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia) {
     }
 	var boleta=getCookie(n+dia+'botela');
 	var mboleta=moment(boleta,'HH:mm');
-	var duration = moment.duration({
-		hours : mboleta.format('HH'),
-		minutes : mboleta.format('mm'),
-		});
-		console.log(formatearHora(duration));
+	var zero = moment('00:00','HH:mm');
+	var duration = moment.duration(mboleta.diff(zero));
+	console.log(formatearHora(duration));
+	console.log(duration.format('HH:mm'));
     return {"enEdificio": diff, "fuera": total - diff, "falta": falta, "total": total};
 }
 
@@ -275,7 +274,7 @@ function Cargarformulario(elemento,f){
 function BotonSonidoView()
 {	
 	$('.salida').click( function(){
-		console.log('click');
+		//console.log('click');
 		SonidoView();
 	});
 }
