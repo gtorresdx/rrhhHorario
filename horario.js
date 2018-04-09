@@ -237,6 +237,13 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia) {
         }
         total = moment.duration(ultima.diff(fichadas[0].fichada));
     }
+	var boleta=getCookie(n+dia+'botela');
+	var mboleta=moment(boleta,'HH:mm');
+	var duration = moment.duration({
+		hours : mboleta.format('HH'),
+		minutes : mboleta.format('mm'),
+		});
+		console.log(formatearHora(duration));
     return {"enEdificio": diff, "fuera": total - diff, "falta": falta, "total": total};
 }
 
