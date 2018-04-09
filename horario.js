@@ -585,8 +585,8 @@ function historicoSemana(dia,elemento){
             //msj+='; ';  	    	    	    	    
             msj+='</div>';
 	    msj+='</div>';
-	    msj+='</div>';
-	    msj+='</div>';
+	    //msj+='</div>';
+	    //msj+='</div>';
             //******
 	    msj2+='<div class="col-md-2">';
 	    msj2+='<div class="box box-default">';
