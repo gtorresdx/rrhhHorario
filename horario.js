@@ -338,7 +338,7 @@ function CalcualarBoleta(salida,salida2,fuera,TLibre,compensa){
 	if (salida > salida2) 		
 				boleta = fuera-TLibre;
 			else
-				boleta = -1*compensa;
+				boleta = -1*compensa-obtenerBoletaDuration();
 	if (boleta>0)
 			return boleta;
 		else
@@ -375,6 +375,22 @@ function obtenerBoleta(e){
 	if ( !el.length===0){
 		var ob=$(el).find('.boletaInst');
 		r=ob.val();
+	}	
+	return r;
+}
+function obtenerBoletaDuration(e){
+	var zero = moment('00:00','HH:mm');
+	var r=moment.duration(zero.diff(zero));;
+	var d =$(e).find('.resumen');
+	var el =$(d).find('table tbody tr');
+	if ( !el.length===0){
+		var ob=$(el).find('.boletaInst');
+		b=ob.val();
+		if (b!==''){		
+			var mboleta=moment(b,'HH:mm');
+			var duration = moment.duration(mboleta.diff(zero));
+			r=duration;
+		}
 	}	
 	return r;
 }
@@ -417,16 +433,17 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre){
 	}
 	var boleta=getCookie(n+dia+'boleta');
 	if (boleta!==''){		
-		var mboleta=moment(boleta,'HH:mm');
-		var zero = moment('00:00','HH:mm');
-		var duration = moment.duration(mboleta.diff(zero));
-		console.log(boleta);
-		console.log(mboleta);
-		console.log(zero);
-		console.log(formatearHora(duration));
-		console.log(duration);
-		compensa+=duration;
+		// var mboleta=moment(boleta,'HH:mm');
+		// var zero = moment('00:00','HH:mm');
+		// var duration = moment.duration(mboleta.diff(zero));
+		// console.log(boleta);
+		// console.log(mboleta);
+		// console.log(zero);
+		// console.log(formatearHora(duration));
+		// console.log(duration);
+		compensa+=obtenerBoletaDuration();
 	}
+	
 	//*** 
 	var Tope=2*60*60*1000;// 2hs
 	if(Horario.Ths>=8*60*60*1000)
