@@ -721,6 +721,7 @@ function mostraDatosEnEdif(n,d,cell,i){
 function parpadear(){ 
     //$("#chat-message-audio")[0].play();
 	$(".chau").fadeIn(350).delay(150).fadeOut(350, parpadear);
+	alerta('Horario cumplido','yellow');
 }
 function SonidoView()
 {	
