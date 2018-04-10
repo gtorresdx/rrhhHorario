@@ -298,7 +298,8 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 				parpadear();
 				if (!window.actualizarSonido){
 					SonidoView();
-					window.actualizarSonido = setInterval(SonidoView, 10500);	
+					alerta('Horario cumplido','info')
+					window.actualizarSonido = setInterval(function(){  SonidoView;alerta('Horario cumplido','info');}, 10500);	
 				}
 			}
 		if (!window.actualizarPermanencia)
@@ -721,7 +722,6 @@ function mostraDatosEnEdif(n,d,cell,i){
 function parpadear(){ 
     //$("#chat-message-audio")[0].play();
 	$(".chau").fadeIn(350).delay(150).fadeOut(350, parpadear);
-	alerta('Horario cumplido','yellow');
 }
 function SonidoView()
 {	
