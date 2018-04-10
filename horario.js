@@ -262,7 +262,7 @@ function Cargarformulario(elemento,f){
 		var v1=getCookie(n+f+'boleta');
 		SetearBoleta(elemento,v1,f);
 		BotonSonidoView();
-	        $('.licensia').attr("href",server+'licensia.txt');
+	        $('.licencia').attr("href",server+'License.txt');
 	}
 }
 
