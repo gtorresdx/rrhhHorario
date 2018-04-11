@@ -314,7 +314,9 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	}
 	boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,tiempos,Horario);
 	$(e).find('.fuera').html(formatearHora(tiempos.fuera));
+	$(d).find('.fuera').html(formatearHora(tiempos.fuera));
 	$(e).find('.edificio').html('<i class="fa fa-home"></i> '+formatearHora(tiempos.enEdificio));
+	$(d).find('.edificio').html(formatearHora(tiempos.enEdificio));
 	$(e).find('.edificio').removeClass().addClass('label label-info edificio');
 	if (tiempos.enEdificio<6*60*60*1000)
 		$(e).find('.edificio').removeClass().addClass('label label-danger edificio');
@@ -330,6 +332,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(e).find('.boleta').removeClass().addClass('boleta');
 	}
 	$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
+	$(d).find('.salida').html(salida.format("HH:mm:ss"));
 	var j =$(elemento).find('.resumen div.box-header .box-title')[0];
 	//console.log(j);
 	$(j).html('Resumen del día( '+infoComputada+')');
