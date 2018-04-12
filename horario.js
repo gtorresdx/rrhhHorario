@@ -266,16 +266,16 @@ function Cargarformulario(elemento,f){
 	        /********* Acordeon **********/	
 		$('.close').click(function(e) {
 		    e.preventDefault();
-		    alerta('entra');
+		    alert('entra');
 		    var $this = $(this);
 		    var $datalle=$('#detalle');
-		    if ($this.next().hasClass('show')) {
-			$this.next().removeClass('show');
-			$datalle.next().slideUp(350);
+		    if ($this.hasClass('show')) {
+			$this.removeClass('show');
+			$datalle.slideUp(350);
 			alerta('cierra');
 		    } else {
-			$this.next().toggleClass('show');
-			$datalle.next().slideToggle(350);
+			$this.toggleClass('show');
+			$datalle.slideToggle(350);
 			alerta('abre');
 		    }
 		});
