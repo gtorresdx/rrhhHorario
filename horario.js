@@ -264,10 +264,25 @@ function Cargarformulario(elemento,f){
 		BotonSonidoView();
 	        $('.licencia').attr("href",server+'License.txt');
 	        /********* Acordeon **********/	
-		$('.close').click(function(e) {
+		$('.detalleDia').click(function(e) {
 		    e.preventDefault();
 		    var $this = $(this);
-		    var $datalle=$('#detalle');
+		    var $datalle=$('#detalleDia');
+		    if ($this.hasClass('show')) {
+			$this.removeClass('show');
+			$this.html('<i class="fa fa-plus"></i>');
+			$datalle.slideUp(350);
+		    } else {
+			$this.toggleClass('show');
+			$this.html('<i class="fa fa-minus"></i>');
+			$datalle.slideToggle(350);
+			alerta('Detalle de comisión y bolteta.','info');
+		    }
+		});
+	        $('.detalleSemana').click(function(e) {
+		    e.preventDefault();
+		    var $this = $(this);
+		    var $datalle=$('#detalleSemana');
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
 			$this.html('<i class="fa fa-plus"></i>');
