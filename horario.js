@@ -276,7 +276,7 @@ function Cargarformulario(elemento,f){
 			$this.toggleClass('show');
 			$this.html('<i class="fa fa-minus"></i>');
 			$datalle.slideToggle(350);
-			alerta('Detalle de comisión y bolteta.','info');
+			alerta('Detalle del día de comisión y bolteta.','info');
 		    }
 		});
 	        $('.detalleSemana').click(function(e) {
@@ -291,7 +291,7 @@ function Cargarformulario(elemento,f){
 			$this.toggleClass('show');
 			$this.html('<i class="fa fa-minus"></i>');
 			$datalle.slideToggle(350);
-			alerta('Detalle de comisión y bolteta.','info');
+			alerta('Detalle de la semana.','info');
 		    }
 		});
 	}
