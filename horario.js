@@ -353,11 +353,11 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	$(e).find('.edificio').removeClass().addClass('label label-info edificio');
 	if (tiempos.enEdificio<6*60*60*1000)
 		$(e).find('.edificio').removeClass().addClass('label label-danger edificio');
-	if (compensa>0)
-		$(e).find('.compensacion').html(formatearHora(compensa));
-	else
-		$(e).find('.compensacion').html(formatearHora(0));
+	
+	(e).find('.compensacion').html(formatearHora(compensa));
+	
 	if (boleta>0){
+		$(e).find('span.boleta').html(formatearHora(boleta));
 		$(e).find('.boleta').html(formatearHora(boleta));
 		$(e).find('.boleta').removeClass().addClass('label label-danger boleta');
 	}else{
