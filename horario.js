@@ -271,10 +271,12 @@ function Cargarformulario(elemento,f){
 		    var $datalle=$('#detalle');
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
+			$this.html('<i class="fa fa-plus"></i>');
 			$datalle.slideUp(350);
 			alerta('cierra');
 		    } else {
 			$this.toggleClass('show');
+			$this.html('<i class="fa fa-minus"></i>');
 			$datalle.slideToggle(350);
 			alerta('abre');
 		    }
