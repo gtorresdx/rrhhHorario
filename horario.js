@@ -779,7 +779,7 @@ function dragElement(elmnt) {
 /********* Acordeon **********/	
 $('.close').click(function(e) {
     e.preventDefault();
-   
+    alerta('entra');
     var $this = $(this);
     var $datalle=$('#detalle');
     if ($this.next().hasClass('show')) {
