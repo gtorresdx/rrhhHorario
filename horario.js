@@ -776,6 +776,7 @@ function dragElement(elmnt) {
     document.onmouseup = null;
     document.onmousemove = null;
   }
+}
 /********* Acordeon **********/	
 $('.close').click(function(e) {
     e.preventDefault();
@@ -792,6 +793,4 @@ $('.close').click(function(e) {
 	alerta('abre');
     }
 });
-}
-
 
