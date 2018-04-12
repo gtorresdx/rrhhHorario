@@ -206,18 +206,18 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia) {
 	//console.log(comision);
     if(fichadas.length>0){
 		switch (comision) {
-            //case 'Entrada':
-			// fichadas[0] = {
-				// "fichada": Horario.horarioIngreso,
-				// "tipo": "Entrada"
-			// };
-			//break;
-			default:
-			// Substituyo la primer fichada por la hora de ingreso computable
-			fichadas[0] = {
+                //case 'Entrada':
+		// fichadas[0] = {
+		// "fichada": Horario.horarioIngreso,
+		// "tipo": "Entrada"
+		// };
+		//break;
+		default:
+		// Substituyo la primer fichada por la hora de ingreso computable
+		fichadas[0] = {
 				"fichada": horaIngreso,
 				"tipo": "Entrada"
-			};
+		};
 			
 		}
                
@@ -263,6 +263,22 @@ function Cargarformulario(elemento,f){
 		SetearBoleta(elemento,v1,f);
 		BotonSonidoView();
 	        $('.licencia').attr("href",server+'License.txt');
+	        /********* Acordeon **********/	
+		$('.close').click(function(e) {
+		    e.preventDefault();
+		    alerta('entra');
+		    var $this = $(this);
+		    var $datalle=$('#detalle');
+		    if ($this.next().hasClass('show')) {
+			$this.next().removeClass('show');
+			$datalle.next().slideUp(350);
+			alerta('cierra');
+		    } else {
+			$this.next().toggleClass('show');
+			$datalle.next().slideToggle(350);
+			alerta('abre');
+		    }
+		});
 	}
 }
 
@@ -777,20 +793,5 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
-/********* Acordeon **********/	
-$('.close').click(function(e) {
-    e.preventDefault();
-    alerta('entra');
-    var $this = $(this);
-    var $datalle=$('#detalle');
-    if ($this.next().hasClass('show')) {
-        $this.next().removeClass('show');
-        $datalle.next().slideUp(350);
-	alerta('cierra');
-    } else {
-        $this.next().toggleClass('show');
-        $datalle.next().slideToggle(350);
-	alerta('abre');
-    }
-});
+
 
