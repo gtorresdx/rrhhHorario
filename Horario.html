@@ -7,7 +7,7 @@
 		<div class="col-xs-12">
 			<div class="box box-success">
 				<div class="box-header">
-					<button type="button"  class="close" style="color:#000;font-weight:normal;" title="Ver detalle de comisió y boleta"><i class="fa fa-plus"></i></button>
+					<button type="button"  class="close detalleDia" style="color:#000;font-weight:normal;" title="Ver detalle de comisió y boleta"><i class="fa fa-plus"></i></button>
 					<h3 class="box-title" style="background-color:transparent;color:#444;font-variant:normal;">Resumen del día</h3>
 				</div>            
 				<div class="box-body">
@@ -64,7 +64,7 @@
 					    	<!-- fix for small devices only -->
 					    	<div class="clearfix visible-sm-block"></div>
 					</div>	
-					<div id="detalle" class="collapse">
+					<div id="detalleSemana" class="collapse">
 					  <table id="tdia" class="table table-bordered table-hover">
 							<thead>
 								<tr>
@@ -125,6 +125,7 @@
 		<div class="col-xs-12">
 			<div class="box box-success">
 				<div class="box-header">
+					<button type="button"  class="close detalleSemana" style="color:#000;font-weight:normal;" title="Ver detalle de comisió y boleta"><i class="fa fa-plus"></i></button>
 					<h3 class="box-title" style="background-color:transparent;color:#444;font-variant:normal;">Resumen de la Semana</h3>
 				</div>            
 				<div class="box-body">
@@ -157,10 +158,12 @@
 					    	<!-- fix for small devices only -->
 					    	<div class="clearfix visible-sm-block"></div>
 					</div>	
-					<fieldset>
-                				<legend><label style="background-color:transparent;color:#444;font-variant:normal;font-size:15px">Historial Compensación</label></legend>
-						<span class="hist"></span>
-					</fieldset>					
+					<div id="detalleSemana" class="collapse">
+						<fieldset>
+							<legend><label style="background-color:transparent;color:#444;font-variant:normal;font-size:15px">Historial Compensación</label></legend>
+							<span class="hist"></span>
+						</fieldset>
+					</div>
 				</div>            
 			</div>        
 		</div> 
