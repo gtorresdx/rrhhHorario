@@ -291,7 +291,7 @@ function Cargarformulario(elemento,f){
 			$this.toggleClass('show');
 			$this.html('<i class="fa fa-minus"></i>');
 			$datalle.slideToggle(350);
-			alerta('Detalle de la semana.','info');
+			//alerta('Detalle de la semana.','info');
 		    }
 		});
 	}
