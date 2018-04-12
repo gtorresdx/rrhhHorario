@@ -266,19 +266,17 @@ function Cargarformulario(elemento,f){
 	        /********* Acordeon **********/	
 		$('.close').click(function(e) {
 		    e.preventDefault();
-		    alert('entra');
 		    var $this = $(this);
 		    var $datalle=$('#detalle');
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
 			$this.html('<i class="fa fa-plus"></i>');
 			$datalle.slideUp(350);
-			alerta('cierra');
 		    } else {
 			$this.toggleClass('show');
 			$this.html('<i class="fa fa-minus"></i>');
 			$datalle.slideToggle(350);
-			alerta('abre');
+			alerta('Detalle de comisión y bolteta.','info');
 		    }
 		});
 	}
