@@ -7,6 +7,7 @@
 		<div class="col-xs-12">
 			<div class="box box-success">
 				<div class="box-header">
+					<a href="#" class="close" style="color:#ffffff;font-weight:normal;"><i class="fa fa-times"></i></a>
 					<h3 class="box-title" style="background-color:transparent;color:#444;font-variant:normal;">Resumen del día</h3>
 				</div>            
 				<div class="box-body">
@@ -63,62 +64,58 @@
 					    	<!-- fix for small devices only -->
 					    	<div class="clearfix visible-sm-block"></div>
 					</div>	
-					<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
-					  <div id="demo" class="collapse in">
-					    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-					    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					  </div>
-					<table id="tdia" class="table table-bordered table-hover">
-						<thead>
-							<tr>
-								<th style="text-align:center;">Fuera</th>
-								<th style="text-align:center;">Comisión</th>
-								<th style="text-align:center;">Pedir boleta de</th>
-								<th style="text-align:center;">Compensación</th>
-								<th style="text-align:center;">En Edificio</th>
-								<th style="text-align:center;">Salida</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td style="text-align:center;">
-									<span class="fuera"> 12:00</span>
-								</td>
-								<td style="text-align:center;">
-									<select class="form-control input-sm comision" >
-									       <option>-----</option>
-									       <option>Entrada</option>
-									       <option>Salida</option>
-									       <option>Día</option>
-								       </select>
-								</td>
-								<td style="text-align:center;">
-									<table style="width:300px">
-										<tr>
-											<td>Salida</td>
-											<td>Sistema</td>
-											<td>Solicitada</td>
-										</tr>
-										<tr>
-											<td><input class="form-control input-sm boletaHora" type="text" style="text-align:center;" value="" placeholder="Hora"  /></td>
-											<td><span class="boleta"> 00:00</span></td>
-											<td><input class="form-control input-sm boletaInst" type="text" style="text-align:center;" value="" placeholder="Tiempo"  /></td>
-										</tr>
-									</table>
-								</td>
-								<td style="text-align:center;">
-									<span class="compensacion"> 12:00</span>
-								</td>
-								<td style="text-align:center;">									
-									<span style="padding:5px;font-size:14px;" class="label label-info edificio"><i class="fa fa-home"></i> 12:00</span>									
-								</td>
-								<td style="text-align:center;">
-									<span style="padding:5px;font-size:14px;" class="label label-success salida"><i class="fa fa-sign-out"></i> 12:00</span>
-								</td>
-							</tr>                                
-						</tbody>                
-					</table>
+					<div id="detalle" class="collapse">
+					  <table id="tdia" class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th style="text-align:center;">Fuera</th>
+									<th style="text-align:center;">Comisión</th>
+									<th style="text-align:center;">Pedir boleta de</th>
+									<th style="text-align:center;">Compensación</th>
+									<th style="text-align:center;">En Edificio</th>
+									<th style="text-align:center;">Salida</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="text-align:center;">
+										<span class="fuera"> 12:00</span>
+									</td>
+									<td style="text-align:center;">
+										<select class="form-control input-sm comision" >
+										       <option>-----</option>
+										       <option>Entrada</option>
+										       <option>Salida</option>
+										       <option>Día</option>
+									       </select>
+									</td>
+									<td style="text-align:center;">
+										<table style="width:300px">
+											<tr>
+												<td>Salida</td>
+												<td>Sistema</td>
+												<td>Solicitada</td>
+											</tr>
+											<tr>
+												<td><input class="form-control input-sm boletaHora" type="text" style="text-align:center;" value="" placeholder="Hora"  /></td>
+												<td><span class="boleta"> 00:00</span></td>
+												<td><input class="form-control input-sm boletaInst" type="text" style="text-align:center;" value="" placeholder="Tiempo"  /></td>
+											</tr>
+										</table>
+									</td>
+									<td style="text-align:center;">
+										<span class="compensacion"> 12:00</span>
+									</td>
+									<td style="text-align:center;">									
+										<span style="padding:5px;font-size:14px;" class="label label-info edificio"><i class="fa fa-home"></i> 12:00</span>									
+									</td>
+									<td style="text-align:center;">
+										<span style="padding:5px;font-size:14px;" class="label label-success salida"><i class="fa fa-sign-out"></i> 12:00</span>
+									</td>
+								</tr>                                
+							</tbody>                
+						</table>
+					</div>
 				</div>            
 			</div>        
 		</div> 
