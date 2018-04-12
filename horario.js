@@ -778,16 +778,18 @@ function dragElement(elmnt) {
   }
 /********* Acordeon **********/	
 $('.close').click(function(e) {
-  	e.preventDefault();
-  
+    e.preventDefault();
+   
     var $this = $(this);
     var $datalle=$('#detalle');
     if ($this.next().hasClass('show')) {
         $this.next().removeClass('show');
         $datalle.next().slideUp(350);
+	alerta('cierra');
     } else {
         $this.next().toggleClass('show');
         $datalle.next().slideToggle(350);
+	alerta('abre');
     }
 });
 }
