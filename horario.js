@@ -267,7 +267,7 @@ function Cargarformulario(elemento,f){
 		$('.detalleDia').click(function(e) {
 		    e.preventDefault();
 		    var $this = $(this);
-		    var $datalle=$('#detalleDia');
+		    var $datalle=$this.next();
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
 			$this.html('<i class="fa fa-plus"></i>');
@@ -279,7 +279,7 @@ function Cargarformulario(elemento,f){
 			//alerta('Detalle del día de comisión y bolteta.','info');
 		    }
 		});
-	        $('.detalleSemana').click(function(e) {
+	       /* $('.detalleSemana').click(function(e) {
 		    e.preventDefault();
 		    var $this = $(this);
 		    var $datalle=$('#detalleSemana');
@@ -293,7 +293,7 @@ function Cargarformulario(elemento,f){
 			$datalle.slideToggle(350);
 			//alerta('Detalle de la semana.','info');
 		    }
-		});
+		});*/
 	}
 }
 
