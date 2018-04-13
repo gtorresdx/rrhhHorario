@@ -267,7 +267,7 @@ function Cargarformulario(elemento,f){
 		$('.detalleDia').click(function(e) {
 		    e.preventDefault();
 		    var $this = $(this);
-		    var $datalle=$($(elemento).find('.resumen .collapse')[0]);
+		    var $datalle=$($(elemento).find('.resumen .collapse'));
 		    console.log($datalle);
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
@@ -283,7 +283,7 @@ function Cargarformulario(elemento,f){
 	        $('.detalleSemana').click(function(e) {
 		    e.preventDefault();
 		    var $this = $(this);
-		    var $datalle=$($(elemento).find('.resumen .collapse')[0]);
+		    var $datalle=$($(elemento).find('.resumen .collapse'));
 		    console.log($datalle);
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
