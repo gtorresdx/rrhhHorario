@@ -268,7 +268,7 @@ function Cargarformulario(elemento,f){
 		    e.preventDefault();
 		    var $this = $(this);
 		    var obj=$this.parents("div");
-		    var $datalle=$(obj[0]).next()
+		    var $datalle=$(obj[0]).next());
 		    console.log($datalle);
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
