@@ -272,11 +272,11 @@ function Cargarformulario(elemento,f){
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
 			$this.html('<i class="fa fa-plus"></i>');
-			$datalle.slideUp(350);
+			$this.next().slideUp(350);
 		    } else {
 			$this.toggleClass('show');
 			$this.html('<i class="fa fa-minus"></i>');
-			$datalle.slideToggle(350);
+			$this.next().slideToggle(350);
 			//alerta('Detalle del día de comisión y bolteta.','info');
 		    }
 		});
