@@ -267,8 +267,8 @@ function Cargarformulario(elemento,f){
 		$('.detalleDia').click(function(e) {
 		    e.preventDefault();
 		    var $this = $(this);
-		    var obj=$this.parents("div");
-		    var $datalle=$(obj[0]);
+		    var $datalle=$($(elemento).find('.resumen .collapse')[0]);
+		    
 		    console.log($datalle);
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
