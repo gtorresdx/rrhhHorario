@@ -283,7 +283,7 @@ function Cargarformulario(elemento,f){
 	        $('.detalleSemana').click(function(e) {
 		    e.preventDefault();
 		    var $this = $(this);
-		    var $datalle=$($(elemento).find('.resumen .collapse')[1]);
+		    var $datalle=$($(elemento).find('.resumen .collapse')[0]);
 		    console.log($datalle);
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
