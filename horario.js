@@ -267,8 +267,8 @@ function Cargarformulario(elemento,f){
 		$('.detalleDia').click(function(e) {
 		    e.preventDefault();
 		    var $this = $(this);
-		    var $datalle=$this.parent();
-		    $datalle=$($datalle).next();
+		    var obj=$this.parents("div");
+		    var $datalle=$(obj).next()
 		    console.log($datalle);
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
