@@ -268,7 +268,6 @@ function Cargarformulario(elemento,f){
 		    e.preventDefault();
 		    var $this = $(this);
 		    var $datalle=$($(elemento).find('.resumen .collapse')[0]);
-		    
 		    console.log($datalle);
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
@@ -281,10 +280,11 @@ function Cargarformulario(elemento,f){
 			//alerta('Detalle del día de comisión y bolteta.','info');
 		    }
 		});
-	       /* $('.detalleSemana').click(function(e) {
+	        $('.detalleSemana').click(function(e) {
 		    e.preventDefault();
 		    var $this = $(this);
-		    var $datalle=$('#detalleSemana');
+		    var $datalle=$($(elemento).find('.resumen .collapse')[1]);
+		    console.log($datalle);
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
 			$this.html('<i class="fa fa-plus"></i>');
@@ -293,9 +293,9 @@ function Cargarformulario(elemento,f){
 			$this.toggleClass('show');
 			$this.html('<i class="fa fa-minus"></i>');
 			$datalle.slideToggle(350);
-			//alerta('Detalle de la semana.','info');
+			//alerta('Detalle del día de comisión y bolteta.','info');
 		    }
-		});*/
+		});/**/
 	}
 }
 
