@@ -268,16 +268,16 @@ function Cargarformulario(elemento,f){
 		    e.preventDefault();
 		    var $this = $(this);
 		    var obj=$this.parents("div");
-		    var $datalle=$(obj).next()
+		    var $datalle=$(obj[0]).next()
 		    console.log($datalle);
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
 			$this.html('<i class="fa fa-plus"></i>');
-			$this.next().slideUp(350);
+			$datalle.slideUp(350);
 		    } else {
 			$this.toggleClass('show');
 			$this.html('<i class="fa fa-minus"></i>');
-			$this.next().slideToggle(350);
+			$datalle.slideToggle(350);
 			//alerta('Detalle del día de comisión y bolteta.','info');
 		    }
 		});
