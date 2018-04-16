@@ -52,10 +52,10 @@ function calcular(Horario,TLibre) {
 		switch (i) {
 		
             case 1:
-				horaIngreso = obtenerHoraIngreso(e,Horario);
 				dia=obtenerDia(e);
                 break;
             case 2:
+			    horaIngreso = obtenerHoraIngreso(e,Horario);
                 fichadas = obtenerFichadas(e);
 				if (fichadas.length>0){
 					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia);
