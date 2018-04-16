@@ -369,12 +369,12 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	
 	(e).find('.compensacion').html(formatearHora(compensa));
 	
-	var bol=getCookie(n+dia+'boleta');
-	if (bol!==''){		
-		var bole=obtenerBoletaDuration();
-		$(elemento).find('span.boleta').html(bole);
-		cosole.log(bole);
-	}
+	// var bol=getCookie(n+dia+'boleta');
+	// if (bol!==''){		
+		// var bole=obtenerBoletaDuration();
+		// $(elemento).find('span.boleta').html(bole);
+		// cosole.log(bole);
+	// }
 	if (boleta>0){
 		//$(elemento).find('span.boleta').html(formatearHora(boleta));
 		$(e).find('.boleta').html(formatearHora(boleta));
