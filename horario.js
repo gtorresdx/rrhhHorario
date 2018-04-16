@@ -72,7 +72,7 @@ function calcular(Horario,TLibre) {
             case 4:
 			    dia=obtenerDia(e);
 				if (dia!==null && dia!==''){
-					horaIngreso = obtenerHoraIngreso(e,Horario);
+					//horaIngreso = obtenerHoraIngreso(e,Horario);
 				}
 				break;
             case 5:
