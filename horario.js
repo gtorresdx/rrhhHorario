@@ -369,6 +369,12 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	
 	(e).find('.compensacion').html(formatearHora(compensa));
 	
+	var bol=getCookie(n+dia+'boleta');
+	if (bol!==''){		
+		var bole=obtenerBoletaDuration();
+		$(elemento).find('span.boleta').html(bole);
+		cosole.log(bol);
+	}
 	if (boleta>0){
 		//$(elemento).find('span.boleta').html(formatearHora(boleta));
 		$(e).find('.boleta').html(formatearHora(boleta));
@@ -387,11 +393,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(e).find('.boleta').removeClass().addClass('boleta');
 	}
 	
-	var bol=getCookie(n+dia+'boleta');
-	if (bol!==''){		
-		var bole=obtenerBoletaDuration();
-		$(elemento).find('span.boleta').html(bole);
-	}
+
 	
 	$(elemento).find('span.salida').html(salida.format("HH:mm:ss"));
 	//$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
