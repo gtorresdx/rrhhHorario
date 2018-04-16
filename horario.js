@@ -527,11 +527,9 @@ function pad(num, size) {
 
 function obtenerDia(elemento){
     var dia='';
-	console.log('dia');
-	console.log(elemento);
 	try
 	{
-		dia = $(elemento).find(".black-text .center").html().trim();
+		dia = $(elemento).find("h6.center").html().trim();
 	}
 	catch(err)
 	{
