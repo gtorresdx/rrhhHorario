@@ -71,8 +71,10 @@ function calcular(Horario,TLibre) {
 				}
                 break;
             case 4:
-			    dia=obtenerDia(e);
+				console.log(e);
+			        dia=obtenerDia(e);
 				console.log(dia);
+				
 				if (dia!==null && dia!==''){
 					horaIngreso = obtenerHoraIngreso(e,Horario);
 				}
@@ -137,7 +139,7 @@ function obtenerHorario(ThsDefault) {
     var horarioIngreso =moment();
     var horarioEgreso =moment();
     var Ths = ThsDefault;
-	var ok=false;
+    var ok=false;
     $(datos).children().each(function(i, e) {
 		switch (i) {
             case 1:
@@ -196,7 +198,7 @@ function obtenerFichadas(elemento) {
         }
         tipoOld=tipo;
     });
-    console.log(fichadas);
+    //console.log(fichadas);
     return fichadas;
 }
 
