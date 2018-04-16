@@ -387,7 +387,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(e).find('.boleta').removeClass().addClass('boleta');
 	}
 	console.log(obtenerBoleta(elemento));
-	$(elemento).find('span.boleta').html(obtenerBoleta(elemento));
+	$(elemento).find('span.boleta').html('ssss');
 	$(elemento).find('span.salida').html(salida.format("HH:mm:ss"));
 	//$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
 	
