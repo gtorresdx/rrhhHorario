@@ -370,7 +370,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	(e).find('.compensacion').html(formatearHora(compensa));
 	
 	if (boleta>0){
-		if (salida > salida2)
+		if (salida<moment())
 			$(elemento).find('span.boleta').html(formatearHora(boleta));
 		else
 			$(elemento).find('span.boleta').html(formatearHora(0));
