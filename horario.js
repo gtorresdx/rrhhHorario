@@ -690,7 +690,7 @@ function historicoSemana(dia,elemento){
 function EsControlable(){
 	var ok=false;
 	$("main i").each(function(i, e) {
-		cosole.log(e);
+		console.log(e);
 	       if($(e).attr('data-tooltip')==='Controlable'){
 			   ok=true;
 	       }
