@@ -373,7 +373,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	if (bol!==''){		
 		var bole=obtenerBoletaDuration();
 		$(elemento).find('span.boleta').html(bole);
-		cosole.log(bol);
+		cosole.log(bole);
 	}
 	if (boleta>0){
 		//$(elemento).find('span.boleta').html(formatearHora(boleta));
