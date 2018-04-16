@@ -369,12 +369,10 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	
 	(e).find('.compensacion').html(formatearHora(compensa));
 	
-	 var bol=getCookie(n+dia+'boleta');
-	 if (bol!==''){		
-		 var bole=obtenerBoletaDuration();
-		 $(elemento).find('span.boletaSoli').html(formatearHora(bole));
-		 console.log(formatearHora(bole));
-	}
+	 var bole=obtenerBoletaDuration();
+	 $(elemento).find('span.boletaSoli').html(formatearHora(bole));
+	 console.log(formatearHora(bole));
+	
 	if (boleta>0){
 		//$(elemento).find('span.boleta').html(formatearHora(boleta));
 		$(e).find('.boleta').html(formatearHora(boleta));
@@ -382,10 +380,10 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		boleta1 = tiempos.fuera-TLibre;
 		if(tiempos.falta !== 0){
 			if(boleta1>0)
-				$(elemento).find('span.aviso').html( ' -- Debería solisitar boleta de '+formatearHora(boleta1)+'hs');
+				$(elemento).find('span.aviso').html( ' -- Debería solisitar boleta de '+formatearHora(boleta1-bole)+'hs');
 		}else
 		{
-			$(elemento).find('span.aviso').html( ' -- Debería solisitar boleta de '+formatearHora(boleta)+'hs');
+			$(elemento).find('span.aviso').html( ' -- Debería solisitar boleta de '+formatearHora(boleta-bole)+'hs');
 		}
 			
 	}else{
