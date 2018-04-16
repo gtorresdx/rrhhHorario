@@ -173,9 +173,10 @@ function obtenerHorario(ThsDefault) {
 			case 4:
 			    if(ok){  
 				 console.log('Horario 2');
-	    console.log(e);
+				 console.log(e);
 					try
 					{
+						console.log($(e).find(" > div:last-child center"));
 						horarioIngreso = moment($(e).find(" > div:last-child center").html().trim(), "HH:mm");
 						var O = $(e).find(" > div:last-child center");
 						horarioEgreso = moment($(O[1]).html().trim(), "HH:mm");
