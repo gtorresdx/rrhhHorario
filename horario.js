@@ -370,7 +370,10 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	(e).find('.compensacion').html(formatearHora(compensa));
 	
 	if (boleta>0){
-		$(elemento).find('span.boleta').html(formatearHora(boleta));
+		if (salida > salida2)
+			$(elemento).find('span.boleta').html(formatearHora(boleta));
+		else
+			$(elemento).find('span.boleta').html(formatearHora(0));
 		$(e).find('.boleta').html(formatearHora(boleta));
 		$(e).find('.boleta').removeClass().addClass('label label-danger boleta');
 	}else{
