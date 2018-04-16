@@ -1,7 +1,7 @@
 //V 3.0 2018-04-09
-if (window.location.pathname === "/portal/mis_fichadas") {
+//if (window.location.pathname === "/portal/mis_fichadas") {
 	_Horario();
-}	
+//}	
 if (window.location.pathname === "/portal/novedades_asistencia") {
     _Asistencia();
 }	
