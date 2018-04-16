@@ -58,7 +58,7 @@ function calcular(Horario,TLibre) {
             case 2:
 				horaIngreso = obtenerHoraIngreso(e,Horario);
                 break;				
-            case 5
+	     case 5:
 			      
                 	    fichadas = obtenerFichadas(e);
 				
