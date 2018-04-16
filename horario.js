@@ -373,7 +373,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		//$(elemento).find('span.boleta').html(formatearHora(boleta));
 		$(e).find('.boleta').html(formatearHora(boleta));
 		$(e).find('.boleta').removeClass().addClass('label label-danger boleta');
-		boleta1 = fuera-TLibre;
+		boleta1 = tiempos.fuera-TLibre;
 		if(tiempos.falta !== 0){
 			if(boleta1>0)
 				$(elemento).find('span.aviso').html( 'Debería solisitar boleta de '+formatearHora(boleta1)+'hs');
