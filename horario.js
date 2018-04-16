@@ -152,10 +152,10 @@ function obtenerHorario(ThsDefault) {
             case 4:
 			    try
 				{
-                horarioIngreso = moment($(e).find(" > div:last-child center").html().trim(), "HH:mm");
-                var O = $(e).find(" > div:last-child center");
-				horarioEgreso = moment($(O[1]).html().trim(), "HH:mm");
-                Ths = horarioEgreso.diff(horarioIngreso);
+						var O = $(e).find("h6.center");
+						horarioIngreso = moment($(O[0]).html().trim(), "HH:mm");
+						horarioEgreso = moment($(O[1]).html().trim(), "HH:mm");
+						Ths = horarioEgreso.diff(horarioIngreso);
 				}
 				catch(err)
 				{
