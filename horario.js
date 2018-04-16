@@ -107,7 +107,7 @@ function obtenerHoraIngreso(elemento, Horario) {
 		var primerFichada = horarioAdm;
 		console.log(horarioAdm);
 		console.log('Error en obtenerHoraIngreso (Primera Fichada)');
-		console.log(err);
+		//console.log(err);
 	}
 	var comision=getCookie(n+dia+'comision');
     switch (comision) {
@@ -147,8 +147,8 @@ function obtenerHorario(ThsDefault) {
 				}
 				catch(err)
 				{
-					console.log('Error en obtener horarios');
-					console.log(err);
+					console.log('Error en obtener horarios 1');
+					//console.log(err);
 					ok=true ;
 				}
                 break;
@@ -163,8 +163,8 @@ function obtenerHorario(ThsDefault) {
 					}
 					catch(err)
 					{
-						console.log('Error en obtener horarios');
-						console.log(err);
+						console.log('Error en obtener horarios 2');
+						//console.log(err);
 					}
 				}
                 break;
@@ -282,7 +282,7 @@ function Cargarformulario(elemento,f){
 		    e.preventDefault();
 		    var $this = $(this);
 		    var $datalle=$($(elemento).find('#detalleSemana'));
-		    console.log($datalle);
+		   // console.log($datalle);
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
 			$this.html('<i class="fa fa-plus"></i>');
@@ -533,6 +533,7 @@ function obtenerDia(elemento){
 	{
 		console.log('Error en obtener dia');
 	}
+	console.log(dia);
     return dia;
 }
 
