@@ -150,11 +150,12 @@ function obtenerHorario(ThsDefault) {
     var Ths = ThsDefault;
 	var ok=false;
     $(datos).children().each(function(i, e) {
-	   
+	    console.log('Horario e');
+		console.log(e);
 		switch (i) {
             case 1:
 			 console.log('Horario 1');
-	    console.log(e);
+			 console.log(e);
 			    try
 				{
                 horarioIngreso = moment($(e).find(" > div:last-child center").html().trim(), "HH:mm");
