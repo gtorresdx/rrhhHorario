@@ -48,8 +48,11 @@ function calcular(Horario,TLibre) {
 		var fichadas=null;	
 		var compensa=0;
 		var enEdificio=0;
+	        console.log(e);
 		switch (i) {
+		
             case 1:
+			console.log('hora ingreso');
 				horaIngreso = obtenerHoraIngreso(e);
 				dia=obtenerDia(e);
                 break;
