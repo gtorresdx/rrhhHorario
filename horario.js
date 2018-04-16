@@ -56,7 +56,10 @@ function calcular(Horario,TLibre) {
 				dia=obtenerDia(e);
                 break;
             case 2:
-			    horaIngreso = obtenerHoraIngreso(e,Horario);
+				horaIngreso = obtenerHoraIngreso(e,Horario);
+                break;				
+            case 3:
+			      
                 	    fichadas = obtenerFichadas(e);
 				
 				if (fichadas.length>0){
@@ -82,6 +85,7 @@ function calcular(Horario,TLibre) {
 					horaIngreso = obtenerHoraIngreso(e,Horario);
 				}
 				break;
+	    case 10:
                 fichadas = obtenerFichadas(e);
 				if (fichadas.length>0){	
 					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia);
