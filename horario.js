@@ -372,8 +372,8 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	 var bol=getCookie(n+dia+'boleta');
 	 if (bol!==''){		
 		 var bole=obtenerBoletaDuration();
-		 $(elemento).find('span.boletaSoli').html(bole);
-		 console.log(bole);
+		 $(elemento).find('span.boletaSoli').html(formatearHora(bole));
+		 console.log(formatearHora(bole));
 	}
 	if (boleta>0){
 		//$(elemento).find('span.boleta').html(formatearHora(boleta));
