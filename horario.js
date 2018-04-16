@@ -100,11 +100,7 @@ function obtenerHoraIngreso(elemento, Horario) {
 	try
 	{
 		console.log(elemento);
-		var primerFichada = moment($(elemento).find("black-text center").html().trim().slice(-8), "HH:mm:ss");
-		console.log('Hora de ingreso');
-		console.log(elemento);
-		console.log(primerFichada);
-		
+		var primerFichada = moment($(elemento).find("h1.center").html().trim().slice(-8), "HH:mm:ss");
 	}
 	catch(err)
 	{
