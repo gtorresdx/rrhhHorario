@@ -48,8 +48,8 @@ function calcular(Horario,TLibre) {
 		var fichadas=null;	
 		var compensa=0;
 		var enEdificio=0;
-	        console.log(i);
-	        console.log(e);
+	       // console.log(i);
+	        //console.log(e);
 		switch (i) {
 		
             case 1:
@@ -77,11 +77,11 @@ function calcular(Horario,TLibre) {
             case 8:
 				
 			        dia=obtenerDia(e);
-				    console.log(dia);
+				//    console.log(dia);
 				
 
             case 9:
-				console.log(e);
+			//	console.log(e);
 				if ( dia!==''){
 					horaIngreso = obtenerHoraIngreso(e,Horario);
 				}
@@ -279,7 +279,7 @@ function Cargarformulario(elemento,f){
 		    e.preventDefault();
 		    var $this = $(this);
 		    var $datalle=$($(elemento).find('.resumen #detalleDia'));
-		    console.log($datalle);
+		   // console.log($datalle);
 		    if ($this.hasClass('show')) {
 			$this.removeClass('show');
 			$this.html('<i class="fa fa-plus"></i>');
@@ -389,9 +389,9 @@ function CalcualarBoletaOld(salida,salida2,fuera,TLibre,tiempos,Horario){
 	var boleta=0;
 	if (salida > salida2){ 		
 				boleta = fuera-TLibre;
-		console.log('B1');
+		//console.log('B1');
 	}else{
-		console.log('B2');
+	//	console.log('B2');
 				boleta =Horario.Ths-tiempos.enEdificio - (TLibre);
 	}
 	if (boleta>0)
@@ -501,6 +501,7 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre){
 					if (boleta!==''){		
 						var bole=obtenerBoletaDuration();
 						compensa+=bole;
+						if (compensa>0) compensa=0;
 					}
 				}
 			}
