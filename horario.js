@@ -689,7 +689,7 @@ function historicoSemana(dia,elemento){
 
 function EsControlable(){
 	var ok=false;
-	$("main i .fa .fa-eye .fa-2x .tooltipped .center").each(function(i, e) {
+	$("main i .tooltipped .center").each(function(i, e) {
 		cosole.log(e);
 	       if($(e).attr('data-tooltip')==='Controlable'){
 			   ok=true;
