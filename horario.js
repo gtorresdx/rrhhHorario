@@ -52,7 +52,7 @@ function calcular(Horario,TLibre) {
 		switch (i) {
 		
             case 1:
-				horaIngreso = obtenerHoraIngreso(e);
+				horaIngreso = obtenerHoraIngreso(e,Horario);
 				dia=obtenerDia(e);
                 break;
             case 2:
@@ -72,7 +72,7 @@ function calcular(Horario,TLibre) {
             case 4:
 			    dia=obtenerDia(e);
 				if (dia!==null && dia!==''){
-					horaIngreso = obtenerHoraIngreso(e);
+					horaIngreso = obtenerHoraIngreso(e,Horario);
 				}
 				break;
             case 5:
@@ -93,17 +93,10 @@ function calcular(Horario,TLibre) {
     });
 }
 
-function obtenerHoraIngreso(elemento) {
+function obtenerHoraIngreso(elemento, Horario) {
 	console.log('Hora de ingreso');
 	console.log(elemento);
-	try
-	{var horarioAdm = moment($(elemento).find(" > div:last-child center").html().trim(), "HH:mm");}
-	catch(err)
-	{
-		//var primerFichada = horarioAdm;
-		console.log('Error en obtenerHoraIngreso (horario Administrativo)');
-		console.log(err);
-	}
+	var horarioAdm = Horario.horarioIngreso
 	
 	try
 	{
@@ -531,6 +524,8 @@ function pad(num, size) {
 
 function obtenerDia(elemento){
     var dia='';
+	console.log('dia');
+	console.log(elemento);
 	try
 	{
 		dia = $(elemento).find("h5 center").html().trim();
