@@ -160,7 +160,7 @@ function obtenerHorario(ThsDefault) {
 			    if(ok){  
 					try{
 						var O = $(e).find("h6.center");
-					    console.log(O);
+					  //  console.log(O);
 						horarioIngreso = moment($(O[0]).html().trim(), "HH:mm");
 						horarioEgreso = moment($(O[1]).html().trim(), "HH:mm");
 						Ths = horarioEgreso.diff(horarioIngreso);
