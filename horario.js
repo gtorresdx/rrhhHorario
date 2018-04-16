@@ -48,8 +48,8 @@ function calcular(Horario,TLibre) {
 		var fichadas=null;	
 		var compensa=0;
 		var enEdificio=0;
-	        console.log(i);
-	        console.log(e);
+	        //console.log(i);
+	       // console.log(e);
 		switch (i) {
 		
             case 1:
@@ -58,7 +58,7 @@ function calcular(Horario,TLibre) {
             case 2:
 				horaIngreso = obtenerHoraIngreso(e,Horario);
                 break;				
-            case 3:
+            case 5
 			      
                 	    fichadas = obtenerFichadas(e);
 				
@@ -85,8 +85,8 @@ function calcular(Horario,TLibre) {
 					horaIngreso = obtenerHoraIngreso(e,Horario);
 				}
 				break;
-	    case 10:
-                fichadas = obtenerFichadas(e);
+	    case 12:
+               		     fichadas = obtenerFichadas(e);
 				if (fichadas.length>0){	
 					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia);
 					var  infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
