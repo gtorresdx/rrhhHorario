@@ -99,6 +99,7 @@ function obtenerHoraIngreso(elemento, Horario) {
 	
 	try
 	{
+		console.log(elementos);
 		var primerFichada = moment($(elemento).find("black-text center").html().trim().slice(-8), "HH:mm:ss");
 		console.log('Hora de ingreso');
 		console.log(elemento);
@@ -108,6 +109,7 @@ function obtenerHoraIngreso(elemento, Horario) {
 	catch(err)
 	{
 		var primerFichada = horarioAdm;
+		console.log(horarioAdm);
 		console.log('Error en obtenerHoraIngreso (Primera Fichada)');
 		console.log(err);
 	}
