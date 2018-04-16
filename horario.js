@@ -71,13 +71,13 @@ function calcular(Horario,TLibre) {
 					historicoSemana(dia,e);
 				}
                 break;
-            case 5:
+            case 8:
 				
 			        dia=obtenerDia(e);
 				console.log(dia);
 				
 
-            case 6:
+            case 9:
 				if (dia!==null && dia!==''){
 					horaIngreso = obtenerHoraIngreso(e,Horario);
 				}
