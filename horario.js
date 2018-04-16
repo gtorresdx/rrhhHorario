@@ -370,12 +370,18 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	(e).find('.compensacion').html(formatearHora(compensa));
 	
 	if (boleta>0){
-		if (salida<moment())
-			$(elemento).find('span.boleta').html(formatearHora(boleta));
-		else
-			$(elemento).find('span.boleta').html(formatearHora(0));
+		//$(elemento).find('span.boleta').html(formatearHora(boleta));
 		$(e).find('.boleta').html(formatearHora(boleta));
 		$(e).find('.boleta').removeClass().addClass('label label-danger boleta');
+		boleta1 = fuera-TLibre;
+		if(tiempos.falta !== 0){
+			if(boleta1>0)
+				$(elemento).find('span.aviso').html( 'Debería solisitar boleta de '+formatearHora(boleta1)+'hs');
+		}else
+		{
+			$(elemento).find('span.aviso').html( 'Debería solisitar boleta de '+formatearHora(boleta)+'hs');
+		}
+			
 	}else{
 		$(e).find('.boleta').html(formatearHora(0));
 		$(e).find('.boleta').removeClass().addClass('boleta');
