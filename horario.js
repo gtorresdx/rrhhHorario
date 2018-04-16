@@ -80,13 +80,13 @@ function calcular(Horario,TLibre) {
 				console.log(dia);
 				
 
-            case 10:
+            case 9:
 				console.log(e);
 				if (dia!==null && dia!==''){
 					horaIngreso = obtenerHoraIngreso(e,Horario);
 				}
 				break;
-	    case 12:
+	    case 11:
                		     fichadas = obtenerFichadas(e);
 				if (fichadas.length>0){	
 					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia);
