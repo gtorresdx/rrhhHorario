@@ -99,8 +99,8 @@ function obtenerHoraIngreso(elemento, Horario) {
 	
 	try
 	{
-		console.log(elemento);
-		console.log($(elemento).find("h1.center").html().trim().slice(-8))
+		//console.log(elemento);
+		//console.log($(elemento).find("h1.center").html().trim().slice(-8))
 		var primerFichada = moment($(elemento).find("h1.center").html().trim().slice(-8), "HH:mm:ss");
 	}
 	catch(err)
@@ -109,7 +109,7 @@ function obtenerHoraIngreso(elemento, Horario) {
 		console.log('Error en obtenerHoraIngreso (Primera Fichada)');
 		//console.log(err);
 	}
-	console.log(primerFichada);
+	//console.log(primerFichada);
 	var comision=getCookie(n+dia+'comision');
     switch (comision) {
             case 'Entrada':
@@ -687,7 +687,8 @@ function historicoSemana(dia,elemento){
 
 function EsControlable(){
 	var ok=false;
-	$("main div.container img").each(function(i, e) {
+	$("main i .fa .fa-eye .fa-2x .tooltipped .center").each(function(i, e) {
+		cosole.log(e);
 	       if($(e).attr('data-tooltip')==='Controlable'){
 			   ok=true;
 	       }
