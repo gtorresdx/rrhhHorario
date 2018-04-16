@@ -42,8 +42,8 @@ function _Asistencia(){
 function calcular(Horario,TLibre) {
     var datos = $("main div.container div.row > div.col")[0];
     horaIngreso=null; 
-	n=nombreUsuario();
-	dia=null;
+    n=nombreUsuario();
+    dia=null;
     $(datos).children().each(function(i, e) {
 		var fichadas=null;	
 		var compensa=0;
@@ -92,6 +92,8 @@ function calcular(Horario,TLibre) {
 }
 
 function obtenerHoraIngreso(elemento) {
+	console.log('Hora de ingreso');
+	console.log(elemento);
 	try
 	{var horarioAdm = moment($(elemento).find(" > div:last-child center").html().trim(), "HH:mm");}
 	catch(err)
@@ -138,6 +140,8 @@ function obtenerHorario(ThsDefault) {
     var Ths = ThsDefault;
 	var ok=false;
     $(datos).children().each(function(i, e) {
+	    console.log('Horario');
+	    console.log(e);
 		switch (i) {
             case 1:
 			    try
