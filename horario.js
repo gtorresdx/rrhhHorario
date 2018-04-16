@@ -100,7 +100,7 @@ function obtenerHoraIngreso(elemento, Horario) {
 	
 	try
 	{
-		var primerFichada = moment($(elemento).find("h1.black-text center").html().trim().slice(-8), "HH:mm:ss");
+		var primerFichada = moment($(elemento).find("black-text center").html().trim().slice(-8), "HH:mm:ss");
 	}
 	catch(err)
 	{
@@ -528,7 +528,7 @@ function obtenerDia(elemento){
 	console.log(elemento);
 	try
 	{
-		dia = $(elemento).find("h5 center").html().trim();
+		dia = $(elemento).find(".black-text .center").html().trim();
 	}
 	catch(err)
 	{
