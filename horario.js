@@ -70,16 +70,17 @@ function calcular(Horario,TLibre) {
 					historicoSemana(dia,e);
 				}
                 break;
-            case 4:
+            case 5:
 				console.log(e);
 			        dia=obtenerDia(e);
 				console.log(dia);
 				
+
+            case 6:
 				if (dia!==null && dia!==''){
 					horaIngreso = obtenerHoraIngreso(e,Horario);
 				}
 				break;
-            case 5:
                 fichadas = obtenerFichadas(e);
 				if (fichadas.length>0){	
 					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia);
