@@ -386,8 +386,13 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(e).find('.boleta').html(formatearHora(0));
 		$(e).find('.boleta').removeClass().addClass('boleta');
 	}
-	console.log(obtenerBoleta(elemento));
-	$(elemento).find('span.boleta').html('ssss');
+	
+	var bol=getCookie(n+dia+'boleta');
+	if (bol!==''){		
+		var bole=obtenerBoletaDuration();
+		$(elemento).find('span.boleta').html(bole);
+	}
+	
 	$(elemento).find('span.salida').html(salida.format("HH:mm:ss"));
 	//$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
 	
