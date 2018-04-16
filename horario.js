@@ -100,15 +100,16 @@ function obtenerHoraIngreso(elemento, Horario) {
 	try
 	{
 		console.log(elemento);
+		console.log($(elemento).find("h1.center"))
 		var primerFichada = moment($(elemento).find("h1.center").html().trim().slice(-8), "HH:mm:ss");
 	}
 	catch(err)
 	{
 		var primerFichada = horarioAdm;
-		console.log(horarioAdm);
 		console.log('Error en obtenerHoraIngreso (Primera Fichada)');
 		//console.log(err);
 	}
+	console.log(primerFichada);
 	var comision=getCookie(n+dia+'comision');
     switch (comision) {
             case 'Entrada':
