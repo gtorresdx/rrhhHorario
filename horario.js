@@ -48,7 +48,8 @@ function calcular(Horario,TLibre) {
 		var fichadas=null;	
 		var compensa=0;
 		var enEdificio=0;
-	        
+	        console.log(i);
+	        console.log(e);
 		switch (i) {
 		
             case 1:
@@ -71,7 +72,7 @@ function calcular(Horario,TLibre) {
 				}
                 break;
             case 5:
-				console.log(e);
+				
 			        dia=obtenerDia(e);
 				console.log(dia);
 				
