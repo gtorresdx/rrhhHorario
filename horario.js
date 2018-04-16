@@ -72,8 +72,9 @@ function calcular(Horario,TLibre) {
                 break;
             case 4:
 			    dia=obtenerDia(e);
+				console.log(dia);
 				if (dia!==null && dia!==''){
-					//horaIngreso = obtenerHoraIngreso(e,Horario);
+					horaIngreso = obtenerHoraIngreso(e,Horario);
 				}
 				break;
             case 5:
@@ -536,7 +537,7 @@ function obtenerDia(elemento){
 	{
 		console.log('Error en obtener dia');
 	}
-	console.log(dia);
+	//console.log(dia);
     return dia;
 }
 
@@ -701,7 +702,7 @@ function EsControlable(){
 function nombreUsuario(){
 	var N='';
    	 N=$("#header-nombre-usuario").text().trim();
-	console.log(N);
+	//console.log(N);
     	return N;
 }
 
