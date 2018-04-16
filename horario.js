@@ -52,14 +52,10 @@ function calcular(Horario,TLibre) {
 		switch (i) {
 		
             case 1:
-			console.log('hora ingreso');
-			console.log(e);
 				horaIngreso = obtenerHoraIngreso(e);
 				dia=obtenerDia(e);
                 break;
             case 2:
-			console.log('fichadas');
-			console.log(e);
                 fichadas = obtenerFichadas(e);
 				if (fichadas.length>0){
 					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia);
@@ -74,16 +70,12 @@ function calcular(Horario,TLibre) {
 				}
                 break;
             case 4:
-			console.log('dia 2');
-			console.log(e);
 			    dia=obtenerDia(e);
 				if (dia!==null && dia!==''){
 					horaIngreso = obtenerHoraIngreso(e);
 				}
 				break;
             case 5:
-			console.log('fichadas 2');
-			console.log(e);
                 fichadas = obtenerFichadas(e);
 				if (fichadas.length>0){	
 					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia);
@@ -150,12 +142,8 @@ function obtenerHorario(ThsDefault) {
     var Ths = ThsDefault;
 	var ok=false;
     $(datos).children().each(function(i, e) {
-	    console.log('Horario e');
-		console.log(e);
 		switch (i) {
             case 1:
-			 console.log('Horario 1');
-			 console.log(e);
 			    try
 				{
                 horarioIngreso = moment($(e).find(" > div:last-child center").html().trim(), "HH:mm");
@@ -172,8 +160,6 @@ function obtenerHorario(ThsDefault) {
                 break;
 			case 4:
 			    if(ok){  
-				 console.log('Horario 2');
-				 console.log(e);
 					try{
 						var O = $(e).find("h6.center");
 					    console.log(O);
