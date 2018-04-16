@@ -94,13 +94,16 @@ function calcular(Horario,TLibre) {
 }
 
 function obtenerHoraIngreso(elemento, Horario) {
-	console.log('Hora de ingreso');
-	console.log(elemento);
+	
 	var horarioAdm = Horario.horarioIngreso
 	
 	try
 	{
 		var primerFichada = moment($(elemento).find("black-text center").html().trim().slice(-8), "HH:mm:ss");
+		console.log('Hora de ingreso');
+		console.log(elemento);
+		console.log(primerFichada);
+		
 	}
 	catch(err)
 	{
