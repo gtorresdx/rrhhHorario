@@ -81,6 +81,7 @@ function calcular(Horario,TLibre) {
 				
 
             case 10:
+				console.log(e);
 				if (dia!==null && dia!==''){
 					horaIngreso = obtenerHoraIngreso(e,Horario);
 				}
