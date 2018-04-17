@@ -30,7 +30,7 @@ function _Horario(){
 			    interval: 1,
 			    minTime: '00:00',
 			    maxTime: '22:00',
-			    defaultTime: '00:00',
+			   /* defaultTime: '00:00',*/
 			    startTime: '12:00',
 			    dynamic: false,
 			    dropdown: false,
@@ -41,13 +41,13 @@ function _Horario(){
 				    interval: 1,
 				    minTime: '00:00',
 				    maxTime: '02:00',
-				    defaultTime: '00:00',
+				    /*defaultTime: '00:00',*/
 				    startTime: '00:00',
 				    dynamic: false,
 				    dropdown: false,
 				    scrollbar: false
 				});
-			$('.boletaHora').on("change",function(){
+			$('.boletaHora').on("change click",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
 				//console.log('fecha');
 				if($(this).val()==='')
@@ -65,7 +65,7 @@ function _Horario(){
 				$(padre).find('.boletaInst').trigger('change');
 			});	
 			
-			$('.boletaInst').on("change",function(){
+			$('.boletaInst').on("change click",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
 				//console.log('fecha');
 				if($(this).val()==='')
