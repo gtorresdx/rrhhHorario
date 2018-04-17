@@ -461,7 +461,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	$(elemento).find('span.salida').html(salida.format("HH:mm:ss"));
 	$(e).find('.boletaHora').html(salida.format("HH:mm"));
 	//$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
-	
+	$(elemento).find('.falta').html( formatearHora(tiempos.falta ));
 	var j =$(elemento).find('.resumen div.box-header .box-title')[0];
 	//console.log(j);
 	$(j).html('Resumen del día( '+infoComputada+')');
