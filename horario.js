@@ -516,9 +516,7 @@ function SetearBoleta(e,v,dia){
 		
 		//console.log(v);
 		ob.val(v);
-		ob2.html();
 		n=nombreUsuario();
-			
 		ob.attr("dataDate",n+dia+'boleta');
 		var padre =$(d)
 		var A1=moment(padre.find('.salida').val(),'HH:mm:ss' );
