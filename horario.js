@@ -7,79 +7,78 @@ if (window.location.pathname === "/portal/novedades_asistencia") {
 }	
 var server='https://gtorresdx.github.io/rrhhHorario/';
 function _Horario(){
-	
-    $.getScript("http://momentjs.com/downloads/moment-with-locales.min.js", function() {
+	$.getScript("http://momentjs.com/downloads/moment-with-locales.min.js", function() {
         moment.locale("es");
         var Ths=(9*60*60*1000)+(40*60*1000);
         var Horario= obtenerHorario(Ths);
-		//console.log(Horario);
-        var TLibre=30*60*1000;
-	    calcular(Horario,TLibre);
-		$('select').on("change",function(){
+	var TLibre=30*60*1000;
+	//Calcular
+	calcular(Horario,TLibre);
+	//Comisión - eventos
+	$('select').on("change",function(){
+		setCookie($(this).attr("dataDate"), $(this).val(), 60);
+		calcular(Horario,TLibre);
+	});
+	/**** DataPicker 1 ***/
+	//$.getScript("jquery-clock-timepicker.min.js",function(){
+	//$('.boletaHora').clockTimePicker({onlyShowClockOnMobile:true,minimum:'00:00',maximum:'23:59'});
+	//$('.boletaInst').clockTimePicker({onlyShowClockOnMobile:true,minimum:'00:00',maximum:'02:00'});
+	$.getScript("http://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js",function(){
+		$('.boletaHora').timepicker({
+			timeFormat: 'HH:mm ',
+			interval: 1,
+			minTime: '00:00',
+			maxTime: '22:00',
+			/* defaultTime: '00:00',*/
+			startTime: '12:00',
+			dynamic: false,
+			dropdown: false,
+			scrollbar: false
+		 });
+		$('.boletaInst').timepicker({
+		    timeFormat: 'HH:mm',
+		    interval: 1,
+		    minTime: '00:00',
+		    maxTime: '02:00',
+		    /*defaultTime: '00:00',*/
+		    startTime: '00:00',
+		    dynamic: false,
+		    dropdown: false,
+		    scrollbar: false
+		});
+		$('.boletaHora').on("change",function(){
 			//console.log('dataDate->'+$(this).attr("dataDate"));
-			//console.log('val->'+$(this).val());
+			//console.log('fecha');
+			if($(this).val()==='')
+				$(this).val('00:00');
+			var padre =$(this).parents('#resumen');
+			if($(this).val()!=='00:00'){
+				//console.log($(padre).find('.salida'));
+				var A1=moment($(padre).find('.salida').html(),'HH:mm:ss' );
+				//console.log($(padre).find('.salida').val());
+				//console.log(A1);
+				var A2=moment($(this).val(),'HH:mm' );
+				var b=moment.duration(A1.diff(A2));
+				//console.log(A2);
+				//console.log(b);
+				$(padre).find('.boletaInst').val(formatearHoraH(b));
+				$(padre).find('.boletaInst').trigger('change');
+			}else{
+				$(padre).find('.boletaInst').val(formatearHoraH(0));
+				$(padre).find('.boletaInst').trigger('change');
+			}
+		});	
+			
+		$('.boletaInst').on("change click",function(){
+			//console.log('dataDate->'+$(this).attr("dataDate"));
+			//console.log('fecha');
+			if($(this).val()==='')
+				$(this).val('00:00');
 			setCookie($(this).attr("dataDate"), $(this).val(), 60);
 			calcular(Horario,TLibre);
 		});	
-		//$.getScript("jquery-clock-timepicker.min.js",function(){
-		        //$('.boletaHora').clockTimePicker({onlyShowClockOnMobile:true,minimum:'00:00',maximum:'23:59'});
-			//$('.boletaInst').clockTimePicker({onlyShowClockOnMobile:true,minimum:'00:00',maximum:'02:00'});
-	        $.getScript("http://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js",function(){
-		        $('.boletaHora').timepicker({
-			    timeFormat: 'HH:mm ',
-			    interval: 1,
-			    minTime: '00:00',
-			    maxTime: '22:00',
-			   /* defaultTime: '00:00',*/
-			    startTime: '12:00',
-			    dynamic: false,
-			    dropdown: false,
-			    scrollbar: false
-			});
-			$('.boletaInst').timepicker({
-				    timeFormat: 'HH:mm',
-				    interval: 1,
-				    minTime: '00:00',
-				    maxTime: '02:00',
-				    /*defaultTime: '00:00',*/
-				    startTime: '00:00',
-				    dynamic: false,
-				    dropdown: false,
-				    scrollbar: false
-				});
-			$('.boletaHora').on("change",function(){
-				//console.log('dataDate->'+$(this).attr("dataDate"));
-				//console.log('fecha');
-				if($(this).val()==='')
-					$(this).val('00:00');
-				if($(this).val()!=='00:00'){
-					var padre =$(this).parents('#resumen');
-					console.log($(padre).find('.salida'));
-					var A1=moment($(padre).find('.salida').html(),'HH:mm:ss' );
-					console.log($(padre).find('.salida').val());
-					console.log(A1);
-					var A2=moment($(this).val(),'HH:mm' );
-					var b=moment.duration(A1.diff(A2));
-					console.log(A2);
-					console.log(b);
-					$(padre).find('.boletaInst').val(formatearHoraH(b));
-					$(padre).find('.boletaInst').trigger('change');
-				}else{
-					//$(padre).find('.boletaInst').val(formatearHoraH(0));
-					//$(padre).find('.boletaInst').trigger('change');
-				}
-			});	
 			
-			$('.boletaInst').on("change click",function(){
-				//console.log('dataDate->'+$(this).attr("dataDate"));
-				//console.log('fecha');
-				if($(this).val()==='')
-					$(this).val('00:00');
-				setCookie($(this).attr("dataDate"), $(this).val(), 60);
-				calcular(Horario,TLibre);
-			});	
-			
-		});
+	});
     });
 }
 
@@ -459,7 +458,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(elemento).find('span.aviso').html( ' -- Debería solisitar comisión de salida(4)');
 	
 	$(elemento).find('span.salida').html(salida.format("HH:mm:ss"));
-	$(e).find('.boletaHora').html(salida.format("HH:mm"));
+	$(e).find('input .boletaHora').val(salida.format("HH:mm"));
 	//$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
 	$(elemento).find('.falta').html( formatearHora(tiempos.falta ));
 	var j =$(elemento).find('.resumen div.box-header .box-title')[0];
