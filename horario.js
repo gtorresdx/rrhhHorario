@@ -47,14 +47,6 @@ function _Horario(){
 				if($(this).val()==='')
 					$(this).val('00:00');
 				setCookie($(this).attr("dataDate"), $(this).val(), 60);
-				var padre =$(this).parents('.resumen') 
-				var A1=moment($(padre).find('.salida').val(),'HH:mm:ss' );
-				console.log($(padre).find('.salida').val());
-				console.log(A1);
-				var A2=moment.duration($(this).val(),'HH:mm' );
-				var b=A1.subtract(A2);
-				console.log(A2);
-				$(padre).find('.boletaHora').val(formatearHoraH(b));
 				calcular(Horario,TLibre);
 			});	
 			
@@ -521,11 +513,19 @@ function SetearBoleta(e,v,dia){
 	var el =$(d).find('table tbody tr');
 	if (el.length!==0){
 		var ob=$(el).find('.boletaInst');
+		
 		//console.log(v);
 		ob.val(v);
+		ob2.html();
 		n=nombreUsuario();
-		//console.log(n+dia+'comision');
+			
 		ob.attr("dataDate",n+dia+'boleta');
+		var padre =$(d)
+		var A1=moment(padre.find('.salida').val(),'HH:mm:ss' );
+		var A2=moment.duration(v,'HH:mm' );
+		var b=A1.subtract(A2);
+		var ob2=$(el).find('.boletaHora');
+		ob2.html(formatearHoraH(b));
 	}
 }	
 
