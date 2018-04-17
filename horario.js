@@ -22,7 +22,7 @@ function _Horario(){
 			calcular(Horario,TLibre);
 		});	
 		$.getScript(server+ "jquery-clock-timepicker.min.js",function(){
-			$('.boletaHora').clockTimePicker();
+			$('.boletaHora').clockTimePicker({onlyShowClockOnMobile:true,minimum:'00:00',maximum:'23:59'});
 			$('.boletaHora').on("change",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
 				//console.log('fecha');
@@ -40,7 +40,7 @@ function _Horario(){
 				$(padre).find('.boletaInst').val(formatearHoraH(b));
 				$(padre).find('.boletaInst').trigger('change');
 			});	
-			$('.boletaInst').clockTimePicker();
+			$('.boletaInst').clockTimePicker({onlyShowClockOnMobile:true,minimum:'00:00',maximum:'02:00'});
 			$('.boletaInst').on("change",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
 				//console.log('fecha');
