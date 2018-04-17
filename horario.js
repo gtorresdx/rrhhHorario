@@ -392,6 +392,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(e).find('.boleta').html(formatearHora(0));
 		$(e).find('.boleta').removeClass().addClass('boleta');
 	}
+	console.log(FI);
 	if(FI>10*60*60*1000)
 		$(elemento).find('span.aviso').html( ' -- Debería solisitar comisión de entrada');
 	if(tiempos.falta !== 0 && tiempos.fuera < Horario.Ths - (TLibre))
