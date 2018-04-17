@@ -420,7 +420,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	console.log(FI);
 	if(FI.asMilliseconds>(10*60*60*1000))
 		$(elemento).find('span.aviso').html( ' -- Debería solisitar comisión de entrada(3)');
-	if(tiempos.falta === 0 && tiempos.fuera > Horario.Ths - (TLibre))
+	if(tiempos.falta === 0 && tiempos.enEdificio < 6*60*60*1000)
 		$(elemento).find('span.aviso').html( ' -- Debería solisitar comisión de salida(4)');
 	
 	$(elemento).find('span.salida').html(salida.format("HH:mm:ss"));
