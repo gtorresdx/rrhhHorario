@@ -29,13 +29,15 @@ function _Horario(){
 				if($(this).val()==='')
 					$(this).val('00:00');
 				var padre =$(this).parents('#resumen');
-				console.log(padre);
+				console.log($(padre).find('.salida'));
 				var A1=moment($(padre).find('.salida').val(),'HH:mm:ss' );
 				console.log($(padre).find('.salida').val());
 				console.log(A1);
 				var A2=moment($(this).val(),'HH:mm' );
+				var b=moment.duration(A1.diff(A2));
 				console.log(A2);
-				$(padre).find('.boletaInst').val(formatearHoraH(moment.duration(A1.diff(A2))));
+				console.log(b);
+				$(padre).find('.boletaInst').val(formatearHoraH(b));
 				calcular(Horario,TLibre);
 			});	
 			$('.boletaInst').clockTimePicker();
@@ -50,8 +52,9 @@ function _Horario(){
 				console.log($(padre).find('.salida').val());
 				console.log(A1);
 				var A2=moment($(this).val(),'HH:mm' );
+				var b=moment.duration(A1.diff(A2));
 				console.log(A2);
-				$(padre).find('.boletaHora').val(formatearHoraH(moment.duration(A1.diff(A2))));
+				$(padre).find('.boletaHora').val(formatearHoraH(b));
 				calcular(Horario,TLibre);
 			});	
 			
