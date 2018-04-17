@@ -429,9 +429,8 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	
 	(e).find('.compensacion').html(formatearHora(compensa));
 	
-	 
-	 $(elemento).find('span.boletaSoli').html(formatearHora(bole));
-	 console.log(formatearHora(bole));
+	$(elemento).find('span.boletaSoli').html(formatearHora(bole));
+	// console.log(formatearHora(bole));
 	
 	if (boleta>0){
 		//$(elemento).find('span.boleta').html(formatearHora(boleta));
