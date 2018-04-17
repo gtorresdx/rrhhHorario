@@ -26,8 +26,13 @@ function _Horario(){
 			$('.boletaHora').on("change",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
 				//console.log('fecha');
-				var padre =$(this).parents('.resumen') 
-				$(padre).find('.boletaInst').val((moment.duration($(padre).find('span.salida'),'HH:mm:ss' )- moment.duration($(this).val(),'HH:mm')).format('HH:mmm'));
+				var padre =$(this).parents('.resumen');
+				console.log(padre);
+				var A1=moment.duration($(padre).find('span.salida'),'HH:mm:ss' );
+				var A2=moment.duration($(this).val(),'HH:mm' );
+				console.log(A1);
+				console.log(A2);
+				$(padre).find('.boletaInst').val(moment.duration(A1.diff(A2)).format('HH:mmm'));
 				calcular(Horario,TLibre);
 			});	
 			$('.boletaInst').clockTimePicker();
