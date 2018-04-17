@@ -51,8 +51,8 @@ function _Horario(){
 				var A1=moment($(padre).find('.salida').val(),'HH:mm:ss' );
 				console.log($(padre).find('.salida').val());
 				console.log(A1);
-				var A2=moment($(this).val(),'HH:mm' );
-				var b=moment.duration(A1.diff(A2));
+				var A2=moment.duration($(this).val(),'HH:mm' );
+				var b=A1.moment().subtract(A2);
 				console.log(A2);
 				$(padre).find('.boletaHora').val(formatearHoraH(b));
 				calcular(Horario,TLibre);
