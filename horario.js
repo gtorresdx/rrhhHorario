@@ -406,7 +406,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		boleta1 = tiempos.fuera-TLibre;
 		if(tiempos.falta !== 0){
 			if(boleta1-bole>0)
-				$(elemento).find('span.aviso').html( ' -- Debería solisitar boleta de '+formatearHora(boleta1-bole)+'hs');
+				$(elemento).find('span.aviso').html( ' -- Podría solisitar boleta de '+formatearHora(boleta1-bole)+'hs');
 		}else
 		{
 			if(boleta1-bole>0)
