@@ -606,12 +606,12 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre){
 }
 
 function formatearHora(msec) {
-    var d = moment.duration(msec);
+    var d = moment.duration(msec,'ms');
     return pad(d.get("h"), 2) + ":" + pad(d.get("m"), 2) + ":" + pad(d.get("s"), 2);
 }
 
 function formatearHoraH(msec) {
-    var d = moment.duration(msec);
+    var d = moment.duration(msec,'ms');
     var h = parseInt(d.asHours());
     var m = moment.duration(d-moment.duration(h, 'hours')).minutes();
     return pad(h, 2) + ":" + pad(m, 2) ;
