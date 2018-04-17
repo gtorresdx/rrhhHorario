@@ -459,7 +459,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(elemento).find('span.aviso').html( ' -- Debería solisitar comisión de salida(4)');
 	
 	$(elemento).find('span.salida').html(salida.format("HH:mm:ss"));
-	$(elemento).find('span.boletaHora').html(salida.format("HH:mm"));
+	$(e).find('.boletaHora').html(salida.format("HH:mm"));
 	//$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
 	
 	var j =$(elemento).find('.resumen div.box-header .box-title')[0];
