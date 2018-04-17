@@ -21,8 +21,32 @@ function _Horario(){
 			setCookie($(this).attr("dataDate"), $(this).val(), 60);
 			calcular(Horario,TLibre);
 		});	
-		$.getScript(server+ "jquery-clock-timepicker.min.js",function(){
-			$('.boletaHora').clockTimePicker({onlyShowClockOnMobile:true,minimum:'00:00',maximum:'23:59'});
+		//$.getScript("jquery-clock-timepicker.min.js",function(){
+		        //$('.boletaHora').clockTimePicker({onlyShowClockOnMobile:true,minimum:'00:00',maximum:'23:59'});
+			//$('.boletaInst').clockTimePicker({onlyShowClockOnMobile:true,minimum:'00:00',maximum:'02:00'});
+	        $.getScript("//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js",function(){
+		        $('.boletaHora').clockTimePicker({
+			    timeFormat: 'HH:mm',
+			    interval: 1,
+			    minTime: '12:00',
+			    maxTime: '22:00',
+			    defaultTime: '12:00',
+			    startTime: '12:00',
+			    dynamic: false,
+			    dropdown: true,
+			    scrollbar: true
+			});
+			$('.boletaInst').clockTimePicker({
+				    timeFormat: 'HH:mm',
+				    interval: 1,
+				    minTime: '00:00',
+				    maxTime: '02:00',
+				    defaultTime: '00:00',
+				    startTime: '00:00',
+				    dynamic: false,
+				    dropdown: true,
+				    scrollbar: true
+				});
 			$('.boletaHora').on("change",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
 				//console.log('fecha');
@@ -40,7 +64,7 @@ function _Horario(){
 				$(padre).find('.boletaInst').val(formatearHoraH(b));
 				$(padre).find('.boletaInst').trigger('change');
 			});	
-			$('.boletaInst').clockTimePicker({onlyShowClockOnMobile:true,minimum:'00:00',maximum:'02:00'});
+			
 			$('.boletaInst').on("change",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
 				//console.log('fecha');
