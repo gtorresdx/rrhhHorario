@@ -47,7 +47,7 @@ function _Horario(){
 				    dropdown: false,
 				    scrollbar: false
 				});
-			$('.boletaHora').on("change click",function(){
+			$('.boletaHora').on("change",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
 				//console.log('fecha');
 				if($(this).val()==='')
