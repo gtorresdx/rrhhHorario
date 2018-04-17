@@ -46,7 +46,12 @@ function _Horario(){
 					$(this).val('00:00');
 				setCookie($(this).attr("dataDate"), $(this).val(), 60);
 				var padre =$(this).parents('.resumen') 
-				$(padre).find('.boletaHora').val((moment.duration($(padre).find('span.salida'),'HH:mm:ss' )- moment.duration($(this).val(),'HH:mm')).format('HH:mmm'));
+				var A1=moment($(padre).find('.salida').val(),'HH:mm:ss' );
+				console.log($(padre).find('.salida').val());
+				console.log(A1);
+				var A2=moment($(this).val(),'HH:mm' );
+				console.log(A2);
+				$(padre).find('.boletaHora').val(moment.duration(A1.diff(A2)).format('HH:mmm'));
 				calcular(Horario,TLibre);
 			});	
 			
