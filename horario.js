@@ -33,8 +33,8 @@ function _Horario(){
 			    defaultTime: '00:00',
 			    startTime: '12:00',
 			    dynamic: false,
-			    dropdown: true,
-			    scrollbar: true
+			    dropdown: false,
+			    scrollbar: false
 			});
 			$('.boletaInst').timepicker({
 				    timeFormat: 'HH:mm',
@@ -44,8 +44,8 @@ function _Horario(){
 				    defaultTime: '00:00',
 				    startTime: '00:00',
 				    dynamic: false,
-				    dropdown: true,
-				    scrollbar: true
+				    dropdown: false,
+				    scrollbar: false
 				});
 			$('.boletaHora').on("change",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
