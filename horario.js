@@ -394,7 +394,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 				if (!window.actualizarSonido){
 					SonidoView();
 					alerta('Horario cumplido','info')
-					window.actualizarSonido = setInterval(function(){  SonidoView;/*alerta('Horario cumplido','info');*/}, 10500);	
+					window.actualizarSonido = setInterval(SonidoView, 10500);	
 				}
 			}else { 
 				if (window.actualizarSonido)
