@@ -30,10 +30,10 @@ function _Horario(){
 					$(this).val('00:00');
 				var padre =$(this).parents('#resumen');
 				console.log(padre);
-				var A1=moment.duration($(padre).find('.salida').val(),'HH:mm:ss' );
+				var A1=moment($(padre).find('.salida').val(),'HH:mm:ss' );
 				console.log($(padre).find('.salida').val());
 				console.log(A1);
-				var A2=moment.duration($(this).val(),'HH:mm' );
+				var A2=moment($(this).val(),'HH:mm' );
 				console.log(A2);
 				$(padre).find('.boletaInst').val(moment.duration(A1.diff(A2)).format('HH:mmm'));
 				calcular(Horario,TLibre);
