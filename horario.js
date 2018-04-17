@@ -22,6 +22,7 @@ function _Horario(){
 			calcular(Horario,TLibre);
 		});	
 		$.getScript(server+ "jquery-clock-timepicker.min.js",function(){
+			$('.boletaHora').clockTimePicker();
 			$('.boletaInst').clockTimePicker();
 			$('.boletaInst').on("change",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
@@ -48,8 +49,8 @@ function calcular(Horario,TLibre) {
 		var fichadas=null;	
 		var compensa=0;
 		var enEdificio=0;
-	       // console.log(i);
-	        //console.log(e);
+	    // console.log(i);
+	    //console.log(e);
 		switch (i) {
 		
             case 1:
@@ -59,8 +60,7 @@ function calcular(Horario,TLibre) {
 				horaIngreso = obtenerHoraIngreso(e,Horario);
                 break;				
 	     case 5:
-			      
-                	    fichadas = obtenerFichadas(e);
+			    fichadas = obtenerFichadas(e);
 				
 				if (fichadas.length>0){
 					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia);
@@ -76,7 +76,7 @@ function calcular(Horario,TLibre) {
                 break;
             case 8:
 				
-			        dia=obtenerDia(e);
+			    dia=obtenerDia(e);
 				//    console.log(dia);
 				
 
@@ -87,7 +87,7 @@ function calcular(Horario,TLibre) {
 				}
 				break;
 	    case 12:
-               		     fichadas = obtenerFichadas(e);
+               	fichadas = obtenerFichadas(e);
 				if (fichadas.length>0 &&  dia!==''){	
 					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia);
 					var  infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
@@ -273,23 +273,23 @@ function Cargarformulario(elemento,f){
 		var v1=getCookie(n+f+'boleta');
 		SetearBoleta(elemento,v1,f);
 		BotonSonidoView();
-	        $('.licencia').attr("href",server+'License.txt');
+	    $('.licencia').attr("href",server+'License.txt');
 	        /********* Acordeon **********/	
 		$('.detalleDia').click(function(e) {
-		    e.preventDefault();
-		    var $this = $(this);
-		    var $datalle=$($(elemento).find('.resumen #detalleDia'));
-		   // console.log($datalle);
-		    if ($this.hasClass('show')) {
-			$this.removeClass('show');
-			$this.html('<i class="fa fa-plus"></i>');
-			$datalle.slideUp(350);
-		    } else {
-			$this.toggleClass('show');
-			$this.html('<i class="fa fa-minus"></i>');
-			$datalle.slideToggle(350);
-			//alerta('Detalle del día de comisión y bolteta.','info');
-		    }
+			e.preventDefault();
+			var $this = $(this);
+			var $datalle=$($(elemento).find('.resumen #detalleDia'));
+			// console.log($datalle);
+			if ($this.hasClass('show')) {
+				$this.removeClass('show');
+				$this.html('<i class="fa fa-plus"></i>');
+				$datalle.slideUp(350);
+			} else {
+				$this.toggleClass('show');
+				$this.html('<i class="fa fa-minus"></i>');
+				$datalle.slideToggle(350);
+				//alerta('Detalle del día de comisión y bolteta.','info');
+			}
 		});
 	        $('.detalleSemana').click(function(e) {
 		    e.preventDefault();
@@ -297,13 +297,13 @@ function Cargarformulario(elemento,f){
 		    var $datalle=$($(elemento).find('#detalleSemana'));
 		   // console.log($datalle);
 		    if ($this.hasClass('show')) {
-			$this.removeClass('show');
-			$this.html('<i class="fa fa-plus"></i>');
-			$datalle.slideUp(350);
+				$this.removeClass('show');
+				$this.html('<i class="fa fa-plus"></i>');
+				$datalle.slideUp(350);
 		    } else {
-			$this.toggleClass('show');
-			$this.html('<i class="fa fa-minus"></i>');
-			$datalle.slideToggle(350);
+				$this.toggleClass('show');
+				$this.html('<i class="fa fa-minus"></i>');
+				$datalle.slideToggle(350);
 			//alerta('Detalle del día de comisión y bolteta.','info');
 		    }
 		});/**/
