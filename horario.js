@@ -323,6 +323,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
     var compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
 	var e =$(d).find('table tbody tr');
 	var boleta = 0;
+	var FI =horaIngreso;
 	if (tiempos.falta !== 0) {
 		var salida = moment().add(tiempos.falta, "ms");
 		var salida2 = horaIngreso.add(Horario.Ths,"ms");
@@ -391,9 +392,9 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(e).find('.boleta').html(formatearHora(0));
 		$(e).find('.boleta').removeClass().addClass('boleta');
 	}
-	if(horaIngreso>10*60*60*1000)
+	if(FI>10*60*60*1000)
 		$(elemento).find('span.aviso').html( ' -- Debería solisitar comisión de entrada');
-	if(horaIngreso>10*60*60*1000)
+	if(tiempos.falta !== 0 && tiempos.fuera < Horario.Ths - (TLibre))
 		$(elemento).find('span.aviso').html( ' -- Debería solisitar comisión de entrada');
 	
 	$(elemento).find('span.salida').html(salida.format("HH:mm:ss"));
