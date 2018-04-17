@@ -406,11 +406,11 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		boleta1 = tiempos.fuera-TLibre;
 		if(tiempos.falta !== 0){
 			if(boleta1-bole>0)
-				$(elemento).find('span.aviso').html( ' -- Podría solisitar boleta de '+formatearHora(boleta1-bole)+'hs');
+				$(elemento).find('span.aviso').html( ' -- Podría solisitar boleta de '+formatearHora(boleta1-bole)+'hs(1)');
 		}else
 		{
 			if(boleta1-bole>0)
-				$(elemento).find('span.aviso').html( ' -- Debería solisitar boleta de '+formatearHora(boleta-bole)+'hs');
+				$(elemento).find('span.aviso').html( ' -- Debería solisitar boleta de '+formatearHora(boleta-bole)+'hs(2)');
 		}
 			
 	}else{
@@ -419,9 +419,9 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	}
 	console.log(FI);
 	if(FI.asMilliseconds>(10*60*60*1000))
-		$(elemento).find('span.aviso').html( ' -- Debería solisitar comisión de entrada');
-	if(tiempos.falta !== 0 && tiempos.fuera < Horario.Ths - (TLibre))
-		$(elemento).find('span.aviso').html( ' -- Debería solisitar comisión de salida');
+		$(elemento).find('span.aviso').html( ' -- Debería solisitar comisión de entrada(3)');
+	if(tiempos.falta === 0 && tiempos.fuera < Horario.Ths - (TLibre))
+		$(elemento).find('span.aviso').html( ' -- Debería solisitar comisión de salida(4)');
 	
 	$(elemento).find('span.salida').html(salida.format("HH:mm:ss"));
 	$(elemento).find('span.boletaHora').html(salida.format("HH:mm"));
