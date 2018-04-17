@@ -24,7 +24,7 @@ function _Horario(){
 		//$.getScript("jquery-clock-timepicker.min.js",function(){
 		        //$('.boletaHora').clockTimePicker({onlyShowClockOnMobile:true,minimum:'00:00',maximum:'23:59'});
 			//$('.boletaInst').clockTimePicker({onlyShowClockOnMobile:true,minimum:'00:00',maximum:'02:00'});
-	        $.getScript("//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js",function(){
+	        $.getScript("http://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js",function(){
 		        $('.boletaHora').clockTimePicker({
 			    timeFormat: 'HH:mm',
 			    interval: 1,
