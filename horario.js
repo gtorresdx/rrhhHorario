@@ -358,6 +358,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		}
 	}
 	boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,tiempos,Horario);
+	$(elemento).find('span.aviso').html('');
 	$(elemento).find('span.fuera').html(formatearHora(tiempos.fuera));
 	//$(e).find('.fuera').html(formatearHora(tiempos.fuera));
 	
