@@ -28,8 +28,8 @@ function _Horario(){
 				//console.log('fecha');
 				var padre =$(this).parents('.resumen');
 				console.log(padre);
-				var A1=moment.duration($(padre).find('span.salida').val(),'HH:mm:ss' );
-				console.log($(padre).find('span.salida').val());
+				var A1=moment.duration($(padre).find('.salida').val(),'HH:mm:ss' );
+				console.log($(padre).find('.salida').val());
 				console.log(A1);
 				var A2=moment.duration($(this).val(),'HH:mm' );
 				
