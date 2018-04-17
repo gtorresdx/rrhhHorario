@@ -35,7 +35,7 @@ function _Horario(){
 				console.log(A1);
 				var A2=moment.duration($(this).val(),'HH:mm' );
 				console.log(A2);
-				//$(padre).find('.boletaInst').val(moment.duration(A1.diff(A2)).format('HH:mmm'));
+				$(padre).find('.boletaInst').val(moment.duration(A1.diff(A2)).format('HH:mmm'));
 				calcular(Horario,TLibre);
 			});	
 			$('.boletaInst').clockTimePicker();
