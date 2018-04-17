@@ -30,7 +30,7 @@ function _Horario(){
 					$(this).val('00:00');
 				var padre =$(this).parents('#resumen');
 				console.log($(padre).find('.salida'));
-				var A1=moment($(padre).find('.salida').val(),'HH:mm:ss' );
+				var A1=moment($(padre).find('.salida').html(),'HH:mm:ss' );
 				console.log($(padre).find('.salida').val());
 				console.log(A1);
 				var A2=moment($(this).val(),'HH:mm' );
