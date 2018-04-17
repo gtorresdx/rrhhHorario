@@ -356,7 +356,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 			if (salida > salida2)
 				salida = salida2;
 		}
-	    salida=salida-bole;
+	        salida=salida.add(-1*bole.asMilliseconds(),"ms");
 		if(salida<moment())
 			if ($("main div.container").find('div.chau').length === 0){
 				$("main div.container").prepend( '<div class="chau col s12" style="background-color:orange;"><h3 style="background-color:orange;"><center>¡¡Chauuu!! Te podes ir <i class="fa fa-hand-stop-o" aria-hidden="true"></i></center></h1></div>');
