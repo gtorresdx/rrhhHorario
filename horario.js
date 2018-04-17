@@ -23,13 +23,23 @@ function _Horario(){
 		});	
 		$.getScript(server+ "jquery-clock-timepicker.min.js",function(){
 			$('.boletaHora').clockTimePicker();
+			$('.boletaHora').on("change",function(){
+				//console.log('dataDate->'+$(this).attr("dataDate"));
+				//console.log('fecha');
+				var padre =$(this).parents('.resumen') 
+				$(padre).find('.boletaInst').val((moment.duration($(padre).find('span.salida'),'HH:mm:ss' )- moment.duration($(this).val(),'HH:mm')).format('HH:mmm'));
+				calcular(Horario,TLibre);
+			});	
 			$('.boletaInst').clockTimePicker();
 			$('.boletaInst').on("change",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
 				//console.log('fecha');
 				setCookie($(this).attr("dataDate"), $(this).val(), 60);
+				var padre =$(this).parents('.resumen') 
+				$(padre).find('.boletaHora').val((moment.duration($(padre).find('span.salida'),'HH:mm:ss' )- moment.duration($(this).val(),'HH:mm')).format('HH:mmm'));
 				calcular(Horario,TLibre);
 			});	
+			
 		});
     });
 }
@@ -321,6 +331,7 @@ function BotonSonidoView()
 function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
 	var d =$(elemento).find('.resumen');	
     var compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
+	var bole=obtenerBoletaDuration();
 	var e =$(d).find('table tbody tr');
 	var boleta = 0;
 	var FI =horaIngreso;
@@ -336,7 +347,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 			if (salida > salida2)
 				salida = salida2;
 		}
-	
+	    salida=salida-bole;
 		if(salida<moment())
 			if ($("main div.container").find('div.chau').length === 0){
 				$("main div.container").prepend( '<div class="chau col s12" style="background-color:orange;"><h3 style="background-color:orange;"><center>¡¡Chauuu!! Te podes ir <i class="fa fa-hand-stop-o" aria-hidden="true"></i></center></h1></div>');
@@ -371,7 +382,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 	
 	(e).find('.compensacion').html(formatearHora(compensa));
 	
-	 var bole=obtenerBoletaDuration();
+	 
 	 $(elemento).find('span.boletaSoli').html(formatearHora(bole));
 	 console.log(formatearHora(bole));
 	
@@ -400,6 +411,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(elemento).find('span.aviso').html( ' -- Debería solisitar comisión de salida');
 	
 	$(elemento).find('span.salida').html(salida.format("HH:mm:ss"));
+	$(elemento).find('span.boletaHora').html(salida.format("HH:mm"));
 	//$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
 	
 	var j =$(elemento).find('.resumen div.box-header .box-title')[0];
