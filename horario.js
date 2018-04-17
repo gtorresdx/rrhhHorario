@@ -29,6 +29,7 @@ function _Horario(){
 				var padre =$(this).parents('.resumen');
 				console.log(padre);
 				var A1=moment.duration($(padre).find('span.salida').val(),'HH:mm:ss' );
+				console.($(padre).find('span.salida').val());
 				console.log(A1);
 				var A2=moment.duration($(this).val(),'HH:mm' );
 				
