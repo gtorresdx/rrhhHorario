@@ -26,7 +26,7 @@ function _Horario(){
 			//$('.boletaInst').clockTimePicker({onlyShowClockOnMobile:true,minimum:'00:00',maximum:'02:00'});
 	        $.getScript("http://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js",function(){
 		        $('.boletaHora').timepicker({
-			    timeFormat: 'h:mm p',
+			    timeFormat: 'HH:mm ',
 			    interval: 1,
 			    minTime: '00:00',
 			    maxTime: '22:00',
@@ -37,7 +37,7 @@ function _Horario(){
 			    scrollbar: true
 			});
 			$('.boletaInst').timepicker({
-				    timeFormat: 'h:mm p',
+				    timeFormat: 'HH:mm',
 				    interval: 1,
 				    minTime: '00:00',
 				    maxTime: '02:00',
@@ -298,11 +298,13 @@ function calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia) {
 function Cargarformulario(elemento,f){
 	var d =$(elemento).find('.resumen');
 	var l = document.getElementById("linkestilo");
+	var t = document.getElementById("linkestilo2");
 	var Dia = new Date();
 	var ticks = Dia.getTime();
 	if (l===null){
 		$('head').append('<link type="text/css" href="'+server+'Horario.css?t='+ticks+'" rel="Stylesheet" id="linkestilo">');
 		$('head').append('<link type="text/css" href="'+server+'bootstrap.css?t='+ticks+'" rel="Stylesheet" id="linkestilo">');
+		$('head').append('<link type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css" rel="Stylesheet" id="linkestilo">');
 	}
     if (d===null || d.length===0){
 		var response;
@@ -380,7 +382,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 			if (salida > salida2)
 				salida = salida2;
 		}
-	        salida=salida.add(-1*bole.asMilliseconds(),"ms");
+	        salida=salida.subtract(bole.asMilliseconds(),"ms");
 		if(salida<moment())
 			if ($("main div.container").find('div.chau').length === 0){
 				$("main div.container").prepend( '<div class="chau col s12" style="background-color:orange;"><h3 style="background-color:orange;"><center>¡¡Chauuu!! Te podes ir <i class="fa fa-hand-stop-o" aria-hidden="true"></i></center></h1></div>');
@@ -388,9 +390,13 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 				if (!window.actualizarSonido){
 					SonidoView();
 					alerta('Horario cumplido','info')
-					window.actualizarSonido = setInterval(function(){  SonidoView;alerta('Horario cumplido','info');}, 10500);	
+					window.actualizarSonido = setInterval(function(){  SonidoView;/*alerta('Horario cumplido','info');*/}, 10500);	
 				}
+			}else { 
+				if (window.actualizarSonido)
+			  	 	window.clearInterval(window.actualizarSonido);
 			}
+				
 		if (!window.actualizarPermanencia)
 				window.actualizarPermanencia = setInterval(function(){ calcular(Horario,TLibre);}, 1000);
 	}else{
