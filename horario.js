@@ -26,7 +26,7 @@ function _Horario(){
 			$('.boletaHora').on("change",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
 				//console.log('fecha');
-				var padre =$(this).parents('.resumen');
+				var padre =$(this).parents('#resumen');
 				console.log(padre);
 				var A1=moment.duration($(padre).find('.salida').val(),'HH:mm:ss' );
 				console.log($(padre).find('.salida').val());
