@@ -26,13 +26,14 @@ function _Horario(){
 			$('.boletaHora').on("change",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
 				//console.log('fecha');
+				if($(this).val()==='')
+					$(this).val('00:00');
 				var padre =$(this).parents('#resumen');
 				console.log(padre);
 				var A1=moment.duration($(padre).find('.salida').val(),'HH:mm:ss' );
 				console.log($(padre).find('.salida').val());
 				console.log(A1);
 				var A2=moment.duration($(this).val(),'HH:mm' );
-				
 				console.log(A2);
 				//$(padre).find('.boletaInst').val(moment.duration(A1.diff(A2)).format('HH:mmm'));
 				calcular(Horario,TLibre);
@@ -41,6 +42,8 @@ function _Horario(){
 			$('.boletaInst').on("change",function(){
 				//console.log('dataDate->'+$(this).attr("dataDate"));
 				//console.log('fecha');
+				if($(this).val()==='')
+					$(this).val('00:00');
 				setCookie($(this).attr("dataDate"), $(this).val(), 60);
 				var padre =$(this).parents('.resumen') 
 				$(padre).find('.boletaHora').val((moment.duration($(padre).find('span.salida'),'HH:mm:ss' )- moment.duration($(this).val(),'HH:mm')).format('HH:mmm'));
@@ -124,7 +127,6 @@ function calcular(Horario,TLibre) {
 function obtenerHoraIngreso(elemento, Horario) {
 	
 	var horarioAdm = Horario.horarioIngreso
-	
 	try
 	{
 		//console.log(elemento);
@@ -139,7 +141,7 @@ function obtenerHoraIngreso(elemento, Horario) {
 	}
 	//console.log(primerFichada);
 	var comision=getCookie(n+dia+'comision');
-    switch (comision) {
+        switch (comision) {
             case 'Entrada':
 			//si la comisión es de entrada tomo el horario administrativo.
 			return horarioAdm;
@@ -337,7 +339,7 @@ function BotonSonidoView()
 
 function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) {
 	var d =$(elemento).find('.resumen');	
-    var compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
+        var compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
 	var bole=obtenerBoletaDuration();
 	var e =$(d).find('table tbody tr');
 	var boleta = 0;
