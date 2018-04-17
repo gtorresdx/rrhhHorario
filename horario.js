@@ -52,7 +52,7 @@ function _Horario(){
 				console.log($(padre).find('.salida').val());
 				console.log(A1);
 				var A2=moment.duration($(this).val(),'HH:mm' );
-				var b=A1.moment().subtract(A2);
+				var b=A1.subtract(A2);
 				console.log(A2);
 				$(padre).find('.boletaHora').val(formatearHoraH(b));
 				calcular(Horario,TLibre);
