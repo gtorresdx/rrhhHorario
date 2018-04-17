@@ -38,7 +38,7 @@ function _Horario(){
 				console.log(A2);
 				console.log(b);
 				$(padre).find('.boletaInst').val(formatearHoraH(b));
-				calcular(Horario,TLibre);
+				$(padre).find('.boletaInst').trigger('change');
 			});	
 			$('.boletaInst').clockTimePicker();
 			$('.boletaInst').on("change",function(){
