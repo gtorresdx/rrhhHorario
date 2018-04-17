@@ -52,17 +52,22 @@ function _Horario(){
 				//console.log('fecha');
 				if($(this).val()==='')
 					$(this).val('00:00');
-				var padre =$(this).parents('#resumen');
-				console.log($(padre).find('.salida'));
-				var A1=moment($(padre).find('.salida').html(),'HH:mm:ss' );
-				console.log($(padre).find('.salida').val());
-				console.log(A1);
-				var A2=moment($(this).val(),'HH:mm' );
-				var b=moment.duration(A1.diff(A2));
-				console.log(A2);
-				console.log(b);
-				$(padre).find('.boletaInst').val(formatearHoraH(b));
-				$(padre).find('.boletaInst').trigger('change');
+				if($(this).val()!=='00:00'){
+					var padre =$(this).parents('#resumen');
+					console.log($(padre).find('.salida'));
+					var A1=moment($(padre).find('.salida').html(),'HH:mm:ss' );
+					console.log($(padre).find('.salida').val());
+					console.log(A1);
+					var A2=moment($(this).val(),'HH:mm' );
+					var b=moment.duration(A1.diff(A2));
+					console.log(A2);
+					console.log(b);
+					$(padre).find('.boletaInst').val(formatearHoraH(b));
+					$(padre).find('.boletaInst').trigger('change');
+				}else{
+					//$(padre).find('.boletaInst').val(formatearHoraH(0));
+					//$(padre).find('.boletaInst').trigger('change');
+				}
 			});	
 			
 			$('.boletaInst').on("change click",function(){
