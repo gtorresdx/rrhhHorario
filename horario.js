@@ -56,11 +56,11 @@ function _Horario(){
 				//console.log($(padre).find('.salida'));
 				var A1=moment($(padre).find('.salida').html(),'HH:mm:ss' );
 				//console.log($(padre).find('.salida').val());
-				//console.log(A1);
+				console.log(A1);
 				var A2=moment($(this).val(),'HH:mm' );
 				var b=moment.duration(A1.diff(A2));
-				//console.log(A2);
-				//console.log(b);
+				console.log(A2);
+				console.log(b);
 				$(padre).find('.boletaInst').val(b.format('HH:mm'));
 				$(padre).find('.boletaInst').trigger('change');
 			}else{
