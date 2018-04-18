@@ -637,10 +637,10 @@ function pad(num, size) {
 
 function obtenerDia(elemento){
     var dia='';
-	console.log( $(elemento).find("h6.center"));
+	console.log( $(elemento).find("h6.center").html());
 	try
 	{
-		dia = $(elemento).find("h6.center").html().trim();
+		dia = $(elemento).find("h6.center").html();
 	}
 	catch(err)
 	{
