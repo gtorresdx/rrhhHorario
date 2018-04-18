@@ -78,7 +78,7 @@ function _Horario(){
 			calcular(Horario,TLibre);
 			var padre =$(this).parents('#resumen');
 			var A1=$(padre).find('.salida').html()
-			$(padre).find('.boletaHora').html(A1);
+			$(padre).find('.boletaHora').val(A1);
 		});	
 			
 	});
@@ -559,7 +559,7 @@ function SetearBoleta(e,v,dia){
 		var A2=moment.duration(v,'HH:mm' );
 		var b=A1.subtract(A2);
 		var ob2=$(el).find('.boletaHora');
-		ob2.html(b.format("HH:mm:ss"));
+		ob2.val(b.format("HH:mm:ss"));
 	}
 }	
 
