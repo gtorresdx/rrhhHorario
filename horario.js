@@ -196,8 +196,8 @@ function obtenerHoraIngreso(elemento, Horario) {
 
 function obtenerHorario(ThsDefault) {
     var datos = $("main div.container div.row > div.col")[0];
-    var horarioIngreso =moment();
-    var horarioEgreso =moment();
+    var horarioIngreso =moment('08:00','HH:mm');
+    var horarioEgreso =moment('15:00','HH:mm');
     var Ths = ThsDefault;
     var ok=false;
     $(datos).children().each(function(i, e) {
@@ -235,6 +235,7 @@ function obtenerHorario(ThsDefault) {
                 break;
 		}
     });
+	
     return {"horarioIngreso": horarioIngreso, "horarioEgreso": horarioEgreso, "Ths": Ths};
 }
 
