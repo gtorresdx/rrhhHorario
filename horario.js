@@ -113,6 +113,8 @@ function calcular(Horario,TLibre) {
                 break;
             case 2:
 				horaIngreso = obtenerHoraIngreso(e,Horario);
+				console.log('H1');
+				console.log(horaIngreso);
                 break;				
 	     case 5:
 			    fichadas = obtenerFichadas(e);
