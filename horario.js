@@ -425,7 +425,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 			boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,tiempos,Horario);
 		}
 	}
-	boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,tiempos,Horario);
+	boleta= CalcualarBoleta(salida,salida2,tiempos.fuera,TLibre,tiempos,Horario,);
 	$(elemento).find('span.aviso').html('');
 	$(elemento).find('span.fuera').html(formatearHora(tiempos.fuera));
 	//$(e).find('.fuera').html(formatearHora(tiempos.fuera));
@@ -518,7 +518,7 @@ function obtenerComision(e){
 	return r;
 }
 
-function SetearComision(e,v,dia){
+function SetearComision(e,v,n,dia){
 	var d =$(e).find('.resumen');
 	var el =$(d).find('table tbody tr');
 	if (el.length!==0){
@@ -540,7 +540,7 @@ function obtenerBoleta(e){
 	}	
 	return r;
 }
-function obtenerBoletaDuration(e){
+function obtenerBoletaDuration(e,n,dia){
 	var zero = moment('00:00','HH:mm');
 	var r=moment.duration(zero.diff(zero));;
 	var boleta=getCookie(n+dia+'boleta');
@@ -553,7 +553,7 @@ function obtenerBoletaDuration(e){
 	return r;
 }
 
-function SetearBoleta(e,v,dia){
+function SetearBoleta(e,v,n,dia){
 	var d =$(e).find('.resumen');
 	var el =$(d).find('table tbody tr');
 	if (el.length!==0){
@@ -588,7 +588,7 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre,n,dia){
 					compensa = tiempos.total-Horario.Ths;
 					var boleta=getCookie(n+dia+'boleta');
 					if (boleta!==''){		
-						var bole=obtenerBoletaDuration();
+						var bole=obtenerBoletaDuration(n,dia);
 						compensa+=bole;
 					}
 					if (compensa< 0 )
@@ -597,7 +597,7 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre,n,dia){
 					compensa = tiempos.total-Horario.Ths - (tiempos.fuera- TLibre);
 					var boleta=getCookie(n+dia+'boleta');
 					if (boleta!==''){		
-						var bole=obtenerBoletaDuration();
+						var bole=obtenerBoletaDuration(n,dia);
 						compensa+=bole;
 						if (compensa>0) compensa=0;
 					}
@@ -637,6 +637,7 @@ function pad(num, size) {
 
 function obtenerDia(elemento){
     var dia='';
+	console.log( $(elemento).find("h6.center"));
 	try
 	{
 		dia = $(elemento).find("h6.center").html().trim();
