@@ -558,12 +558,12 @@ function SetearBoleta(e,v,dia){
 		ob.val(v);
 		n=nombreUsuario();
 		ob.attr("dataDate",n+dia+'boleta');
-		var padre =$(d)
+		/*var padre =$(d)
 		var A1=moment(padre.find('.salida').val(),'HH:mm:ss' );
 		var A2=moment.duration(v,'HH:mm' );
 		var b=A1.subtract(A2);
 		var ob2=$(el).find('.boletaHora');
-		ob2.val(b.format("HH:mm:ss"));
+		ob2.val(b.format("HH:mm:ss"));*/
 	}
 }	
 
