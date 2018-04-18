@@ -1,6 +1,7 @@
 //V 3.1 2018-04-16
 if (window.location.pathname === "/portal/mis_fichadas") {
 	_Horario();
+	$('.boletaInst').trigger('change');
 }	
 if (window.location.pathname === "/portal/novedades_asistencia") {
     _Asistencia();
@@ -14,7 +15,7 @@ function _Horario(){
 	var TLibre=30*60*1000;
 	//Calcular
 	calcular(Horario,TLibre);
-	$('.boletaInst').trigger('change');
+	
 	//Comisión - eventos
 	$('select').on("change",function(){
 		setCookie($(this).attr("dataDate"), $(this).val(), 60);
