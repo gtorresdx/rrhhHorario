@@ -12,7 +12,7 @@ function _Horario(){
         moment.locale("es");
         var Ths=(9*60*60*1000)+(40*60*1000);
         var Horario= obtenerHorario(Ths);
-	console.log(Horario);
+	//console.log(Horario);
 	var TLibre=30*60*1000;
 	//Calcular
 	calcular(Horario,TLibre);
@@ -62,8 +62,8 @@ function _Horario(){
 				console.log(A1);
 				var A2=moment($(this).val(),'HH:mm' );
 				var b=moment.duration(A1.diff(A2));
-				console.log(A2);
-				console.log(b);
+				//console.log(A2);
+				//console.log(b);
 				$(padre).find('.boletaInst').val(moment.utc(b.asMilliseconds()).format("HH:mm:ss") );
 				$(padre).find('.boletaInst').trigger('change');
 			}else{
@@ -113,8 +113,8 @@ function calcular(Horario,TLibre) {
                 break;
             case 2:
 				horaIngreso = obtenerHoraIngreso(e,Horario,n,dia);
-				console.log('H1');
-				console.log(horaIngreso);
+				//console.log('H1');
+				//console.log(horaIngreso);
                 break;				
 	     case 5:
 			    fichadas = obtenerFichadas(e);
@@ -177,7 +177,7 @@ function obtenerHoraIngreso(elemento, Horario,n,dia) {
 		console.log('Error en obtenerHoraIngreso (Primera Fichada)');
 		console.log(err);
 	}*/
-	console.log(primerFichada);
+	//console.log(primerFichada);
 	var comision=getCookie(n+dia+'comision');
         switch (comision) {
             case 'Entrada':
@@ -638,7 +638,7 @@ function pad(num, size) {
 
 function obtenerDia(elemento){
     var dia='';
-	console.log( $(elemento).find("h6.center").html());
+	//console.log( $(elemento).find("h6.center").html());
 	try
 	{
 		dia = $(elemento).find("h6.center").html();
