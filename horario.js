@@ -164,14 +164,14 @@ function obtenerHoraIngreso(elemento, Horario) {
 	try
 	{
 		console.log(elemento);
-		console.log($(elemento).find("h1.center").html().trim().slice(-8))
-		var primerFichada = moment($(elemento).find("h1.center").html().trim().slice(-8), "HH:mm:ss");
+		console.log($(elemento).find("h1.center").html().trim().slice(-8));
+		var primerFichada = moment($(elemento).find("h1.center").html().trim().slice(-8).trim(), "HH:mm:ss");
 	}
 	catch(err)
 	{
 		var primerFichada = horarioAdm;
 		console.log('Error en obtenerHoraIngreso (Primera Fichada)');
-		//console.log(err);
+		console.log(err);
 	}
 	//console.log(primerFichada);
 	var comision=getCookie(n+dia+'comision');
