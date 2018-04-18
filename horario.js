@@ -14,9 +14,7 @@ function _Horario(){
 	var TLibre=30*60*1000;
 	//Calcular
 	calcular(Horario,TLibre);
-	var padre =$(this).parents('#resumen');
-        var A1=$(padre).find('.salida').html();
-	$(padre).find('.boletaHora').val(A1);
+	$('.boletaInst').trigger('change');
 	//Comisión - eventos
 	$('select').on("change",function(){
 		setCookie($(this).attr("dataDate"), $(this).val(), 60);
@@ -464,7 +462,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(elemento).find('span.aviso').html( ' -- Debería solisitar comisión de salida(4)');
 	
 	$(elemento).find('span.salida').html(salida.format("HH:mm:ss"));
-	$(e).find('.boletaHora').val(salida.format("HH:mm"));
+	//$(e).find('.boletaHora').val(salida.format("HH:mm"));
 	//$(elemento).find('.boletaHora').val(salida.format("HH:mm"));
 	//$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
 	$(elemento).find('.falta').html( formatearHora(tiempos.falta ));
