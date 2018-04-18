@@ -444,12 +444,12 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(e).find('.boleta').removeClass().addClass('label label-danger boleta');
 		boleta1 = tiempos.fuera-TLibre;
 		if(tiempos.falta !== 0){
-			if(boleta1-bole>0)
-				$(elemento).find('span.aviso').html( ' -- Podría solicitar boleta de '+formatearHora(boleta1-bole)+'hs(1)');
+			//if(boleta1-bole>0)
+			//	$(elemento).find('span.aviso').html( ' -- Podría solicitar boleta de '+formatearHora(boleta1-bole)+'hs(1)');
 		}else
 		{
-			if(boleta1-bole>0)
-				$(elemento).find('span.aviso').html( ' -- Debería solicitar boleta de '+formatearHora(boleta-bole)+'hs(2)');
+			//if(boleta1-bole>0)
+			//	$(elemento).find('span.aviso').html( ' -- Debería solicitar boleta de '+formatearHora(boleta-bole)+'hs(2)');
 		}
 			
 	}else{
@@ -457,11 +457,12 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		$(e).find('.boleta').removeClass().addClass('boleta');
 	}
 	//console.log(FI);
-	if(FI.asMilliseconds>(10*60*60*1000))
-		$(elemento).find('span.aviso').html( ' -- Debería solicitar comisión de entrada(3)');
-	if(tiempos.falta === 0 && tiempos.enEdificio < 6*60*60*1000)
-		$(elemento).find('span.aviso').html( ' -- Debería solicitar comisión de salida(4)');
-	
+	/************ sssssssss **********/
+	//if(FI.asMilliseconds>(10*60*60*1000))
+		//$(elemento).find('span.aviso').html( ' -- Debería solicitar comisión de entrada(3)');
+	//if(tiempos.falta === 0 && tiempos.enEdificio < 6*60*60*1000)
+	//	$(elemento).find('span.aviso').html( ' -- Debería solicitar comisión de salida(4)');
+	/************ **************/
 	$(elemento).find('span.salida').html(salida.format("HH:mm:ss"));
 	//$(e).find('.boletaHora').val(salida.format("HH:mm"));
 	//$(elemento).find('.boletaHora').val(salida.format("HH:mm"));
