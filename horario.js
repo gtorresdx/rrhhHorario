@@ -61,7 +61,7 @@ function _Horario(){
 				var b=moment.duration(A1.diff(A2));
 				console.log(A2);
 				console.log(b);
-				$(padre).find('.boletaInst').val(b.format('HH:mm'));
+				$(padre).find('.boletaInst').val(moment.utc(b.asMilliseconds()).format("HH:mm:ss") );
 				$(padre).find('.boletaInst').trigger('change');
 			}else{
 				$(padre).find('.boletaInst').val(formatearHoraH(0));
@@ -556,7 +556,7 @@ function SetearBoleta(e,v,dia){
 		var A2=moment.duration(v,'HH:mm' );
 		var b=A1.subtract(A2);
 		var ob2=$(el).find('.boletaHora');
-		ob2.html(b.format('HH:mm'));
+		ob2.html(moment.utc(b.asMilliseconds()).format("HH:mm:ss"));
 	}
 }	
 
