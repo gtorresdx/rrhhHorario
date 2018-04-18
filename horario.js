@@ -77,11 +77,14 @@ function _Horario(){
 			setCookie($(this).attr("dataDate"), $(this).val(), 60);
 			calcular(Horario,TLibre);
 			var padre =$(this).parents('#resumen');
-			var A1=$(padre).find('.salida').html()
+			var A1=$(padre).find('.salida').html();
 			$(padre).find('.boletaHora').val(A1);
 		});	
 			
 	});
+	var padre =$(this).parents('#resumen');
+        var A1=$(padre).find('.salida').html();
+	$(padre).find('.boletaHora').val(A1);
     });
 }
 
