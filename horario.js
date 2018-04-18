@@ -61,7 +61,7 @@ function _Horario(){
 				var b=moment.duration(A1.diff(A2));
 				//console.log(A2);
 				//console.log(b);
-				$(padre).find('.boletaInst').val(formatearHoraH(b));
+				$(padre).find('.boletaInst').val(b.format('HH:mm'));
 				$(padre).find('.boletaInst').trigger('change');
 			}else{
 				$(padre).find('.boletaInst').val(formatearHoraH(0));
