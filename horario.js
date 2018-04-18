@@ -556,7 +556,7 @@ function SetearBoleta(e,v,dia){
 		var A2=moment.duration(v,'HH:mm' );
 		var b=A1.subtract(A2);
 		var ob2=$(el).find('.boletaHora');
-		ob2.html(moment.utc(b.asMilliseconds()).format("HH:mm:ss"));
+		ob2.html(b.format("HH:mm:ss"));
 	}
 }	
 
