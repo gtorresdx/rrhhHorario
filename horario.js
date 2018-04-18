@@ -1,4 +1,4 @@
-//V 3.1 2018-04-16
+//V 3.2 2018-04-16
 if (window.location.pathname === "/portal/mis_fichadas") {
 	_Horario();
 	$('.boletaInst').trigger('change');
