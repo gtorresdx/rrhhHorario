@@ -14,6 +14,9 @@ function _Horario(){
 	var TLibre=30*60*1000;
 	//Calcular
 	calcular(Horario,TLibre);
+	var padre =$(this).parents('#resumen');
+        var A1=$(padre).find('.salida').html();
+	$(padre).find('.boletaHora').val(A1);
 	//Comisión - eventos
 	$('select').on("change",function(){
 		setCookie($(this).attr("dataDate"), $(this).val(), 60);
@@ -82,9 +85,7 @@ function _Horario(){
 		});	
 			
 	});
-	var padre =$(this).parents('#resumen');
-        var A1=$(padre).find('.salida').html();
-	$(padre).find('.boletaHora').val(A1);
+	
     });
 }
 
