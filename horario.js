@@ -98,8 +98,8 @@ function _Asistencia(){
 function calcular(Horario,TLibre) {
     var datos = $("main div.container div.row > div.col")[0];
     var horaIngreso=null; 
-    n=nombreUsuario();
-    dia=null;
+   var n=nombreUsuario();
+   var dia=null;
     $(datos).children().each(function(i, e) {
 		var fichadas=null;	
 		var compensa=0;
@@ -112,7 +112,7 @@ function calcular(Horario,TLibre) {
 				dia=obtenerDia(e);
                 break;
             case 2:
-				horaIngreso = obtenerHoraIngreso(e,Horario);
+				horaIngreso = obtenerHoraIngreso(e,Horario,dia,n);
 				console.log('H1');
 				console.log(horaIngreso);
                 break;				
@@ -140,7 +140,7 @@ function calcular(Horario,TLibre) {
             case 9:
 			//	console.log(e);
 				if ( dia!==''){
-					horaIngreso = obtenerHoraIngreso(e,Horario);
+					horaIngreso = obtenerHoraIngreso(e,Horario,dia,n);
 				}
 				break;
 	    case 12:
@@ -161,7 +161,7 @@ function calcular(Horario,TLibre) {
     });
 }
 
-function obtenerHoraIngreso(elemento, Horario) {
+function obtenerHoraIngreso(elemento, Horario,dia,n) {
 	
 	var horarioAdm = Horario.horarioIngreso.clone();
 	try
