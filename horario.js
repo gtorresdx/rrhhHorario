@@ -163,7 +163,7 @@ function calcular(Horario,TLibre) {
 
 function obtenerHoraIngreso(elemento, Horario) {
 	
-	var horarioAdm = Horario.horarioIngreso;
+	var horarioAdm = Horario.horarioIngreso.clone();
 	try
 	{
 		console.log(elemento);
@@ -172,7 +172,7 @@ function obtenerHoraIngreso(elemento, Horario) {
 	}
 	catch(err)
 	{
-		var primerFichada = horarioAdm;
+		var primerFichada = horarioAdm.clone();
 		console.log('Error en obtenerHoraIngreso (Primera Fichada)');
 		console.log(err);
 	}
