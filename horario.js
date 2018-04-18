@@ -415,8 +415,8 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre) 
 		if (!window.actualizarPermanencia)
 				window.actualizarPermanencia = setInterval(function(){ calcular(Horario,TLibre);}, 1000);
 	}else{
-		if (window.actualizarPermanencia)
-			  window.clearInterval(window.actualizarPermanencia);
+		//if (window.actualizarPermanencia)
+		//	  window.clearInterval(window.actualizarPermanencia);
 		if (window.actualizarSonido)
 			  window.clearInterval(window.actualizarSonido);
 		var d=horaIngreso.clone();
