@@ -160,7 +160,7 @@ function calcular(Horario,TLibre) {
 
 function obtenerHoraIngreso(elemento, Horario) {
 	
-	var horarioAdm = Horario.horarioIngreso
+	var horarioAdm = Horario.horarioIngreso;
 	try
 	{
 		console.log(elemento);
