@@ -163,8 +163,8 @@ function obtenerHoraIngreso(elemento, Horario) {
 	var horarioAdm = Horario.horarioIngreso
 	try
 	{
-		//console.log(elemento);
-		//console.log($(elemento).find("h1.center").html().trim().slice(-8))
+		console.log(elemento);
+		console.log($(elemento).find("h1.center").html().trim().slice(-8))
 		var primerFichada = moment($(elemento).find("h1.center").html().trim().slice(-8), "HH:mm:ss");
 	}
 	catch(err)
