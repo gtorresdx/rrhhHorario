@@ -167,7 +167,8 @@ function obtenerHoraIngreso(elemento, Horario,n,dia) {
 	try
 	{
 		console.log(elemento);
-		console.log($(elemento).find("h1.center").html().trim().slice(-8));
+		console.log($(elemento).find("h1.center").html().slice(-8));
+		var i=$(elemento).find("h1.center").html()
 		var primerFichada = moment($(elemento).find("h1.center").html().slice(-8), "HH:mm:ss");
 	}
 	catch(err)
