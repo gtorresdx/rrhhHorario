@@ -112,7 +112,7 @@ function calcular(Horario,TLibre) {
 				dia=obtenerDia(e);
                 break;
             case 2:
-				horaIngreso = obtenerHoraIngreso(e,Horario,dia,n);
+				horaIngreso = obtenerHoraIngreso(e,Horario,n,dia);
 				console.log('H1');
 				console.log(horaIngreso);
                 break;				
@@ -124,7 +124,7 @@ function calcular(Horario,TLibre) {
 					var infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
 					Cargarformulario(e,dia);
 					mostrar(tiempos, e, infoComputada,horaIngreso, Horario,TLibre);
-					compensa = compensacion(tiempos,horaIngreso, Horario, TLibre);
+					compensa = compensacion(tiempos,horaIngreso, Horario, TLibre,n,dia);
 					enEdificio=tiempos.enEdificio;
 					setCookie(n+dia, compensa, 60);
 					setCookie(n+dia+'enEdificio', enEdificio, 60);
@@ -140,7 +140,7 @@ function calcular(Horario,TLibre) {
             case 9:
 			//	console.log(e);
 				if ( dia!==''){
-					horaIngreso = obtenerHoraIngreso(e,Horario,dia,n);
+					horaIngreso = obtenerHoraIngreso(e,Horario,n,dia);
 				}
 				break;
 	    case 12:
@@ -161,7 +161,7 @@ function calcular(Horario,TLibre) {
     });
 }
 
-function obtenerHoraIngreso(elemento, Horario,dia,n) {
+function obtenerHoraIngreso(elemento, Horario,n,dia) {
 	
 	var horarioAdm = Horario.horarioIngreso.clone();
 	try
@@ -572,7 +572,7 @@ function SetearBoleta(e,v,dia){
 	}
 }	
 
-function compensacion(tiempos,horaIngreso, Horario, TLibre){
+function compensacion(tiempos,horaIngreso, Horario, TLibre,n,dia){
 	var compensa=0;
 	var comision=getCookie(n+dia+'comision');
 	switch (comision) {
