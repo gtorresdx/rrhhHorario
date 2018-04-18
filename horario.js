@@ -76,6 +76,9 @@ function _Horario(){
 				$(this).val('00:00');
 			setCookie($(this).attr("dataDate"), $(this).val(), 60);
 			calcular(Horario,TLibre);
+			var padre =$(this).parents('#resumen');
+			var A1=(padre).find('.salida').html()
+			$(padre).find('.boletaHora').html(A1);
 		});	
 			
 	});
