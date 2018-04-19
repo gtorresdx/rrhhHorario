@@ -164,19 +164,19 @@ function calcular(Horario,TLibre) {
 function obtenerHoraIngreso(elemento, Horario,n,dia) {
 	
 	var horarioAdm = Horario.horarioIngreso.clone();
-	//try
-	//{
+	try
+	{
 		//console.log(elemento);
 		var i=$(elemento).find("h1.center").html()
 		i=$.trim(i).slice(-8);
 		var primerFichada = moment(i, "HH:mm:ss");
-	/*}
+	}
 	catch(err)
 	{
 		var primerFichada = horarioAdm.clone();
 		console.log('Error en obtenerHoraIngreso (Primera Fichada)');
 		console.log(err);
-	}*/
+	}
 	//console.log(primerFichada);
 	var comision=getCookie(n+dia+'comision');
         switch (comision) {
