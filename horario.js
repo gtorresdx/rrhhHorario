@@ -127,7 +127,7 @@ function calcular(Horario,TLibre) {
 					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia);
 					var infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
 					Cargarformulario(e,dia);
-					mostrar(tiempos, e, infoComputada,horaIngreso, Horario,TLibre);
+					mostrar(tiempos, e, infoComputada,horaIngreso, Horario,TLibre,n,dia);
 					compensa = compensacion(tiempos,horaIngreso, Horario, TLibre,n,dia);
 					enEdificio=tiempos.enEdificio;
 					setCookie(n+dia, compensa, 60);
@@ -550,7 +550,8 @@ function obtenerBoleta(e){
 }
 function obtenerBoletaDuration(n,dia){
 	var zero = moment('00:00','HH:mm');
-	var r=moment.duration(zero.diff(zero));;
+	var r=moment.duration(zero.diff(zero));
+	console.log(n+dia+'boleta');
 	var boleta=getCookie(n+dia+'boleta');
 	if (boleta!==''){
 			var mboleta=moment(boleta,'HH:mm');
