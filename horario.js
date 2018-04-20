@@ -4,7 +4,7 @@ if (window.location.pathname === "/portal/mis_fichadas") {
 	_Horario();
 	//$('.boletaInst').trigger('change');
 	//if (!window.recarga)
-	//	window.recarga = setInterval(function(){ location.reload()}, treload);
+	//	window.recarga = setInterval(function(){ location.reload()}, 600000);
 }	
 if (window.location.pathname === "/portal/novedades_asistencia") {
     _Asistencia();
