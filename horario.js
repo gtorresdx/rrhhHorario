@@ -335,7 +335,7 @@ function Cargarformulario(elemento,f){
 		var v=getCookie(n+f+'comision');
 		SetearComision(elemento,v,f);
 		var v1=getCookie(n+f+'boleta');
-		SetearBoleta(elemento,v1,f);
+		SetearBoleta(elemento,v1,n,f);
 		BotonSonidoView();
 	    $('.licencia').attr("href",server+'License.txt');
 	        /********* Acordeon **********/	
