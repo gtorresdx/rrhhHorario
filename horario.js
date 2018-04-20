@@ -3,8 +3,8 @@ if (window.location.pathname === "/portal/mis_fichadas") {
 	
 	_Horario();
 	//$('.boletaInst').trigger('change');
-	//if (!window.recarga)
-	//	window.recarga = setInterval(function(){ location.reload()}, 600000);
+	if (!window.recarga)
+		window.recarga = setInterval(function(){ location.reload()}, 600000);
 }	
 if (window.location.pathname === "/portal/novedades_asistencia") {
     _Asistencia();
@@ -557,7 +557,7 @@ function obtenerBoletaDuration(e,n,dia){
 			var duration = moment.duration(mboleta.diff(zero));
 			r=duration;
 	}	
-	//console.log(r);
+	console.log(r);
 	return r;
 }
 
