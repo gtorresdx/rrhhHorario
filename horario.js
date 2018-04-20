@@ -60,12 +60,12 @@ function _Horario(){
 			if($(this).val()!=='00:00'){
 				//console.log($(padre).find('.salida'));
 				var A1=moment($(padre).find('.salida').html(),'HH:mm:ss' );
-				//console.log($(padre).find('.salida').val());
+				//console.log($(padre).find('.salida').html());
 				console.log(A1);
 				var A2=moment($(this).val(),'HH:mm' );
 				var b=moment.duration(A1.diff(A2));
-				//console.log(A2);
-				//console.log(b);
+				console.log(A2);
+				console.log(b);
 				$(padre).find('.boletaInst').val(moment.utc(b.asMilliseconds()).format("HH:mm:ss") );
 				$(padre).find('.boletaInst').trigger('change');
 			}else{
@@ -541,6 +541,7 @@ function obtenerBoleta(e){
 		var ob=$(el).find('.boletaInst');
 		r=ob.val();
 	}	
+	console.log(r);
 	return r;
 }
 function obtenerBoletaDuration(e,n,dia){
@@ -561,8 +562,7 @@ function SetearBoleta(e,v,n,dia){
 	var el =$(d).find('table tbody tr');
 	if (el.length!==0){
 		var ob=$(el).find('.boletaInst');
-		
-		//console.log(v);
+		console.log(v);
 		ob.val(v);
 		n=nombreUsuario();
 		ob.attr("dataDate",n+dia+'boleta');
