@@ -1,7 +1,9 @@
 //V 3.2 2018-04-16
 if (window.location.pathname === "/portal/mis_fichadas") {
 	_Horario();
-	$('.boletaInst').trigger('change');
+	//$('.boletaInst').trigger('change');
+	if (!window.recarga)
+		window.recarga = setInterval(function(){ location.reload()}, 600000);
 }	
 if (window.location.pathname === "/portal/novedades_asistencia") {
     _Asistencia();
@@ -318,7 +320,7 @@ function Cargarformulario(elemento,f){
 	var ticks = Dia.getTime();
 	if (l===null){
 		$('head').append('<link type="text/css" href="'+server+'Horario.css?t='+ticks+'" rel="Stylesheet" id="linkestilo">');
-		$('head').append('<link type="text/css" href="'+server+'bootstrap.css?t='+ticks+'" rel="Stylesheet" id="linkestilo">');
+		//$('head').append('<link type="text/css" href="'+server+'bootstrap.css?t='+ticks+'" rel="Stylesheet" id="linkestilo">');
 		$('head').append('<link type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css" rel="Stylesheet" id="linkestilo">');
 	}
     if (d===null || d.length===0){
