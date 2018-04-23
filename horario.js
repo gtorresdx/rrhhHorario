@@ -3,14 +3,14 @@ if (window.location.pathname === "/portal/mis_fichadas") {
 	
 	_Horario();
 	//$('.boletaInst').trigger('change');
-	if (!window.recarga)
-		window.recarga = setInterval(function(){ location.reload()}, 600000);
+	//if (!window.recarga)
+	//	window.recarga = setInterval(function(){ location.reload()}, 600000);
 }	
 if (window.location.pathname === "/portal/novedades_asistencia") {
     _Asistencia();
 }	
 var server='https://gtorresdx.github.io/rrhhHorario/';
-var treload=-600000;
+var treload=0;
 function _Horario(){
 	$.getScript("http://momentjs.com/downloads/moment-with-locales.min.js", function() {
         moment.locale("es");
