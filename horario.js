@@ -441,8 +441,8 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre,n
 	//$(e).find('.edificio').removeClass().addClass('label label-info edificio');
 	//if (tiempos.enEdificio<6*60*60*1000)
 	//	$(e).find('.edificio').removeClass().addClass('label label-danger edificio');
-	
-	(e).find('.compensacion').html(formatearHora(compensa));
+	//if (compensa>0)
+		(e).find('.compensacion').html(formatearHora(compensa));
 	
 	$(elemento).find('span.boletaSoli').html(formatearHora(bole));
 	// console.log(formatearHora(bole));
@@ -476,7 +476,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre,n
 	//$(e).find('.boletaHora').val(salida.format("HH:mm"));
 	//$(elemento).find('.boletaHora').val(salida.format("HH:mm"));
 	//$(e).find('.salida').html('<i class="fa fa-sign-out"></i> '+salida.format("HH:mm:ss"));
-	$(elemento).find('.falta').html( formatearHora(tiempos.falta ));
+	$(elemento).find('.falta').html( formatearHora(tiempos.falta-bole ));
 	var j =$(elemento).find('.resumen div.box-header .box-title')[0];
 	//console.log(j);
 	$(j).html('Resumen del día( '+infoComputada+')');
