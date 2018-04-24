@@ -264,7 +264,11 @@ function obtenerFichadas(elemento) {
                 "fichada": hh,
                 "tipo": tipo
             });
-        }
+        }else
+	{
+	 fichadas[fichadas.length - 1].fichada=hh;
+	 fichadas[fichadas.length - 1].tipo=tipo;
+	}
         tipoOld=tipo;
     });
     //console.log(fichadas);
