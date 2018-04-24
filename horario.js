@@ -457,7 +457,7 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre,n
 				$(elemento).find('span.aviso').html( ' -- Podría solicitar boleta de '+formatearHora(boleta1-bole)+'hs(1)');
 		}else
 		{
-			if(boleta>0)
+			if(boleta-bole>0)
 				$(elemento).find('span.aviso').html( ' -- Debería solicitar boleta de '+formatearHora(boleta-bole)+'hs(2)');
 		}
 			
