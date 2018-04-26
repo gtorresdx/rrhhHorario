@@ -606,13 +606,15 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre,n,dia){
 					if (compensa< 0 )
 						compensa = 0;
 				}else{ 
-					compensa = tiempos.enEdificio-Horario.Ths ;
+					
 					var boleta=getCookie(n+dia+'boleta');
 					if (boleta!==''){		
 						var bole=obtenerBoletaDuration(n,dia);
+						compensa = tiempos.enEdificio-(Horario.Ths-TLibre) ;
 						compensa+=bole;
 						if (compensa>0) compensa=0;
-					}
+					}else compensa = tiempos.enEdificio-(Horario.Ths-TLibre) ;
+					
 				}
 			}
 	}
