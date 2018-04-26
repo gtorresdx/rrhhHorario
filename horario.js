@@ -597,7 +597,7 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre,n,dia){
 			default:
 			if(tiempos.total>0){
 				if (tiempos.falta <= 0 && tiempos.fuera <= TLibre && tiempos.enEdificio >(Horario.Ths-TLibre)  ){
-					compensa = tiempos.total-Horario.Ths;
+					compensa = tiempos.enEdificio-Horario.Ths;
 					var boleta=getCookie(n+dia+'boleta');
 					if (boleta!==''){		
 						var bole=obtenerBoletaDuration(n,dia);
@@ -606,7 +606,7 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre,n,dia){
 					if (compensa< 0 )
 						compensa = 0;
 				}else{ 
-					compensa = tiempos.total-Horario.Ths - (tiempos.fuera- TLibre);
+					compensa = tiempos.enEdificio-Horario.Ths ;
 					var boleta=getCookie(n+dia+'boleta');
 					if (boleta!==''){		
 						var bole=obtenerBoletaDuration(n,dia);
