@@ -613,7 +613,7 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre,n,dia){
 						compensa = tiempos.enEdificio-(Horario.Ths-TLibre) ;
 						compensa+=bole;
 						if (compensa>0) compensa=0;
-					}else compensa = tiempos.enEdificio-(Horario.Ths-TLibre) ;
+					}else compensa = tiempos.enEdificio-(Horario.Ths) ;
 					
 				}
 			}
