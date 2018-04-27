@@ -191,15 +191,14 @@ function obtenerHoraIngreso(elemento, Horario,n,dia) {
 			default:
 			// Substituyo la primer fichada por la hora de ingreso computable
 			if(EsControlable())
-				if (primerFichada > horarioAdm) {
-					return primerFichada;
-				} else {
-					return horarioAdm;
-				}
+				//if (primerFichada > horarioAdm) {
+				//	return primerFichada;
+				//} else {
+				//	return horarioAdm;
+				//}
+				return primerFichada;
 			else{ return primerFichada}
-			
 	}
-	
 }
 
 function obtenerHorario(ThsDefault) {
