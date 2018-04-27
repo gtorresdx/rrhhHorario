@@ -804,6 +804,9 @@ function historicoSemana(dia,elemento){
    $(elemento).find('span.hist').html(msj1);
    $(elemento).find('span.s-compensacion').html(formatearHora(compensa));
    $(elemento).find('span.s-enedificio').html(formatearHoraH(Edif));
+   var ahora=moment();
+   var salida=ahora.add(Edif,"ms");
+   $(elemento).find('span.s-salida').html(formatearHoraH(salida));
 }
 
 function EsControlable(){
