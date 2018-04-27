@@ -613,15 +613,11 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre,n,dia){
 							compensa+=boleta;
 							if (compensa>0) compensa=0;
 						}else compensa = tiempos.enEdificio-(Horario.Ths-TLibre) ;
-					}else{ compensa = tiempos.enEdificio-(Horario.Ths)}
-					
-					
-					
+					}else{ compensa = tiempos.enEdificio-(Horario.Ths-TLibre)}
+
 				}
 			}
 	}
-	
-	
 	//*** 
 	var Tope=2*60*60*1000;// 2hs
 	if(Horario.Ths>=8*60*60*1000)
@@ -629,7 +625,6 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre,n,dia){
 	if (compensa > Tope)
 		compensa=Tope;
 	//***	
-	
 	return compensa;
 }
 
