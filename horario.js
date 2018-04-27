@@ -132,7 +132,7 @@ function calcular(Horario,TLibre) {
 					enEdificio=tiempos.enEdificio;
 					setCookie(n+dia, compensa, 60);
 					setCookie(n+dia+'enEdificio', enEdificio, 60);
-					historicoSemana(dia,e);
+					historicoSemana(dia,e,tiempos);
 				}
                 break;
             case 8:
@@ -158,7 +158,7 @@ function calcular(Horario,TLibre) {
 					enEdificio=tiempos.enEdificio;
 					setCookie(n+dia, compensa, 60);
 					setCookie(n+dia+'enEdificio', enEdificio, 60)
-					historicoSemana(dia,e);
+					historicoSemana(dia,e,tiempos);
 				}
                 break;
         }
@@ -697,7 +697,7 @@ function diadelaSemana(semana,dia){
     return ok;
 }
 
-function historicoSemana(dia,elemento){
+function historicoSemana(dia,elemento,tiempos){
     var d = moment(dia,'DD-MM-YYYY');
     var hoy = moment(moment().format('DD-MM-YYYY'),'DD-MM-YYYY');
     var k =null;
@@ -807,9 +807,11 @@ function historicoSemana(dia,elemento){
    var ahora=moment();
   // console.log(ahora);
   // console.log(compensa);
-   var salida=ahora.add(-1*compensa);
-  //  console.log(salida); 	
-   $(elemento).find('span.s-salida').html(salida.format('HH:mm:ss'));
+ if(tiempos.falta!=0){
+  	var salida=ahora.add(-1*compensa);
+  	//  console.log(salida); 	
+  	$(elemento).find('span.s-salida').html(salida.format('HH:mm:ss'));
+ }else $(elemento).find('span.s-salida').html(0);
 }
 
 function EsControlable(){
