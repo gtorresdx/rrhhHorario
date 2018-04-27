@@ -811,7 +811,7 @@ function historicoSemana(dia,elemento,tiempos){
   	var salida=ahora.add(-1*compensa);
   	//  console.log(salida); 	
   	$(elemento).find('span.s-salida').html(salida.format('HH:mm:ss'));
- }else $(elemento).find('span.s-salida').html(0);
+ }else $(elemento).find('span.s-salida').html(formatearHora(0));
 }
 
 function EsControlable(){
