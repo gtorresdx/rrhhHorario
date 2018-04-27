@@ -611,6 +611,7 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre,n,dia){
 						compensa+=boleta;
 						if (compensa>0) 
 							compensa=0;
+					}
 				}
 			}
 	}
