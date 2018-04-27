@@ -608,7 +608,8 @@ function compensacion(tiempos,horaIngreso, Horario, TLibre,n,dia){
 					var boleta=getCookie(n+dia+'boleta');
 					compensa = tiempos.enEdificio-(Horario.Ths-TLibre) ;
 					if (boleta!==''){		
-						compensa+=boleta;
+						var bole=obtenerBoletaDuration(n,dia);
+						compensa+=bole;
 						if (compensa>0) 
 							compensa=0;
 					}
