@@ -140,7 +140,7 @@ function calcular(Horario,TLibre) {
 			    dia=obtenerDia(e);
 				//    console.log(dia);
 				
-
+		 break;
             case 9:
 			//	console.log(e);
 				if ( dia!==''){
