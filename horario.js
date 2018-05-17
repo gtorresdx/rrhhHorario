@@ -183,6 +183,7 @@ function obtenerHoraIngreso(elemento, Horario,n,dia) {
 	}
 	//console.log(primerFichada);
 	var comision=getCookie(n+dia+'comision');
+	console.log(n+dia+'comision');
 	console.log(comision);
         switch (comision) {
             case 'Entrada':
