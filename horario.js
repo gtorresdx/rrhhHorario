@@ -335,8 +335,8 @@ function Cargarformulario(elemento,f){
 		$.ajax({ type: "GET", url: server+"Horario.html?t="+ticks, async: false, success : function(text) {response= text; }});
 		$(elemento).append(response);
 		var n=nombreUsuario();
-		//console.log('dia->'+f);
-		//console.log('nombre->'+n);
+		console.log('dia->'+f);
+		console.log('nombre->'+n);
 		var v=getCookie(n+f+'comision');
 		SetearComision(elemento,v,f);
 		var v1=getCookie(n+f+'boleta');
