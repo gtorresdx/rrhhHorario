@@ -183,6 +183,7 @@ function obtenerHoraIngreso(elemento, Horario,n,dia) {
 	}
 	//console.log(primerFichada);
 	var comision=getCookie(n+dia+'comision');
+	console.log(comision);
         switch (comision) {
             case 'Entrada':
 			//si la comisión es de entrada tomo el horario administrativo.
