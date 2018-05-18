@@ -923,7 +923,9 @@ function SonidoView()
 	$($("#chat-message-audio")[0]).attr('src',server+'sonido.mp3');
 	$("#chat-message-audio")[0].load();
 	$("#chat-message-audio")[0].play();
-	autoPlayVideo('EBKdrzaVmVk','450','283');
+	//autoPlayVideo('EBKdrzaVmVk','450','283');
+	 "use strict";
+        $("#videoContainer").html('<iframe width="450" height="283" src="https://www.youtube.com/embed/EBKdrzaVmVk?autoplay=1&loop=1&rel=0&wmode=transparent" frameborder="0" allowfullscreen wmode="Opaque"></iframe>');
 }
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
