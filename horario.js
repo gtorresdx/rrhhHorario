@@ -429,7 +429,6 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre,n
 					SonidoView();
 					alerta('Horario cumplido','info')
 					window.actualizarSonido = setInterval(SonidoView, 10500);
-					autoPlayVideo('EBKdrzaVmVk','450','283');
 				}
 				}else { 
 					if (window.actualizarSonido)
@@ -920,6 +919,7 @@ function SonidoView()
 	$($("#chat-message-audio")[0]).attr('src',server+'sonido.mp3');
 	$("#chat-message-audio")[0].load();
 	$("#chat-message-audio")[0].play();
+	autoPlayVideo('EBKdrzaVmVk','450','283');
 }
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
