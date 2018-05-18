@@ -428,12 +428,13 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre,n
 				if (!window.actualizarSonido){
 					SonidoView();
 					alerta('Horario cumplido','info')
-					window.actualizarSonido = setInterval(SonidoView, 10500);	
+					window.actualizarSonido = setInterval(SonidoView, 10500);
+					autoPlayVideo('EBKdrzaVmVk','450','283');
 				}
-			}else { 
-				if (window.actualizarSonido)
+				}else { 
+					if (window.actualizarSonido)
 			  	 	window.clearInterval(window.actualizarSonido);
-			}
+				}
 				
 		if (!window.actualizarPermanencia)
 				window.actualizarPermanencia = setInterval(function(){ calcular(Horario,TLibre);}, 1000);
@@ -956,6 +957,10 @@ function dragElement(elmnt) {
     /* stop moving when mouse button is released:*/
     document.onmouseup = null;
     document.onmousemove = null;
+  }
+  function autoPlayVideo(vcode, width, height){
+  "use strict";
+  $("#videoContainer").html('<iframe width="'+width+'" height="'+height+'" src="https://www.youtube.com/embed/'+vcode+'?autoplay=1&loop=1&rel=0&wmode=transparent" frameborder="0" allowfullscreen wmode="Opaque"></iframe>');
   }
 }
 
