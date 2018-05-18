@@ -352,7 +352,7 @@ function Cargarformulario(elemento,f){
 		console.log('dia->'+f);
 		console.log('nombre->'+n);
 		var v=getCookie(n+f+'comision');
-		SetearComision(elemento,v,f);
+		SetearComision(elemento,v,n,f);
 		var v1=getCookie(n+f+'boleta');
 		SetearBoleta(elemento,v1,n,f);
 		BotonSonidoView();
