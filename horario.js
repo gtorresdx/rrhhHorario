@@ -932,7 +932,7 @@ function autoPlayVideo(vcode, width, height){
   }
 function SonidoView()
 {	
-	"use strict";
+	//"use strict";
         $("#videoContainer").html('<iframe width="450" height="283" src="https://www.youtube.com/embed/EBKdrzaVmVk?autoplay=1&loop=1&rel=0&wmode=transparent" frameborder="0" allowfullscreen wmode="Opaque"></iframe>');
 	setTimeout(function() {
                 $($("#chat-message-audio")[0]).attr('src',server+'sonido.mp3');
