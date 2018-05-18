@@ -102,8 +102,9 @@ function _Asistencia(){
 function calcular(Horario,TLibre) {
     var datos = $("main div.container div.row > div.col")[0];
     var horaIngreso=null; 
-   var n=nombreUsuario();
-   var dia=null;
+    var n=nombreUsuario();
+    var dia='';
+    var dia2='';
     $(datos).children().each(function(i, e) {
 		var fichadas=null;	
 		var compensa=0;
@@ -142,8 +143,20 @@ function calcular(Horario,TLibre) {
 				
 		 break;
             case 9:
+		//  console.log(e);
+		    if ( dia!==''){
+			horaIngreso = obtenerHoraIngreso(e,Horario,n,dia);
+		    }else{
+			 console.log(e);	
+		    	 dia2=obtenerDia(e);
+		         console.log(dia2);
+		     }
+				
+		 break;
+	    case 10:
 			//	console.log(e);
-				if ( dia!==''){
+				if ( dia2!==''){
+					dia=dia2;
 					horaIngreso = obtenerHoraIngreso(e,Horario,n,dia);
 				}
 				break;
