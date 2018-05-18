@@ -914,6 +914,10 @@ function parpadear(){
     //$("#chat-message-audio")[0].play();
 	$(".chau").fadeIn(350).delay(150).fadeOut(350, parpadear);
 }
+function autoPlayVideo(vcode, width, height){
+  "use strict";
+  $("#videoContainer").html('<iframe width="'+width+'" height="'+height+'" src="https://www.youtube.com/embed/'+vcode+'?autoplay=1&loop=1&rel=0&wmode=transparent" frameborder="0" allowfullscreen wmode="Opaque"></iframe>');
+  }
 function SonidoView()
 {	
 	$($("#chat-message-audio")[0]).attr('src',server+'sonido.mp3');
@@ -958,10 +962,7 @@ function dragElement(elmnt) {
     document.onmouseup = null;
     document.onmousemove = null;
   }
-  function autoPlayVideo(vcode, width, height){
-  "use strict";
-  $("#videoContainer").html('<iframe width="'+width+'" height="'+height+'" src="https://www.youtube.com/embed/'+vcode+'?autoplay=1&loop=1&rel=0&wmode=transparent" frameborder="0" allowfullscreen wmode="Opaque"></iframe>');
-  }
+
 }
 
 
