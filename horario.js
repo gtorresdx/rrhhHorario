@@ -63,11 +63,11 @@ function _Horario(){
 				//console.log($(padre).find('.salida'));
 				var A1=moment($(padre).find('.salida').html(),'HH:mm:ss' );
 				//console.log($(padre).find('.salida').html());
-				console.log(A1);
+				//console.log(A1);
 				var A2=moment($(this).val(),'HH:mm' );
 				var b=moment.duration(A1.diff(A2));
-				console.log(A2);
-				console.log(b);
+				//console.log(A2);
+				//console.log(b);
 				$(padre).find('.boletaInst').val(moment.utc(b.asMilliseconds()).format("HH:mm:ss") );
 				$(padre).find('.boletaInst').trigger('change');
 			}else{
@@ -163,7 +163,7 @@ function calcular(Horario,TLibre) {
 	    case 12:
                	fichadas = obtenerFichadas(e);
 				if (fichadas.length>0 &&  dia!==''){	
-					console.log(dia);
+					//console.log(dia);
 					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia);
 					var  infoComputada = "Hora de ingreso: " + horaIngreso.format("HH:mm:ss");
 					Cargarformulario(e,dia);
