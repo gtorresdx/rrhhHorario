@@ -425,7 +425,9 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre,n
 			if ($("main div.container").find('div.chau').length === 0){
 				$("main div.container").prepend( '<div class="chau col s12" style="background-color:orange;"><h3 style="background-color:orange;"><center>¡¡Chauuu!! Te podes ir <i class="fa fa-hand-stop-o" aria-hidden="true"></i></center></h1></div>');
 				parpadear();
-				if (!window.actualizarSonido){
+				alerta('Horario cumplido','info');
+			}
+				/*if (!window.actualizarSonido){
 					SonidoView();
 					alerta('Horario cumplido','info')
 					window.actualizarSonido = setInterval(SonidoView, 10500);
@@ -433,8 +435,17 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre,n
 				}else { 
 					if (window.actualizarSonido)
 			  	 	window.clearInterval(window.actualizarSonido);
-				}
-				
+				}*/
+		if(salida.subtract('seconds', (3*60+4))<moment())
+			if (!window.actualizarSonido){
+					SonidoView();
+					window.actualizarSonido = setInterval(autoPlayVideo('eguctGjUNLI','450','283'), 4*60*1000);
+			}
+			else { 
+					//if (window.actualizarSonido)
+			  	 	//window.clearInterval(window.actualizarSonido);
+			}
+			
 		if (!window.actualizarPermanencia)
 				window.actualizarPermanencia = setInterval(function(){ calcular(Horario,TLibre);}, 1000);
 	}else{
@@ -920,12 +931,16 @@ function autoPlayVideo(vcode, width, height){
   }
 function SonidoView()
 {	
-	$($("#chat-message-audio")[0]).attr('src',server+'sonido.mp3');
-	$("#chat-message-audio")[0].load();
-	$("#chat-message-audio")[0].play();
-	//autoPlayVideo('EBKdrzaVmVk','450','283');
-	 "use strict";
+	"use strict";
         $("#videoContainer").html('<iframe width="450" height="283" src="https://www.youtube.com/embed/EBKdrzaVmVk?autoplay=1&loop=1&rel=0&wmode=transparent" frameborder="0" allowfullscreen wmode="Opaque"></iframe>');
+	setTimeout(function() {
+                $($("#chat-message-audio")[0]).attr('src',server+'sonido.mp3');
+		$("#chat-message-audio")[0].load();
+		$("#chat-message-audio")[0].play();
+		}, (3*60*1000+4000));
+	
+	//autoPlayVideo('EBKdrzaVmVk','450','283');
+	
 }
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
