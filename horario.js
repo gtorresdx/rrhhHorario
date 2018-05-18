@@ -133,7 +133,7 @@ function calcular(Horario,TLibre) {
 					enEdificio=tiempos.enEdificio;
 					setCookie(n+dia, compensa, 60);
 					setCookie(n+dia+'enEdificio', enEdificio, 60);
-					historicoSemana(dia,e,tiempos);
+					historicoSemana(dia,e,tiempos,TLibre);
 				}
                 break;
             case 8:
@@ -172,7 +172,7 @@ function calcular(Horario,TLibre) {
 					enEdificio=tiempos.enEdificio;
 					setCookie(n+dia, compensa, 60);
 					setCookie(n+dia+'enEdificio', enEdificio, 60)
-					historicoSemana(dia,e,tiempos);
+					historicoSemana(dia,e,tiempos,TLibre);
 				}
                 break;
         }
@@ -713,7 +713,7 @@ function diadelaSemana(semana,dia){
     return ok;
 }
 
-function historicoSemana(dia,elemento,tiempos){
+function historicoSemana(dia,elemento,tiempos,TLibre){
     var d = moment(dia,'DD-MM-YYYY');
     var hoy = moment(moment().format('DD-MM-YYYY'),'DD-MM-YYYY');
     var k =null;
@@ -818,13 +818,14 @@ function historicoSemana(dia,elemento,tiempos){
     var msj1= '<div class="row"><div class="col-xs-12">'+msj+'</div></div><div class="row"><div class="col-xs-12">'+msj2+'</div></div>';
    // msj+='<h3>Semana - en edificio: '+formatearHoraH(Edif)+'</h3>'
    $(elemento).find('span.hist').html(msj1);
-   $(elemento).find('span.s-compensacion').html(formatearHora(compensa));
+   $(elemento).find('span.s-compensacion').html(formatearHora(comp));
    $(elemento).find('span.s-enedificio').html(formatearHoraH(Edif));
    var ahora=moment();
   // console.log(ahora);
   // console.log(compensa);
  if(tiempos.falta!=0){
   	var salida=ahora.add(-1*compensa);
+	if(comp<0) salida.add(TLibre);
   	//  console.log(salida); 	
   	$(elemento).find('span.s-salida').html(salida.format('HH:mm:ss'));
  }else $(elemento).find('span.s-salida').html(formatearHora(0));
