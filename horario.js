@@ -110,7 +110,7 @@ function calcular(Horario,TLibre) {
 		var compensa=0;
 		var enEdificio=0;
 	    // console.log(i);
-	    console.log(e);
+	   // console.log(e);
 		switch (i) {
 		
             case 1:
@@ -145,7 +145,7 @@ function calcular(Horario,TLibre) {
 				
 		 break;
             case 9:
-		//  console.log(e);
+		 console.log(e);
 		    if ( dia!==''){
 			horaIngreso = obtenerHoraIngreso(e,Horario,n,dia);
 		    }else{
@@ -156,13 +156,14 @@ function calcular(Horario,TLibre) {
 				
 		 break;
 	    case 10:
-			//	console.log(e);
+				console.log(e);
 				if ( dia2!==''){
 					dia=dia2;
 					horaIngreso = obtenerHoraIngreso(e,Horario,n,dia);
 				}
 				break;
 	    case 12:
+				 console.log(e);
                	fichadas = obtenerFichadas(e);
 				if (fichadas.length>0 &&  dia!==''){	
 					//console.log(dia);
