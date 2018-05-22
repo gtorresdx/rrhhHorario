@@ -110,7 +110,7 @@ function calcular(Horario,TLibre) {
 		var compensa=0;
 		var enEdificio=0;
 	    // console.log(i);
-	    //console.log(e);
+	    console.log(e);
 		switch (i) {
 		
             case 1:
