@@ -109,7 +109,7 @@ function calcular(Horario,TLibre) {
 		var fichadas=null;	
 		var compensa=0;
 		var enEdificio=0;
-	    // console.log(i);
+	   console.log(i);
 	   // console.log(e);
 		switch (i) {
 		
@@ -123,7 +123,7 @@ function calcular(Horario,TLibre) {
 				console.log(e);
                 break;				
 	     case 5:
-			        console.log(e);
+			        //console.log(e);
 				fichadas = obtenerFichadas(e);
 				
 				if (fichadas.length>0){
@@ -141,7 +141,7 @@ function calcular(Horario,TLibre) {
             case 8:
 			  //  console.log(e);	
 			    dia=obtenerDia(e);
-		           // console.log(dia);
+		            console.log(dia);
 				
 		 break;
             case 9:
@@ -151,20 +151,20 @@ function calcular(Horario,TLibre) {
 		    }else{
 			// console.log(e);	
 		    	 dia2=obtenerDia(e);
-		       //  console.log(dia2);
+		         console.log(dia2);
 		     }
 				
 		 break;
 	    case 10:
-				console.log(e);
+				//console.log(e);
 				if ( dia2!==''){
 					dia=dia2;
 					horaIngreso = obtenerHoraIngreso(e,Horario,n,dia);
 				}
 				break;
 	    case 12:
-				 console.log(e);
-               	fichadas = obtenerFichadas(e);
+				console.log(e);
+               			fichadas = obtenerFichadas(e);
 				if (fichadas.length>0 &&  dia!==''){	
 					//console.log(dia);
 					var tiempos = calcularPermanencia(horaIngreso, fichadas, Horario, TLibre,n,dia);
