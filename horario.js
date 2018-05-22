@@ -439,7 +439,8 @@ function mostrar(tiempos, elemento, infoComputada, horaIngreso, Horario,TLibre,n
 					if (window.actualizarSonido)
 			  	 	window.clearInterval(window.actualizarSonido);
 				}*/
-		if(salida.subtract((3*60*1000+4000),"ms")<moment())
+		var aux=salida.clone();
+		if(aux.subtract((3*60*1000+4000),"ms")<moment())
 			if (!window.actualizarSonido){
 					SonidoView();
 					//window.actualizarSonido = setInterval(autoPlayVideo('eguctGjUNLI','450','283'), 5*60*1000);
