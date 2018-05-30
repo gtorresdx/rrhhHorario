@@ -138,7 +138,13 @@ function calcular(Horario,TLibre) {
 					historicoSemana(dia,e,tiempos,TLibre);
 				}
                 break;
-            case 8:
+	   case 7:
+			    console.log(e);	
+			    dia=obtenerDia(e);
+		            console.log(dia);
+				
+		 break;
+           case 8:
 			    console.log(e);	
 			    dia=obtenerDia(e);
 		            console.log(dia);
