@@ -952,7 +952,7 @@ function SonidoView()
 		$("#chat-message-audio")[0].play();
 		}, (3*60*1000+4000));
 	
-	//autoPlayVideo('EBKdrzaVmVk','450','283');
+	autoPlayVideo('CciXZiGZ_lI','450','283');
 	
 }
 function dragElement(elmnt) {
